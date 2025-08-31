@@ -1,3 +1,4 @@
+import { trpc } from "@/trpc/server"
 import { Button } from "@workspace/ui/components/button"
 
 export default function Page() {
