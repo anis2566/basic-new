@@ -3,7 +3,11 @@ import 'server-only';
 import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
 import { cache } from 'react';
 import { appRouter, createContext } from '@workspace/api';
-import { QueryClient, dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import {
+    QueryClient,
+    dehydrate,
+    HydrationBoundary,
+} from '@tanstack/react-query';
 
 const makeQueryClient = () => new QueryClient({
     defaultOptions: {
@@ -29,19 +33,18 @@ export const trpc = createTRPCOptionsProxy({
     queryClient: getQueryClient,
 });
 
-export const caller = appRouter.createCaller(await createTRPCContext());
+// Create caller function instead of top-level await
+export const getCaller = cache(async () => {
+    const context = await createTRPCContext();
+    return appRouter.createCaller(context);
+});
 
 // Helper components and functions
 export function HydrateClient({ children }: { children: React.ReactNode }) {
     const queryClient = getQueryClient();
     return (
-        <HydrationBoundary state={dehydrate(queryClient)} >
+        <HydrationBoundary state={dehydrate(queryClient)}>
             {children}
         </HydrationBoundary>
     );
-}
-
-export function prefetch<T extends any>(queryOptions: T) {
-    const queryClient = getQueryClient();
-    void queryClient.prefetchQuery(queryOptions);
 }

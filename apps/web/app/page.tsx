@@ -1,13 +1,11 @@
-import { trpc } from "@/trpc/server"
-import { Button } from "@workspace/ui/components/button"
+import { ContentLayout } from "@/modules/ui/layout/content-layout"
 
-export default function Page() {
+const Dashboard = () => {
   return (
-    <div className="flex items-center justify-center min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button size="sm">Button</Button>
-      </div>
-    </div>
+    <ContentLayout>
+      Dashboard
+    </ContentLayout>
   )
 }
+
+export default Dashboard
