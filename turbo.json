@@ -20,17 +20,14 @@
       "env": ["DATABASE_URL"]
     },
     "db:generate": {
-    "cache": false,
-    "env": ["DATABASE_URL"]
-  },
-  "db:migrate": {
-    "cache": false,
-    "persistent": true,
-    "env": ["DATABASE_URL"]
-  },
-  "db:deploy": {
-    "cache": false,
-    "env": ["DATABASE_URL"]
-  }
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:deploy": {
+      "cache": false
+    }
   }
 }
