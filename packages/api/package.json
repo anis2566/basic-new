@@ -8,6 +8,7 @@
     "@hookform/resolvers": "^5.2.1",
     "@trpc/server": "^11.0.0",
     "@workspace/db": "workspace:*",
+    "@workspace/utils": "workspace:*",
     "dotenv": "^17.2.1",
     "react-hook-form": "^7.62.0",
     "zod": "^3.24.2"

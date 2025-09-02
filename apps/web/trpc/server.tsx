@@ -1,13 +1,17 @@
 import 'server-only';
 
+import "@/lib/cache";
+
 import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
-import { cache } from 'react';
-import { appRouter, createContext } from '@workspace/api';
+import { cache, Suspense } from 'react';
 import {
     QueryClient,
     dehydrate,
     HydrationBoundary,
 } from '@tanstack/react-query';
+import { ErrorBoundary } from "react-error-boundary";
+
+import { appRouter, createContext } from '@workspace/api';
 
 const makeQueryClient = () => new QueryClient({
     defaultOptions: {
@@ -40,11 +44,14 @@ export const getCaller = cache(async () => {
 });
 
 // Helper components and functions
-export function HydrateClient({ children }: { children: React.ReactNode }) {
-    const queryClient = getQueryClient();
+export function HydrateClient({ children, queryClient }: { children: React.ReactNode, queryClient: QueryClient }) {
     return (
         <HydrationBoundary state={dehydrate(queryClient)}>
-            {children}
+            <Suspense fallback={<div>Loading...</div>}>
+                <ErrorBoundary fallback={<p>Error</p>}>
+                    {children}
+                </ErrorBoundary>
+            </Suspense>
         </HydrationBoundary>
     );
 }

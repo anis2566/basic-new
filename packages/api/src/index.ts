@@ -18,3 +18,5 @@ export type {
     inferRouterInputs,
     inferRouterOutputs
 } from '@trpc/server';
+
+export * from './cache';

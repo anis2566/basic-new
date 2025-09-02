@@ -1,0 +1,12 @@
+{
+  "name": "@workspace/utils",
+  "version": "0.0.0",
+  "dependencies": {
+    "zod": "^3.24.2"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./constants": "./src/constants.ts",
+    "./schemas": "./src/schemas.ts"
+  }
+}

@@ -12,10 +12,9 @@ import { FormInput } from "@workspace/ui/shared/form-input";
 import { ButtonState, LoadingButton } from "@workspace/ui/shared/loading-button";
 import { FormSelect } from "@workspace/ui/shared/form-select";
 import { Form } from "@workspace/ui/components/form"
+import { CONSTANTS, SCHEMAS } from "@workspace/utils"
 
 import { useTRPC } from "@/trpc/client";
-import { ClassSchema, ClassSchemaType } from "@/schema/class";
-import { CLASSES, LEVELS } from "@/constant";
 
 export const ClassFormViews = () => {
     const [buttonState, setButtonState] = useState<ButtonState>('idle');
@@ -44,8 +43,8 @@ export const ClassFormViews = () => {
     );
 
 
-    const form = useForm<ClassSchemaType>({
-        resolver: ClassSchema ? zodResolver(ClassSchema) : undefined,
+    const form = useForm<SCHEMAS.ClassSchemaType>({
+        resolver: zodResolver(SCHEMAS.ClassSchema),
         defaultValues: {
             name: "",
             level: "",
@@ -53,17 +52,9 @@ export const ClassFormViews = () => {
         }
     })
 
-    const onSubmit = (data: ClassSchemaType) => {
+    const onSubmit = (data: SCHEMAS.ClassSchemaType) => {
         setButtonState('loading');
         createClass(data)
-    }
-
-    if (!ClassSchema) {
-        return (
-            <div className="p-4 text-red-500">
-                Error: ClassSchema not loaded. Check your schema import.
-            </div>
-        );
     }
 
     return (
@@ -79,7 +70,7 @@ export const ClassFormViews = () => {
                         label="Class"
                         placeholder="select class"
                         disabled={isPending}
-                        options={Object.values(CLASSES).map((item) => (item))}
+                        options={Object.values(CONSTANTS.CLASSES).map((item) => (item))}
                     />
                     <FormSelect
                         form={form}
@@ -87,7 +78,7 @@ export const ClassFormViews = () => {
                         label="Level"
                         disabled={isPending}
                         placeholder="select level"
-                        options={Object.values(LEVELS).map((item) => (item))}
+                        options={Object.values(CONSTANTS.LEVELS).map((item) => (item))}
                     />
                     <FormInput
                         form={form}

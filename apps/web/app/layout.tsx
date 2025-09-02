@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google"
 import { Metadata } from "next"
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 import "@workspace/ui/globals.css"
 import { Providers } from "@/components/providers"
@@ -31,17 +32,19 @@ export default function RootLayout({
 }>) {
   return (
     <TRPCReactProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
-        >
-          <Providers>
-            <DashboardLayout>
-              {children}
-            </DashboardLayout>
-          </Providers>
-        </body>
-      </html>
+      <NuqsAdapter>
+        <html lang="en" suppressHydrationWarning>
+          <body
+            className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
+          >
+            <Providers>
+              <DashboardLayout>
+                {children}
+              </DashboardLayout>
+            </Providers>
+          </body>
+        </html>
+      </NuqsAdapter>
     </TRPCReactProvider>
   )
 }
