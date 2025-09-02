@@ -164,6 +164,9 @@ importers:
       '@prisma/client':
         specifier: latest
         version: 6.15.0(prisma@6.15.0(typescript@5.5.4))(typescript@5.5.4)
+      dotenv:
+        specifier: ^17.2.1
+        version: 17.2.1
     devDependencies:
       eslint:
         specifier: ^8.57.0
