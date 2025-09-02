@@ -15,7 +15,6 @@ if (!process.env.DATABASE_URL) {
     dotenv.config({ path: path.join(process.cwd(), '../../.env') });
 }
 
-
 const globalForPrisma = globalThis as unknown as {
     prisma: PrismaClient | undefined;
 };
