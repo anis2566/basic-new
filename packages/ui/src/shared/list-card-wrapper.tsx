@@ -16,7 +16,7 @@ export const ListCardWrapper = ({ children, title, value }: ListCardWrapperProps
                     <CardDescription>{value} items found</CardDescription>
                     <Separator />
                 </CardHeader>
-                <CardContent className="p-0">{children}</CardContent>
+                <CardContent className="p-0 flex flex-col gap-y-3">{children}</CardContent>
             </Card>
         </div>
 

@@ -1,7 +1,5 @@
 import 'server-only';
 
-import "@/lib/cache";
-
 import { createTRPCOptionsProxy } from '@trpc/tanstack-react-query';
 import { cache, Suspense } from 'react';
 import {

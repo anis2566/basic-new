@@ -1,19 +1,21 @@
 "use client";
 
-// import { ListCardWrapper } from "@/components/list-card-wrapper"
 import { useSuspenseQuery } from "@tanstack/react-query";
 
-// import { Stats } from "../components/stats"
-import { useTRPC } from "@/trpc/client";
+import { ListCardWrapper } from "@workspace/ui/shared/list-card-wrapper"
+import { MobilePagination } from "@workspace/ui/shared/mobile-pagination"
+import { DesktopPagination } from "@workspace/ui/shared/pagination"
+
 import { useGetClasses } from "../../hooks/use-get-classes";
 import { Stats } from "../components/stats";
-// import { Filter } from "../components/filter";
-// import { Separator } from "@/components/ui/separator";
-import { ListCardWrapper } from "@workspace/ui/shared/list-card-wrapper"
+import { Filter } from "../components/filter";
+import { ClassList } from "../components/class-list";
+
+import { useTRPC } from "@/trpc/client";
 
 export const ClassesView = () => {
 
-    const [filters] = useGetClasses()
+    const [filters, setFilters] = useGetClasses()
     const trpc = useTRPC();
 
 
@@ -28,9 +30,20 @@ export const ClassesView = () => {
                 title="Manage Classes"
                 value={data?.totalCount}
             >
-                List
-                {/* <Filter />
-                <Separator className="my-3" /> */}
+                <Filter />
+                <ClassList classes={data?.classes} />
+                <DesktopPagination
+                    totalCount={data?.totalCount}
+                    currentPage={filters.page}
+                    pageSize={filters.limit}
+                    onPageChange={(page) => setFilters({ page })}
+                />
+                <MobilePagination
+                    totalCount={data?.totalCount}
+                    currentPage={filters.page}
+                    pageSize={filters.limit}
+                    onPageChange={(page) => setFilters({ page })}
+                />
             </ListCardWrapper>
         </div>
     )

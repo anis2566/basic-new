@@ -1,10 +1,16 @@
 import { SearchParams } from "nuqs";
+import { Metadata } from "next";
 
-import { getQueryClient, trpc } from "@/trpc/server"
+import { getQueryClient, HydrateClient, trpc } from "@/trpc/server"
 
 import { ContentLayout } from "@/modules/ui/layout/content-layout"
 import { getClasses } from "@/modules/class/params/get-classes";
 import { ClassesView } from "@/modules/class/ui/views/classes-view";
+
+export const metadata: Metadata = {
+    title: "Clases",
+    description: "Lista de clases",
+}
 
 interface Props {
     searchParams: Promise<SearchParams>;
@@ -21,7 +27,9 @@ const Clases = async ({ searchParams }: Props) => {
 
     return (
         <ContentLayout>
-            <ClassesView />
+            <HydrateClient queryClient={queryClient}>
+                <ClassesView />
+            </HydrateClient>
         </ContentLayout>
     )
 }

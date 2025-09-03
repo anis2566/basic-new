@@ -1,7 +1,7 @@
 import z from "zod";
 
 import { prisma } from "@workspace/db";
-import { SCHEMAS } from "@workspace/utils"
+import { ClassSchema } from "@workspace/utils/schema"
 
 import { baseProcedure, createTRPCRouter } from "../init";
 import { withCache } from "../cache";
@@ -29,7 +29,7 @@ export const getStats = withCache(
 
 export const classRouter = createTRPCRouter({
     createOne: baseProcedure
-        .input(SCHEMAS.ClassSchema)
+        .input(ClassSchema)
         .mutation(async ({ input }) => {
             const { name, level, position } = input;
 
