@@ -2,10 +2,15 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Metadata } from "next"
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 
-import "@workspace/ui/globals.css"
 import { Providers } from "@/components/providers"
+import { DeleteResourceModal } from "@/components/delete-resource-modal";
+
+import { Toaster } from "@workspace/ui/components/sonner"
+
 import { TRPCReactProvider } from "@/trpc/client"
 import { DashboardLayout } from "@/modules/ui/layout"
+
+import "@workspace/ui/globals.css"
 
 const fontSans = Geist({
   subsets: ["latin"],
@@ -40,6 +45,8 @@ export default function RootLayout({
             <Providers>
               <DashboardLayout>
                 {children}
+                <DeleteResourceModal />
+                <Toaster />
               </DashboardLayout>
             </Providers>
           </body>

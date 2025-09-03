@@ -56,6 +56,77 @@ export const classRouter = createTRPCRouter({
                 return { success: false, message: "Internal Server Error" }
             }
         }),
+    updateOne: baseProcedure
+        .input(z.object({
+            ...ClassSchema.shape,
+            id: z.string()
+        }))
+        .mutation(async ({ input }) => {
+            const { id, name, level, position } = input;
+
+            try {
+                const existingClass = await prisma.className.findUnique({
+                    where: { id },
+                });
+
+                if (!existingClass) {
+                    return { success: false, message: "Class not found" };
+                }
+
+                await prisma.className.update({
+                    where: { id },
+                    data: {
+                        name,
+                        level,
+                        position: Number(position)
+                    },
+                });
+
+                return { success: true, message: "Class updated" }
+            } catch (error) {
+                console.error("Error updating class", error);
+                return { success: false, message: "Internal Server Error" }
+            }
+        }),
+    deleteOne: baseProcedure
+        .input(z.string())
+        .mutation(async ({ input }) => {
+            const classId = input;
+
+            try {
+                const existingClass = await prisma.className.findUnique({
+                    where: { id: classId },
+                });
+
+                if (!existingClass) {
+                    return { success: false, message: "Class not found" };
+                }
+
+                await prisma.className.delete({
+                    where: { id: classId },
+                });
+
+                return { success: true, message: "Class deleted" };
+            } catch (error) {
+                console.error("Error deleting class", error);
+                return { success: false, message: "Internal Server Error" };
+            }
+        }),
+    getOne: baseProcedure
+        .input(z.string())
+        .query(async ({ input }) => {
+            const classId = input;
+
+            const classData = await prisma.className.findUnique({
+                where: { id: classId },
+            });
+
+            if (!classData) {
+                throw new Error("Class not found");
+            }
+
+            return classData;
+        }),
     getMany: baseProcedure
         .input(
             z.object({

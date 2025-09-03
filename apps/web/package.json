@@ -27,9 +27,9 @@
     "@trpc/react-query": "^11.5.0",
     "@trpc/tanstack-react-query": "^11.5.0",
     "@workspace/api": "workspace:*",
+    "@workspace/db": "workspace:*",
     "@workspace/ui": "workspace:*",
     "@workspace/utils": "workspace:*",
-    "@workspace/db": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.475.0",
     "next": "^15.4.5",
@@ -41,7 +41,8 @@
     "react-hook-form": "^7.61.1",
     "sonner": "^2.0.7",
     "superjson": "^2.2.2",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@types/node": "^20.19.9",

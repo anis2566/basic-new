@@ -1,15 +1,14 @@
 "use client";
 
+import { useTRPC } from "@/trpc/client"
+import { useQueryClient, useSuspenseQuery } from "@tanstack/react-query"
 import { Save } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-
-import { ClassSchema, ClassSchemaType } from "@workspace/utils/schema"
-import { CLASSES, LEVELS } from "@workspace/utils/constant"
 
 import { FormCardWrapper } from "@workspace/ui/shared/form-card-wrapper"
 import { FormInput } from "@workspace/ui/shared/form-input";
@@ -17,10 +16,16 @@ import { ButtonState, LoadingButton } from "@workspace/ui/shared/loading-button"
 import { FormSelect } from "@workspace/ui/shared/form-select";
 import { Form } from "@workspace/ui/components/form"
 
-import { useTRPC } from "@/trpc/client";
+import { ClassSchema, ClassSchemaType } from "@workspace/utils/schema"
+import { CLASSES, LEVELS } from "@workspace/utils/constant"
 import { useGetClasses } from "../../hooks/use-get-classes";
 
-export const ClassFormViews = () => {
+
+interface EditClassFormViewProps {
+    id: string
+}
+
+export const EditClassFormView = ({ id }: EditClassFormViewProps) => {
     const [buttonState, setButtonState] = useState<ButtonState>('idle');
     const [errorText, setErrorText] = useState<string>('');
 
@@ -30,8 +35,10 @@ export const ClassFormViews = () => {
 
     const [filters] = useGetClasses()
 
-    const { mutate: createClass, isPending } = useMutation(
-        trpc.class.createOne.mutationOptions({
+    const { data } = useSuspenseQuery(trpc.class.getOne.queryOptions(id))
+
+    const { mutate: updateClass, isPending } = useMutation(
+        trpc.class.updateOne.mutationOptions({
             onError: (err) => {
                 setErrorText(err.message);
                 setButtonState('error');
@@ -46,31 +53,36 @@ export const ClassFormViews = () => {
                 }
                 setButtonState('success');
                 toast.success(data.message);
-                queryClient.invalidateQueries(trpc.class.getMany.queryOptions({ ...filters }))
+                await Promise.all([
+                    queryClient.invalidateQueries(trpc.class.getMany.queryOptions({ ...filters })),
+                    queryClient.invalidateQueries(trpc.class.getOne.queryOptions(id))
+                ]);
                 router.push("/class")
             },
         })
     );
 
-
     const form = useForm<ClassSchemaType>({
         resolver: zodResolver(ClassSchema),
         defaultValues: {
-            name: "",
-            level: "",
-            position: "",
+            name: data.name,
+            level: data.level,
+            position: data.position.toString(),
         }
     })
 
     const onSubmit = (data: ClassSchemaType) => {
         setButtonState('loading');
-        createClass(data)
+        updateClass({
+            ...data,
+            id
+        })
     }
 
     return (
         <FormCardWrapper
-            title="Set Up Your Class"
-            description="Enter the class information to get started quickly."
+            title="Update Class"
+            description="Modify the class details and save your changes."
         >
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -100,15 +112,15 @@ export const ClassFormViews = () => {
                     <LoadingButton
                         type="submit"
                         onClick={form.handleSubmit(onSubmit)}
-                        loadingText="Saving..."
-                        successText="Saved!"
+                        loadingText="Updating..."
+                        successText="Updated!"
                         errorText={errorText || "Failed"}
                         state={buttonState}
                         onStateChange={setButtonState}
                         className="w-full md:w-auto"
                         icon={Save}
                     >
-                        Save
+                        Update
                     </LoadingButton>
                 </form>
             </Form>
