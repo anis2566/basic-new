@@ -1,8 +1,13 @@
 import { createTRPCRouter } from '../init';
-import { classRouter } from './class';
+
+import { houseRouter } from './house';
+import { roomRouter } from './room';
+import { counterRouter } from './counter';
 
 export const appRouter = createTRPCRouter({
-    class: classRouter
+    house: houseRouter,
+    room: roomRouter,
+    counter: counterRouter
 });
 
 export type AppRouter = typeof appRouter;

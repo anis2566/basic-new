@@ -128,208 +128,66 @@ exports.Prisma.UserScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.UserBankScalarFieldEnum = {
-  id: 'id',
-  credit: 'credit',
-  mcqs: 'mcqs',
-  exams: 'exams',
-  attempts: 'attempts',
-  enabledDownloadFeedbackReport: 'enabledDownloadFeedbackReport',
-  userId: 'userId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.ClassNameScalarFieldEnum = {
+exports.Prisma.HouseScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  level: 'level',
-  position: 'position',
-  subjectIds: 'subjectIds',
-  chapterIds: 'chapterIds',
+  roomCount: 'roomCount',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.SubjectScalarFieldEnum = {
+exports.Prisma.RoomScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  group: 'group',
-  classNameIds: 'classNameIds',
+  capacity: 'capacity',
+  availableTimes: 'availableTimes',
+  bookTimes: 'bookTimes',
+  houseId: 'houseId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.ChapterScalarFieldEnum = {
+exports.Prisma.CounterScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  position: 'position',
-  subjectId: 'subjectId',
-  examIds: 'examIds',
-  classNameIds: 'classNameIds',
+  value: 'value',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.ChapterContextScalarFieldEnum = {
+exports.Prisma.StudentScalarFieldEnum = {
   id: 'id',
-  title: 'title',
-  author: 'author',
-  authorSummary: 'authorSummary',
-  content: 'content',
-  meaning: 'meaning',
-  summary: 'summary',
-  chapterId: 'chapterId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.McqScalarFieldEnum = {
-  id: 'id',
-  question: 'question',
-  options: 'options',
-  statements: 'statements',
-  answer: 'answer',
-  type: 'type',
-  reference: 'reference',
-  explanation: 'explanation',
-  isMath: 'isMath',
   session: 'session',
-  source: 'source',
-  questionUrl: 'questionUrl',
-  contextUrl: 'contextUrl',
-  context: 'context',
-  subjectId: 'subjectId',
-  chapterId: 'chapterId',
-  examIds: 'examIds',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.ExamScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  type: 'type',
-  questionCount: 'questionCount',
-  duration: 'duration',
-  status: 'status',
-  classNameId: 'classNameId',
-  subjectId: 'subjectId',
-  chapterIds: 'chapterIds',
-  questionIds: 'questionIds',
-  userId: 'userId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.McqAttemptScalarFieldEnum = {
-  id: 'id',
-  answers: 'answers',
-  total: 'total',
-  score: 'score',
-  streak: 'streak',
-  longestStreak: 'longestStreak',
-  wrongAnswer: 'wrongAnswer',
-  status: 'status',
-  startTime: 'startTime',
-  endTime: 'endTime',
-  examId: 'examId',
-  userId: 'userId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.ExamFeedbackScalarFieldEnum = {
-  id: 'id',
-  mcqAttemptId: 'mcqAttemptId',
-  userId: 'userId',
-  overallSummary: 'overallSummary',
-  strengths: 'strengths',
-  weaknesses: 'weaknesses',
-  recommendations: 'recommendations',
-  detailedAnalysis: 'detailedAnalysis',
-  userRating: 'userRating',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.CreditPlanScalarFieldEnum = {
-  id: 'id',
+  studentId: 'studentId',
   name: 'name',
-  credit: 'credit',
-  price: 'price',
-  discount: 'discount',
-  save: 'save',
-  bonus: 'bonus',
-  status: 'status',
-  isPopular: 'isPopular',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.TransactionScalarFieldEnum = {
-  id: 'id',
-  transactionId: 'transactionId',
-  amount: 'amount',
-  type: 'type',
-  method: 'method',
-  status: 'status',
-  userId: 'userId',
-  creditPlanId: 'creditPlanId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.ExamPlanScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  description: 'description',
-  credit: 'credit',
-  mcqs: 'mcqs',
-  exams: 'exams',
-  attempts: 'attempts',
-  features: 'features',
-  aiFeedbackFeatures: 'aiFeedbackFeatures',
-  enableDownloadReport: 'enableDownloadReport',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.PlanPurchaseScalarFieldEnum = {
-  id: 'id',
-  usedMcqs: 'usedMcqs',
-  usedExams: 'usedExams',
-  usedAttempts: 'usedAttempts',
-  status: 'status',
-  userId: 'userId',
-  planId: 'planId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.ReferScalarFieldEnum = {
-  id: 'id',
-  hasPurchased: 'hasPurchased',
-  refererId: 'refererId',
-  refereeId: 'refereeId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.AnnouncementScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  content: 'content',
-  isFeatured: 'isFeatured',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.RecommendationScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  reason: 'reason',
-  examId: 'examId',
+  nameBangla: 'nameBangla',
+  fName: 'fName',
+  mName: 'mName',
+  gender: 'gender',
+  dob: 'dob',
+  nationality: 'nationality',
+  religion: 'religion',
+  imageUrl: 'imageUrl',
+  school: 'school',
+  className: 'className',
+  section: 'section',
+  shift: 'shift',
+  group: 'group',
+  roll: 'roll',
+  fPhone: 'fPhone',
+  mPhone: 'mPhone',
+  presentHouseNo: 'presentHouseNo',
+  presentMoholla: 'presentMoholla',
+  presentPost: 'presentPost',
+  presentThana: 'presentThana',
+  permanentVillage: 'permanentVillage',
+  permanentPost: 'permanentPost',
+  permanentThana: 'permanentThana',
+  permanentDistrict: 'permanentDistrict',
+  isPresent: 'isPresent',
+  leftReason: 'leftReason',
+  admissionFee: 'admissionFee',
+  salary: 'salary',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -347,22 +205,10 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  UserBank: 'UserBank',
-  ClassName: 'ClassName',
-  Subject: 'Subject',
-  Chapter: 'Chapter',
-  ChapterContext: 'ChapterContext',
-  Mcq: 'Mcq',
-  Exam: 'Exam',
-  McqAttempt: 'McqAttempt',
-  ExamFeedback: 'ExamFeedback',
-  CreditPlan: 'CreditPlan',
-  Transaction: 'Transaction',
-  ExamPlan: 'ExamPlan',
-  PlanPurchase: 'PlanPurchase',
-  Refer: 'Refer',
-  Announcement: 'Announcement',
-  Recommendation: 'Recommendation'
+  House: 'House',
+  Room: 'Room',
+  Counter: 'Counter',
+  Student: 'Student'
 };
 
 /**

@@ -15,7 +15,7 @@ export const Header = () => {
                     <Link href="/" prefetch>
                         <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                             <Image
-                                src="/logo.svg"
+                                src="/logo.png"
                                 alt="Logo"
                                 width={32}
                                 height={32}
@@ -23,7 +23,7 @@ export const Header = () => {
                             />
                         </div>
                         <div className="grid flex-1 text-left leading-tight">
-                            <span className="truncate text-md font-bold">Shikhonary</span>
+                            <span className="truncate text-md font-bold">Basic Education Care</span>
                             <span className="truncate text-xs">Admin</span>
                         </div>
                     </Link>

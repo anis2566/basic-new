@@ -8,13 +8,17 @@ import {
     Command,
     Frame,
     GalleryVerticalEnd,
+    House,
     List,
     Map,
     PieChart,
     PlusCircle,
     School,
     Settings2,
+    ShieldEllipsis,
     SquareTerminal,
+    Users,
+    Warehouse,
 } from "lucide-react"
 
 import {
@@ -26,7 +30,9 @@ import {
 } from "@workspace/ui/components/sidebar"
 
 import { Header } from "./header"
-import { NavMain } from "./nav-main"
+import { NavUtils } from "./nav-utils"
+import { NavRoomHouse } from "./nav-room-house"
+import { NavStudent } from "./nav-student"
 
 // This is sample data.
 const data = {
@@ -52,20 +58,75 @@ const data = {
             plan: "Free",
         },
     ],
-    navMain: [
+    student: [
         {
-            title: "Class",
+            title: "Student",
             url: "",
-            icon: School,
+            icon: Users,
             items: [
                 {
                     title: "New",
-                    url: "/class/new",
+                    url: "/student/new",
                     icon: PlusCircle
                 },
                 {
                     title: "List",
-                    url: "/class",
+                    url: "/student",
+                    icon: List
+                },
+            ],
+        }
+    ],
+    roomHouses: [
+        {
+            title: "House",
+            url: "",
+            icon: House,
+            items: [
+                {
+                    title: "New",
+                    url: "/house/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "List",
+                    url: "/house",
+                    icon: List
+                },
+            ],
+        },
+        {
+            title: "Room",
+            url: "",
+            icon: Warehouse,
+            items: [
+                {
+                    title: "New",
+                    url: "/room/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "List",
+                    url: "/room",
+                    icon: List
+                },
+            ],
+        },
+    ],
+    utils: [
+        {
+            title: "Counter",
+            url: "",
+            icon: ShieldEllipsis,
+            items: [
+                {
+                    title: "New",
+                    url: "/counter/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "List",
+                    url: "/counter",
                     icon: List
                 },
             ],
@@ -97,7 +158,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <Header />
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain} />
+                <NavStudent items={data.student} />
+                <NavRoomHouse items={data.roomHouses} />
+                <NavUtils items={data.utils} />
             </SidebarContent>
             <SidebarRail />
         </Sidebar>

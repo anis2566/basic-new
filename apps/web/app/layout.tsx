@@ -3,7 +3,7 @@ import { Metadata } from "next"
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 import { Providers } from "@/components/providers"
-import { DeleteResourceModal } from "@/components/delete-resource-modal";
+import { ModalProvider } from "@/components/modal-provider";
 
 import { Toaster } from "@workspace/ui/components/sonner"
 
@@ -45,7 +45,7 @@ export default function RootLayout({
             <Providers>
               <DashboardLayout>
                 {children}
-                <DeleteResourceModal />
+                <ModalProvider />
                 <Toaster />
               </DashboardLayout>
             </Providers>

@@ -9,7 +9,10 @@ interface FormInputProps<T extends FieldValues> {
     label: string
     disabled?: boolean
     placeholder: string
-    options: string[]
+    options: {
+        label: string
+        value: string
+    }[]
 }
 
 export function FormSelect<T extends FieldValues>({
@@ -36,7 +39,7 @@ export function FormSelect<T extends FieldValues>({
                         <SelectContent className="rounded-xs">
                             {
                                 options.map((option) => (
-                                    <SelectItem key={option} value={option} className="rounded-xs">{option}</SelectItem>
+                                    <SelectItem key={option.value} value={option.value} className="rounded-xs">{option.label}</SelectItem>
                                 ))
                             }
                         </SelectContent>
