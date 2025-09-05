@@ -38,6 +38,16 @@ export type Counter = $Result.DefaultSelection<Prisma.$CounterPayload>
  * 
  */
 export type Student = $Result.DefaultSelection<Prisma.$StudentPayload>
+/**
+ * Model AdmissionFee
+ * 
+ */
+export type AdmissionFee = $Result.DefaultSelection<Prisma.$AdmissionFeePayload>
+/**
+ * Model SalaryFee
+ * 
+ */
+export type SalaryFee = $Result.DefaultSelection<Prisma.$SalaryFeePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -173,6 +183,26 @@ export class PrismaClient<
     * ```
     */
   get student(): Prisma.StudentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.admissionFee`: Exposes CRUD operations for the **AdmissionFee** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdmissionFees
+    * const admissionFees = await prisma.admissionFee.findMany()
+    * ```
+    */
+  get admissionFee(): Prisma.AdmissionFeeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.salaryFee`: Exposes CRUD operations for the **SalaryFee** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SalaryFees
+    * const salaryFees = await prisma.salaryFee.findMany()
+    * ```
+    */
+  get salaryFee(): Prisma.SalaryFeeDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -617,7 +647,9 @@ export namespace Prisma {
     House: 'House',
     Room: 'Room',
     Counter: 'Counter',
-    Student: 'Student'
+    Student: 'Student',
+    AdmissionFee: 'AdmissionFee',
+    SalaryFee: 'SalaryFee'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -636,7 +668,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "house" | "room" | "counter" | "student"
+      modelProps: "user" | "house" | "room" | "counter" | "student" | "admissionFee" | "salaryFee"
       txIsolationLevel: never
     }
     model: {
@@ -1010,6 +1042,154 @@ export namespace Prisma {
           }
         }
       }
+      AdmissionFee: {
+        payload: Prisma.$AdmissionFeePayload<ExtArgs>
+        fields: Prisma.AdmissionFeeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdmissionFeeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdmissionFeeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload>
+          }
+          findFirst: {
+            args: Prisma.AdmissionFeeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdmissionFeeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload>
+          }
+          findMany: {
+            args: Prisma.AdmissionFeeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload>[]
+          }
+          create: {
+            args: Prisma.AdmissionFeeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload>
+          }
+          createMany: {
+            args: Prisma.AdmissionFeeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdmissionFeeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload>
+          }
+          update: {
+            args: Prisma.AdmissionFeeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload>
+          }
+          deleteMany: {
+            args: Prisma.AdmissionFeeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdmissionFeeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdmissionFeeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionFeePayload>
+          }
+          aggregate: {
+            args: Prisma.AdmissionFeeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdmissionFee>
+          }
+          groupBy: {
+            args: Prisma.AdmissionFeeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdmissionFeeGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.AdmissionFeeFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.AdmissionFeeAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.AdmissionFeeCountArgs<ExtArgs>
+            result: $Utils.Optional<AdmissionFeeCountAggregateOutputType> | number
+          }
+        }
+      }
+      SalaryFee: {
+        payload: Prisma.$SalaryFeePayload<ExtArgs>
+        fields: Prisma.SalaryFeeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SalaryFeeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SalaryFeeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload>
+          }
+          findFirst: {
+            args: Prisma.SalaryFeeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SalaryFeeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload>
+          }
+          findMany: {
+            args: Prisma.SalaryFeeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload>[]
+          }
+          create: {
+            args: Prisma.SalaryFeeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload>
+          }
+          createMany: {
+            args: Prisma.SalaryFeeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SalaryFeeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload>
+          }
+          update: {
+            args: Prisma.SalaryFeeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload>
+          }
+          deleteMany: {
+            args: Prisma.SalaryFeeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SalaryFeeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SalaryFeeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryFeePayload>
+          }
+          aggregate: {
+            args: Prisma.SalaryFeeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSalaryFee>
+          }
+          groupBy: {
+            args: Prisma.SalaryFeeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SalaryFeeGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.SalaryFeeFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.SalaryFeeAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.SalaryFeeCountArgs<ExtArgs>
+            result: $Utils.Optional<SalaryFeeCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1094,6 +1274,8 @@ export namespace Prisma {
     room?: RoomOmit
     counter?: CounterOmit
     student?: StudentOmit
+    admissionFee?: AdmissionFeeOmit
+    salaryFee?: SalaryFeeOmit
   }
 
   /* Types for Logging */
@@ -6554,6 +6736,1949 @@ export namespace Prisma {
 
 
   /**
+   * Model AdmissionFee
+   */
+
+  export type AggregateAdmissionFee = {
+    _count: AdmissionFeeCountAggregateOutputType | null
+    _avg: AdmissionFeeAvgAggregateOutputType | null
+    _sum: AdmissionFeeSumAggregateOutputType | null
+    _min: AdmissionFeeMinAggregateOutputType | null
+    _max: AdmissionFeeMaxAggregateOutputType | null
+  }
+
+  export type AdmissionFeeAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type AdmissionFeeSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type AdmissionFeeMinAggregateOutputType = {
+    id: string | null
+    className: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdmissionFeeMaxAggregateOutputType = {
+    id: string | null
+    className: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdmissionFeeCountAggregateOutputType = {
+    id: number
+    className: number
+    amount: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AdmissionFeeAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type AdmissionFeeSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type AdmissionFeeMinAggregateInputType = {
+    id?: true
+    className?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdmissionFeeMaxAggregateInputType = {
+    id?: true
+    className?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdmissionFeeCountAggregateInputType = {
+    id?: true
+    className?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AdmissionFeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdmissionFee to aggregate.
+     */
+    where?: AdmissionFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionFees to fetch.
+     */
+    orderBy?: AdmissionFeeOrderByWithRelationInput | AdmissionFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdmissionFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdmissionFees
+    **/
+    _count?: true | AdmissionFeeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdmissionFeeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdmissionFeeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdmissionFeeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdmissionFeeMaxAggregateInputType
+  }
+
+  export type GetAdmissionFeeAggregateType<T extends AdmissionFeeAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdmissionFee]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdmissionFee[P]>
+      : GetScalarType<T[P], AggregateAdmissionFee[P]>
+  }
+
+
+
+
+  export type AdmissionFeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdmissionFeeWhereInput
+    orderBy?: AdmissionFeeOrderByWithAggregationInput | AdmissionFeeOrderByWithAggregationInput[]
+    by: AdmissionFeeScalarFieldEnum[] | AdmissionFeeScalarFieldEnum
+    having?: AdmissionFeeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdmissionFeeCountAggregateInputType | true
+    _avg?: AdmissionFeeAvgAggregateInputType
+    _sum?: AdmissionFeeSumAggregateInputType
+    _min?: AdmissionFeeMinAggregateInputType
+    _max?: AdmissionFeeMaxAggregateInputType
+  }
+
+  export type AdmissionFeeGroupByOutputType = {
+    id: string
+    className: string
+    amount: number
+    createdAt: Date
+    updatedAt: Date
+    _count: AdmissionFeeCountAggregateOutputType | null
+    _avg: AdmissionFeeAvgAggregateOutputType | null
+    _sum: AdmissionFeeSumAggregateOutputType | null
+    _min: AdmissionFeeMinAggregateOutputType | null
+    _max: AdmissionFeeMaxAggregateOutputType | null
+  }
+
+  type GetAdmissionFeeGroupByPayload<T extends AdmissionFeeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdmissionFeeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdmissionFeeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdmissionFeeGroupByOutputType[P]>
+            : GetScalarType<T[P], AdmissionFeeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdmissionFeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    className?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["admissionFee"]>
+
+
+
+  export type AdmissionFeeSelectScalar = {
+    id?: boolean
+    className?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AdmissionFeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "className" | "amount" | "createdAt" | "updatedAt", ExtArgs["result"]["admissionFee"]>
+
+  export type $AdmissionFeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdmissionFee"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      className: string
+      amount: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["admissionFee"]>
+    composites: {}
+  }
+
+  type AdmissionFeeGetPayload<S extends boolean | null | undefined | AdmissionFeeDefaultArgs> = $Result.GetResult<Prisma.$AdmissionFeePayload, S>
+
+  type AdmissionFeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdmissionFeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdmissionFeeCountAggregateInputType | true
+    }
+
+  export interface AdmissionFeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdmissionFee'], meta: { name: 'AdmissionFee' } }
+    /**
+     * Find zero or one AdmissionFee that matches the filter.
+     * @param {AdmissionFeeFindUniqueArgs} args - Arguments to find a AdmissionFee
+     * @example
+     * // Get one AdmissionFee
+     * const admissionFee = await prisma.admissionFee.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdmissionFeeFindUniqueArgs>(args: SelectSubset<T, AdmissionFeeFindUniqueArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AdmissionFee that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AdmissionFeeFindUniqueOrThrowArgs} args - Arguments to find a AdmissionFee
+     * @example
+     * // Get one AdmissionFee
+     * const admissionFee = await prisma.admissionFee.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdmissionFeeFindUniqueOrThrowArgs>(args: SelectSubset<T, AdmissionFeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdmissionFee that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionFeeFindFirstArgs} args - Arguments to find a AdmissionFee
+     * @example
+     * // Get one AdmissionFee
+     * const admissionFee = await prisma.admissionFee.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdmissionFeeFindFirstArgs>(args?: SelectSubset<T, AdmissionFeeFindFirstArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdmissionFee that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionFeeFindFirstOrThrowArgs} args - Arguments to find a AdmissionFee
+     * @example
+     * // Get one AdmissionFee
+     * const admissionFee = await prisma.admissionFee.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdmissionFeeFindFirstOrThrowArgs>(args?: SelectSubset<T, AdmissionFeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdmissionFees that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionFeeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdmissionFees
+     * const admissionFees = await prisma.admissionFee.findMany()
+     * 
+     * // Get first 10 AdmissionFees
+     * const admissionFees = await prisma.admissionFee.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const admissionFeeWithIdOnly = await prisma.admissionFee.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AdmissionFeeFindManyArgs>(args?: SelectSubset<T, AdmissionFeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AdmissionFee.
+     * @param {AdmissionFeeCreateArgs} args - Arguments to create a AdmissionFee.
+     * @example
+     * // Create one AdmissionFee
+     * const AdmissionFee = await prisma.admissionFee.create({
+     *   data: {
+     *     // ... data to create a AdmissionFee
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdmissionFeeCreateArgs>(args: SelectSubset<T, AdmissionFeeCreateArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AdmissionFees.
+     * @param {AdmissionFeeCreateManyArgs} args - Arguments to create many AdmissionFees.
+     * @example
+     * // Create many AdmissionFees
+     * const admissionFee = await prisma.admissionFee.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdmissionFeeCreateManyArgs>(args?: SelectSubset<T, AdmissionFeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AdmissionFee.
+     * @param {AdmissionFeeDeleteArgs} args - Arguments to delete one AdmissionFee.
+     * @example
+     * // Delete one AdmissionFee
+     * const AdmissionFee = await prisma.admissionFee.delete({
+     *   where: {
+     *     // ... filter to delete one AdmissionFee
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdmissionFeeDeleteArgs>(args: SelectSubset<T, AdmissionFeeDeleteArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AdmissionFee.
+     * @param {AdmissionFeeUpdateArgs} args - Arguments to update one AdmissionFee.
+     * @example
+     * // Update one AdmissionFee
+     * const admissionFee = await prisma.admissionFee.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdmissionFeeUpdateArgs>(args: SelectSubset<T, AdmissionFeeUpdateArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AdmissionFees.
+     * @param {AdmissionFeeDeleteManyArgs} args - Arguments to filter AdmissionFees to delete.
+     * @example
+     * // Delete a few AdmissionFees
+     * const { count } = await prisma.admissionFee.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdmissionFeeDeleteManyArgs>(args?: SelectSubset<T, AdmissionFeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdmissionFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionFeeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdmissionFees
+     * const admissionFee = await prisma.admissionFee.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdmissionFeeUpdateManyArgs>(args: SelectSubset<T, AdmissionFeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AdmissionFee.
+     * @param {AdmissionFeeUpsertArgs} args - Arguments to update or create a AdmissionFee.
+     * @example
+     * // Update or create a AdmissionFee
+     * const admissionFee = await prisma.admissionFee.upsert({
+     *   create: {
+     *     // ... data to create a AdmissionFee
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdmissionFee we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdmissionFeeUpsertArgs>(args: SelectSubset<T, AdmissionFeeUpsertArgs<ExtArgs>>): Prisma__AdmissionFeeClient<$Result.GetResult<Prisma.$AdmissionFeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdmissionFees that matches the filter.
+     * @param {AdmissionFeeFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const admissionFee = await prisma.admissionFee.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: AdmissionFeeFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a AdmissionFee.
+     * @param {AdmissionFeeAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const admissionFee = await prisma.admissionFee.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: AdmissionFeeAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of AdmissionFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionFeeCountArgs} args - Arguments to filter AdmissionFees to count.
+     * @example
+     * // Count the number of AdmissionFees
+     * const count = await prisma.admissionFee.count({
+     *   where: {
+     *     // ... the filter for the AdmissionFees we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdmissionFeeCountArgs>(
+      args?: Subset<T, AdmissionFeeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdmissionFeeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdmissionFee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionFeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdmissionFeeAggregateArgs>(args: Subset<T, AdmissionFeeAggregateArgs>): Prisma.PrismaPromise<GetAdmissionFeeAggregateType<T>>
+
+    /**
+     * Group by AdmissionFee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionFeeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdmissionFeeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdmissionFeeGroupByArgs['orderBy'] }
+        : { orderBy?: AdmissionFeeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdmissionFeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdmissionFeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdmissionFee model
+   */
+  readonly fields: AdmissionFeeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdmissionFee.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdmissionFeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdmissionFee model
+   */
+  interface AdmissionFeeFieldRefs {
+    readonly id: FieldRef<"AdmissionFee", 'String'>
+    readonly className: FieldRef<"AdmissionFee", 'String'>
+    readonly amount: FieldRef<"AdmissionFee", 'Int'>
+    readonly createdAt: FieldRef<"AdmissionFee", 'DateTime'>
+    readonly updatedAt: FieldRef<"AdmissionFee", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdmissionFee findUnique
+   */
+  export type AdmissionFeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which AdmissionFee to fetch.
+     */
+    where: AdmissionFeeWhereUniqueInput
+  }
+
+  /**
+   * AdmissionFee findUniqueOrThrow
+   */
+  export type AdmissionFeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which AdmissionFee to fetch.
+     */
+    where: AdmissionFeeWhereUniqueInput
+  }
+
+  /**
+   * AdmissionFee findFirst
+   */
+  export type AdmissionFeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which AdmissionFee to fetch.
+     */
+    where?: AdmissionFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionFees to fetch.
+     */
+    orderBy?: AdmissionFeeOrderByWithRelationInput | AdmissionFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdmissionFees.
+     */
+    cursor?: AdmissionFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdmissionFees.
+     */
+    distinct?: AdmissionFeeScalarFieldEnum | AdmissionFeeScalarFieldEnum[]
+  }
+
+  /**
+   * AdmissionFee findFirstOrThrow
+   */
+  export type AdmissionFeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which AdmissionFee to fetch.
+     */
+    where?: AdmissionFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionFees to fetch.
+     */
+    orderBy?: AdmissionFeeOrderByWithRelationInput | AdmissionFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdmissionFees.
+     */
+    cursor?: AdmissionFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdmissionFees.
+     */
+    distinct?: AdmissionFeeScalarFieldEnum | AdmissionFeeScalarFieldEnum[]
+  }
+
+  /**
+   * AdmissionFee findMany
+   */
+  export type AdmissionFeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which AdmissionFees to fetch.
+     */
+    where?: AdmissionFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionFees to fetch.
+     */
+    orderBy?: AdmissionFeeOrderByWithRelationInput | AdmissionFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdmissionFees.
+     */
+    cursor?: AdmissionFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionFees.
+     */
+    skip?: number
+    distinct?: AdmissionFeeScalarFieldEnum | AdmissionFeeScalarFieldEnum[]
+  }
+
+  /**
+   * AdmissionFee create
+   */
+  export type AdmissionFeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * The data needed to create a AdmissionFee.
+     */
+    data: XOR<AdmissionFeeCreateInput, AdmissionFeeUncheckedCreateInput>
+  }
+
+  /**
+   * AdmissionFee createMany
+   */
+  export type AdmissionFeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdmissionFees.
+     */
+    data: AdmissionFeeCreateManyInput | AdmissionFeeCreateManyInput[]
+  }
+
+  /**
+   * AdmissionFee update
+   */
+  export type AdmissionFeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * The data needed to update a AdmissionFee.
+     */
+    data: XOR<AdmissionFeeUpdateInput, AdmissionFeeUncheckedUpdateInput>
+    /**
+     * Choose, which AdmissionFee to update.
+     */
+    where: AdmissionFeeWhereUniqueInput
+  }
+
+  /**
+   * AdmissionFee updateMany
+   */
+  export type AdmissionFeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdmissionFees.
+     */
+    data: XOR<AdmissionFeeUpdateManyMutationInput, AdmissionFeeUncheckedUpdateManyInput>
+    /**
+     * Filter which AdmissionFees to update
+     */
+    where?: AdmissionFeeWhereInput
+    /**
+     * Limit how many AdmissionFees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdmissionFee upsert
+   */
+  export type AdmissionFeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * The filter to search for the AdmissionFee to update in case it exists.
+     */
+    where: AdmissionFeeWhereUniqueInput
+    /**
+     * In case the AdmissionFee found by the `where` argument doesn't exist, create a new AdmissionFee with this data.
+     */
+    create: XOR<AdmissionFeeCreateInput, AdmissionFeeUncheckedCreateInput>
+    /**
+     * In case the AdmissionFee was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdmissionFeeUpdateInput, AdmissionFeeUncheckedUpdateInput>
+  }
+
+  /**
+   * AdmissionFee delete
+   */
+  export type AdmissionFeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+    /**
+     * Filter which AdmissionFee to delete.
+     */
+    where: AdmissionFeeWhereUniqueInput
+  }
+
+  /**
+   * AdmissionFee deleteMany
+   */
+  export type AdmissionFeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdmissionFees to delete
+     */
+    where?: AdmissionFeeWhereInput
+    /**
+     * Limit how many AdmissionFees to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdmissionFee findRaw
+   */
+  export type AdmissionFeeFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * AdmissionFee aggregateRaw
+   */
+  export type AdmissionFeeAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * AdmissionFee without action
+   */
+  export type AdmissionFeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionFee
+     */
+    select?: AdmissionFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionFee
+     */
+    omit?: AdmissionFeeOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SalaryFee
+   */
+
+  export type AggregateSalaryFee = {
+    _count: SalaryFeeCountAggregateOutputType | null
+    _avg: SalaryFeeAvgAggregateOutputType | null
+    _sum: SalaryFeeSumAggregateOutputType | null
+    _min: SalaryFeeMinAggregateOutputType | null
+    _max: SalaryFeeMaxAggregateOutputType | null
+  }
+
+  export type SalaryFeeAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type SalaryFeeSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type SalaryFeeMinAggregateOutputType = {
+    id: string | null
+    className: string | null
+    group: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SalaryFeeMaxAggregateOutputType = {
+    id: string | null
+    className: string | null
+    group: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SalaryFeeCountAggregateOutputType = {
+    id: number
+    className: number
+    group: number
+    amount: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SalaryFeeAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type SalaryFeeSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type SalaryFeeMinAggregateInputType = {
+    id?: true
+    className?: true
+    group?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SalaryFeeMaxAggregateInputType = {
+    id?: true
+    className?: true
+    group?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SalaryFeeCountAggregateInputType = {
+    id?: true
+    className?: true
+    group?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SalaryFeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SalaryFee to aggregate.
+     */
+    where?: SalaryFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryFees to fetch.
+     */
+    orderBy?: SalaryFeeOrderByWithRelationInput | SalaryFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SalaryFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SalaryFees
+    **/
+    _count?: true | SalaryFeeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SalaryFeeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SalaryFeeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SalaryFeeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SalaryFeeMaxAggregateInputType
+  }
+
+  export type GetSalaryFeeAggregateType<T extends SalaryFeeAggregateArgs> = {
+        [P in keyof T & keyof AggregateSalaryFee]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSalaryFee[P]>
+      : GetScalarType<T[P], AggregateSalaryFee[P]>
+  }
+
+
+
+
+  export type SalaryFeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SalaryFeeWhereInput
+    orderBy?: SalaryFeeOrderByWithAggregationInput | SalaryFeeOrderByWithAggregationInput[]
+    by: SalaryFeeScalarFieldEnum[] | SalaryFeeScalarFieldEnum
+    having?: SalaryFeeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SalaryFeeCountAggregateInputType | true
+    _avg?: SalaryFeeAvgAggregateInputType
+    _sum?: SalaryFeeSumAggregateInputType
+    _min?: SalaryFeeMinAggregateInputType
+    _max?: SalaryFeeMaxAggregateInputType
+  }
+
+  export type SalaryFeeGroupByOutputType = {
+    id: string
+    className: string
+    group: string | null
+    amount: number
+    createdAt: Date
+    updatedAt: Date
+    _count: SalaryFeeCountAggregateOutputType | null
+    _avg: SalaryFeeAvgAggregateOutputType | null
+    _sum: SalaryFeeSumAggregateOutputType | null
+    _min: SalaryFeeMinAggregateOutputType | null
+    _max: SalaryFeeMaxAggregateOutputType | null
+  }
+
+  type GetSalaryFeeGroupByPayload<T extends SalaryFeeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SalaryFeeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SalaryFeeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SalaryFeeGroupByOutputType[P]>
+            : GetScalarType<T[P], SalaryFeeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SalaryFeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    className?: boolean
+    group?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["salaryFee"]>
+
+
+
+  export type SalaryFeeSelectScalar = {
+    id?: boolean
+    className?: boolean
+    group?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SalaryFeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "className" | "group" | "amount" | "createdAt" | "updatedAt", ExtArgs["result"]["salaryFee"]>
+
+  export type $SalaryFeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SalaryFee"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      className: string
+      group: string | null
+      amount: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["salaryFee"]>
+    composites: {}
+  }
+
+  type SalaryFeeGetPayload<S extends boolean | null | undefined | SalaryFeeDefaultArgs> = $Result.GetResult<Prisma.$SalaryFeePayload, S>
+
+  type SalaryFeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SalaryFeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SalaryFeeCountAggregateInputType | true
+    }
+
+  export interface SalaryFeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SalaryFee'], meta: { name: 'SalaryFee' } }
+    /**
+     * Find zero or one SalaryFee that matches the filter.
+     * @param {SalaryFeeFindUniqueArgs} args - Arguments to find a SalaryFee
+     * @example
+     * // Get one SalaryFee
+     * const salaryFee = await prisma.salaryFee.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SalaryFeeFindUniqueArgs>(args: SelectSubset<T, SalaryFeeFindUniqueArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SalaryFee that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SalaryFeeFindUniqueOrThrowArgs} args - Arguments to find a SalaryFee
+     * @example
+     * // Get one SalaryFee
+     * const salaryFee = await prisma.salaryFee.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SalaryFeeFindUniqueOrThrowArgs>(args: SelectSubset<T, SalaryFeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SalaryFee that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryFeeFindFirstArgs} args - Arguments to find a SalaryFee
+     * @example
+     * // Get one SalaryFee
+     * const salaryFee = await prisma.salaryFee.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SalaryFeeFindFirstArgs>(args?: SelectSubset<T, SalaryFeeFindFirstArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SalaryFee that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryFeeFindFirstOrThrowArgs} args - Arguments to find a SalaryFee
+     * @example
+     * // Get one SalaryFee
+     * const salaryFee = await prisma.salaryFee.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SalaryFeeFindFirstOrThrowArgs>(args?: SelectSubset<T, SalaryFeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SalaryFees that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryFeeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SalaryFees
+     * const salaryFees = await prisma.salaryFee.findMany()
+     * 
+     * // Get first 10 SalaryFees
+     * const salaryFees = await prisma.salaryFee.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const salaryFeeWithIdOnly = await prisma.salaryFee.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SalaryFeeFindManyArgs>(args?: SelectSubset<T, SalaryFeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SalaryFee.
+     * @param {SalaryFeeCreateArgs} args - Arguments to create a SalaryFee.
+     * @example
+     * // Create one SalaryFee
+     * const SalaryFee = await prisma.salaryFee.create({
+     *   data: {
+     *     // ... data to create a SalaryFee
+     *   }
+     * })
+     * 
+     */
+    create<T extends SalaryFeeCreateArgs>(args: SelectSubset<T, SalaryFeeCreateArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SalaryFees.
+     * @param {SalaryFeeCreateManyArgs} args - Arguments to create many SalaryFees.
+     * @example
+     * // Create many SalaryFees
+     * const salaryFee = await prisma.salaryFee.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SalaryFeeCreateManyArgs>(args?: SelectSubset<T, SalaryFeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a SalaryFee.
+     * @param {SalaryFeeDeleteArgs} args - Arguments to delete one SalaryFee.
+     * @example
+     * // Delete one SalaryFee
+     * const SalaryFee = await prisma.salaryFee.delete({
+     *   where: {
+     *     // ... filter to delete one SalaryFee
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SalaryFeeDeleteArgs>(args: SelectSubset<T, SalaryFeeDeleteArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SalaryFee.
+     * @param {SalaryFeeUpdateArgs} args - Arguments to update one SalaryFee.
+     * @example
+     * // Update one SalaryFee
+     * const salaryFee = await prisma.salaryFee.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SalaryFeeUpdateArgs>(args: SelectSubset<T, SalaryFeeUpdateArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SalaryFees.
+     * @param {SalaryFeeDeleteManyArgs} args - Arguments to filter SalaryFees to delete.
+     * @example
+     * // Delete a few SalaryFees
+     * const { count } = await prisma.salaryFee.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SalaryFeeDeleteManyArgs>(args?: SelectSubset<T, SalaryFeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SalaryFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryFeeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SalaryFees
+     * const salaryFee = await prisma.salaryFee.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SalaryFeeUpdateManyArgs>(args: SelectSubset<T, SalaryFeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SalaryFee.
+     * @param {SalaryFeeUpsertArgs} args - Arguments to update or create a SalaryFee.
+     * @example
+     * // Update or create a SalaryFee
+     * const salaryFee = await prisma.salaryFee.upsert({
+     *   create: {
+     *     // ... data to create a SalaryFee
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SalaryFee we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SalaryFeeUpsertArgs>(args: SelectSubset<T, SalaryFeeUpsertArgs<ExtArgs>>): Prisma__SalaryFeeClient<$Result.GetResult<Prisma.$SalaryFeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SalaryFees that matches the filter.
+     * @param {SalaryFeeFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const salaryFee = await prisma.salaryFee.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: SalaryFeeFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a SalaryFee.
+     * @param {SalaryFeeAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const salaryFee = await prisma.salaryFee.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: SalaryFeeAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of SalaryFees.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryFeeCountArgs} args - Arguments to filter SalaryFees to count.
+     * @example
+     * // Count the number of SalaryFees
+     * const count = await prisma.salaryFee.count({
+     *   where: {
+     *     // ... the filter for the SalaryFees we want to count
+     *   }
+     * })
+    **/
+    count<T extends SalaryFeeCountArgs>(
+      args?: Subset<T, SalaryFeeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SalaryFeeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SalaryFee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryFeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SalaryFeeAggregateArgs>(args: Subset<T, SalaryFeeAggregateArgs>): Prisma.PrismaPromise<GetSalaryFeeAggregateType<T>>
+
+    /**
+     * Group by SalaryFee.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryFeeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SalaryFeeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SalaryFeeGroupByArgs['orderBy'] }
+        : { orderBy?: SalaryFeeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SalaryFeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSalaryFeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SalaryFee model
+   */
+  readonly fields: SalaryFeeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SalaryFee.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SalaryFeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SalaryFee model
+   */
+  interface SalaryFeeFieldRefs {
+    readonly id: FieldRef<"SalaryFee", 'String'>
+    readonly className: FieldRef<"SalaryFee", 'String'>
+    readonly group: FieldRef<"SalaryFee", 'String'>
+    readonly amount: FieldRef<"SalaryFee", 'Int'>
+    readonly createdAt: FieldRef<"SalaryFee", 'DateTime'>
+    readonly updatedAt: FieldRef<"SalaryFee", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SalaryFee findUnique
+   */
+  export type SalaryFeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which SalaryFee to fetch.
+     */
+    where: SalaryFeeWhereUniqueInput
+  }
+
+  /**
+   * SalaryFee findUniqueOrThrow
+   */
+  export type SalaryFeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which SalaryFee to fetch.
+     */
+    where: SalaryFeeWhereUniqueInput
+  }
+
+  /**
+   * SalaryFee findFirst
+   */
+  export type SalaryFeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which SalaryFee to fetch.
+     */
+    where?: SalaryFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryFees to fetch.
+     */
+    orderBy?: SalaryFeeOrderByWithRelationInput | SalaryFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SalaryFees.
+     */
+    cursor?: SalaryFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SalaryFees.
+     */
+    distinct?: SalaryFeeScalarFieldEnum | SalaryFeeScalarFieldEnum[]
+  }
+
+  /**
+   * SalaryFee findFirstOrThrow
+   */
+  export type SalaryFeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which SalaryFee to fetch.
+     */
+    where?: SalaryFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryFees to fetch.
+     */
+    orderBy?: SalaryFeeOrderByWithRelationInput | SalaryFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SalaryFees.
+     */
+    cursor?: SalaryFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryFees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SalaryFees.
+     */
+    distinct?: SalaryFeeScalarFieldEnum | SalaryFeeScalarFieldEnum[]
+  }
+
+  /**
+   * SalaryFee findMany
+   */
+  export type SalaryFeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * Filter, which SalaryFees to fetch.
+     */
+    where?: SalaryFeeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryFees to fetch.
+     */
+    orderBy?: SalaryFeeOrderByWithRelationInput | SalaryFeeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SalaryFees.
+     */
+    cursor?: SalaryFeeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryFees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryFees.
+     */
+    skip?: number
+    distinct?: SalaryFeeScalarFieldEnum | SalaryFeeScalarFieldEnum[]
+  }
+
+  /**
+   * SalaryFee create
+   */
+  export type SalaryFeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * The data needed to create a SalaryFee.
+     */
+    data: XOR<SalaryFeeCreateInput, SalaryFeeUncheckedCreateInput>
+  }
+
+  /**
+   * SalaryFee createMany
+   */
+  export type SalaryFeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SalaryFees.
+     */
+    data: SalaryFeeCreateManyInput | SalaryFeeCreateManyInput[]
+  }
+
+  /**
+   * SalaryFee update
+   */
+  export type SalaryFeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * The data needed to update a SalaryFee.
+     */
+    data: XOR<SalaryFeeUpdateInput, SalaryFeeUncheckedUpdateInput>
+    /**
+     * Choose, which SalaryFee to update.
+     */
+    where: SalaryFeeWhereUniqueInput
+  }
+
+  /**
+   * SalaryFee updateMany
+   */
+  export type SalaryFeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SalaryFees.
+     */
+    data: XOR<SalaryFeeUpdateManyMutationInput, SalaryFeeUncheckedUpdateManyInput>
+    /**
+     * Filter which SalaryFees to update
+     */
+    where?: SalaryFeeWhereInput
+    /**
+     * Limit how many SalaryFees to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SalaryFee upsert
+   */
+  export type SalaryFeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * The filter to search for the SalaryFee to update in case it exists.
+     */
+    where: SalaryFeeWhereUniqueInput
+    /**
+     * In case the SalaryFee found by the `where` argument doesn't exist, create a new SalaryFee with this data.
+     */
+    create: XOR<SalaryFeeCreateInput, SalaryFeeUncheckedCreateInput>
+    /**
+     * In case the SalaryFee was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SalaryFeeUpdateInput, SalaryFeeUncheckedUpdateInput>
+  }
+
+  /**
+   * SalaryFee delete
+   */
+  export type SalaryFeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+    /**
+     * Filter which SalaryFee to delete.
+     */
+    where: SalaryFeeWhereUniqueInput
+  }
+
+  /**
+   * SalaryFee deleteMany
+   */
+  export type SalaryFeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SalaryFees to delete
+     */
+    where?: SalaryFeeWhereInput
+    /**
+     * Limit how many SalaryFees to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SalaryFee findRaw
+   */
+  export type SalaryFeeFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * SalaryFee aggregateRaw
+   */
+  export type SalaryFeeAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * SalaryFee without action
+   */
+  export type SalaryFeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryFee
+     */
+    select?: SalaryFeeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryFee
+     */
+    omit?: SalaryFeeOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6649,6 +8774,29 @@ export namespace Prisma {
   };
 
   export type StudentScalarFieldEnum = (typeof StudentScalarFieldEnum)[keyof typeof StudentScalarFieldEnum]
+
+
+  export const AdmissionFeeScalarFieldEnum: {
+    id: 'id',
+    className: 'className',
+    amount: 'amount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AdmissionFeeScalarFieldEnum = (typeof AdmissionFeeScalarFieldEnum)[keyof typeof AdmissionFeeScalarFieldEnum]
+
+
+  export const SalaryFeeScalarFieldEnum: {
+    id: 'id',
+    className: 'className',
+    group: 'group',
+    amount: 'amount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SalaryFeeScalarFieldEnum = (typeof SalaryFeeScalarFieldEnum)[keyof typeof SalaryFeeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7207,6 +9355,119 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Student"> | Date | string
   }
 
+  export type AdmissionFeeWhereInput = {
+    AND?: AdmissionFeeWhereInput | AdmissionFeeWhereInput[]
+    OR?: AdmissionFeeWhereInput[]
+    NOT?: AdmissionFeeWhereInput | AdmissionFeeWhereInput[]
+    id?: StringFilter<"AdmissionFee"> | string
+    className?: StringFilter<"AdmissionFee"> | string
+    amount?: IntFilter<"AdmissionFee"> | number
+    createdAt?: DateTimeFilter<"AdmissionFee"> | Date | string
+    updatedAt?: DateTimeFilter<"AdmissionFee"> | Date | string
+  }
+
+  export type AdmissionFeeOrderByWithRelationInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdmissionFeeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    className?: string
+    AND?: AdmissionFeeWhereInput | AdmissionFeeWhereInput[]
+    OR?: AdmissionFeeWhereInput[]
+    NOT?: AdmissionFeeWhereInput | AdmissionFeeWhereInput[]
+    amount?: IntFilter<"AdmissionFee"> | number
+    createdAt?: DateTimeFilter<"AdmissionFee"> | Date | string
+    updatedAt?: DateTimeFilter<"AdmissionFee"> | Date | string
+  }, "id" | "className">
+
+  export type AdmissionFeeOrderByWithAggregationInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AdmissionFeeCountOrderByAggregateInput
+    _avg?: AdmissionFeeAvgOrderByAggregateInput
+    _max?: AdmissionFeeMaxOrderByAggregateInput
+    _min?: AdmissionFeeMinOrderByAggregateInput
+    _sum?: AdmissionFeeSumOrderByAggregateInput
+  }
+
+  export type AdmissionFeeScalarWhereWithAggregatesInput = {
+    AND?: AdmissionFeeScalarWhereWithAggregatesInput | AdmissionFeeScalarWhereWithAggregatesInput[]
+    OR?: AdmissionFeeScalarWhereWithAggregatesInput[]
+    NOT?: AdmissionFeeScalarWhereWithAggregatesInput | AdmissionFeeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AdmissionFee"> | string
+    className?: StringWithAggregatesFilter<"AdmissionFee"> | string
+    amount?: IntWithAggregatesFilter<"AdmissionFee"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"AdmissionFee"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AdmissionFee"> | Date | string
+  }
+
+  export type SalaryFeeWhereInput = {
+    AND?: SalaryFeeWhereInput | SalaryFeeWhereInput[]
+    OR?: SalaryFeeWhereInput[]
+    NOT?: SalaryFeeWhereInput | SalaryFeeWhereInput[]
+    id?: StringFilter<"SalaryFee"> | string
+    className?: StringFilter<"SalaryFee"> | string
+    group?: StringNullableFilter<"SalaryFee"> | string | null
+    amount?: IntFilter<"SalaryFee"> | number
+    createdAt?: DateTimeFilter<"SalaryFee"> | Date | string
+    updatedAt?: DateTimeFilter<"SalaryFee"> | Date | string
+  }
+
+  export type SalaryFeeOrderByWithRelationInput = {
+    id?: SortOrder
+    className?: SortOrder
+    group?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalaryFeeWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SalaryFeeWhereInput | SalaryFeeWhereInput[]
+    OR?: SalaryFeeWhereInput[]
+    NOT?: SalaryFeeWhereInput | SalaryFeeWhereInput[]
+    className?: StringFilter<"SalaryFee"> | string
+    group?: StringNullableFilter<"SalaryFee"> | string | null
+    amount?: IntFilter<"SalaryFee"> | number
+    createdAt?: DateTimeFilter<"SalaryFee"> | Date | string
+    updatedAt?: DateTimeFilter<"SalaryFee"> | Date | string
+  }, "id">
+
+  export type SalaryFeeOrderByWithAggregationInput = {
+    id?: SortOrder
+    className?: SortOrder
+    group?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SalaryFeeCountOrderByAggregateInput
+    _avg?: SalaryFeeAvgOrderByAggregateInput
+    _max?: SalaryFeeMaxOrderByAggregateInput
+    _min?: SalaryFeeMinOrderByAggregateInput
+    _sum?: SalaryFeeSumOrderByAggregateInput
+  }
+
+  export type SalaryFeeScalarWhereWithAggregatesInput = {
+    AND?: SalaryFeeScalarWhereWithAggregatesInput | SalaryFeeScalarWhereWithAggregatesInput[]
+    OR?: SalaryFeeScalarWhereWithAggregatesInput[]
+    NOT?: SalaryFeeScalarWhereWithAggregatesInput | SalaryFeeScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SalaryFee"> | string
+    className?: StringWithAggregatesFilter<"SalaryFee"> | string
+    group?: StringNullableWithAggregatesFilter<"SalaryFee"> | string | null
+    amount?: IntWithAggregatesFilter<"SalaryFee"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"SalaryFee"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SalaryFee"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     clerkId: string
@@ -7743,6 +10004,117 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type AdmissionFeeCreateInput = {
+    id?: string
+    className: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionFeeUncheckedCreateInput = {
+    id?: string
+    className: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionFeeUpdateInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionFeeUncheckedUpdateInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionFeeCreateManyInput = {
+    id?: string
+    className: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionFeeUpdateManyMutationInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionFeeUncheckedUpdateManyInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryFeeCreateInput = {
+    id?: string
+    className: string
+    group?: string | null
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryFeeUncheckedCreateInput = {
+    id?: string
+    className: string
+    group?: string | null
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryFeeUpdateInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryFeeUncheckedUpdateInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryFeeCreateManyInput = {
+    id?: string
+    className: string
+    group?: string | null
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryFeeUpdateManyMutationInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryFeeUncheckedUpdateManyInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -8168,6 +10540,73 @@ export namespace Prisma {
     roll?: SortOrder
     admissionFee?: SortOrder
     salary?: SortOrder
+  }
+
+  export type AdmissionFeeCountOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdmissionFeeAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type AdmissionFeeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdmissionFeeMinOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdmissionFeeSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type SalaryFeeCountOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    group?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalaryFeeAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type SalaryFeeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    group?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalaryFeeMinOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    group?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalaryFeeSumOrderByAggregateInput = {
+    amount?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {

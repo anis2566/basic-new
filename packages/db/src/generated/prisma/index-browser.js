@@ -192,6 +192,23 @@ exports.Prisma.StudentScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.AdmissionFeeScalarFieldEnum = {
+  id: 'id',
+  className: 'className',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SalaryFeeScalarFieldEnum = {
+  id: 'id',
+  className: 'className',
+  group: 'group',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -208,7 +225,9 @@ exports.Prisma.ModelName = {
   House: 'House',
   Room: 'Room',
   Counter: 'Counter',
-  Student: 'Student'
+  Student: 'Student',
+  AdmissionFee: 'AdmissionFee',
+  SalaryFee: 'SalaryFee'
 };
 
 /**

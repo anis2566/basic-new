@@ -167,3 +167,15 @@ export enum RELIGION {
     Christianity = "Christianity",
     Buddhism = "Buddhism",
 }
+
+export enum SHIFT {
+    Morning = "Morning",
+    Day = "Day",
+    Evening = "Evening",
+}
+
+export enum GROUP {
+    Science = "Science",
+    Commerce = "Commerce",
+    Arts = "Arts",
+}

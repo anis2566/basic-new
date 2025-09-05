@@ -5,11 +5,14 @@ import {
     AudioWaveform,
     BookOpen,
     Bot,
+    Calendar,
     Command,
+    DollarSign,
     Frame,
     GalleryVerticalEnd,
     House,
     List,
+    LogIn,
     Map,
     PieChart,
     PlusCircle,
@@ -33,6 +36,7 @@ import { Header } from "./header"
 import { NavUtils } from "./nav-utils"
 import { NavRoomHouse } from "./nav-room-house"
 import { NavStudent } from "./nav-student"
+import { NavFees } from "./nav-fees"
 
 // This is sample data.
 const data = {
@@ -132,6 +136,42 @@ const data = {
             ],
         },
     ],
+    fees: [
+        {
+            title: "Admission",
+            url: "",
+            icon: LogIn,
+            items: [
+                {
+                    title: "New",
+                    url: "/fee/admission/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "List",
+                    url: "/fee/admission",
+                    icon: List
+                },
+            ],
+        },
+        {
+            title: "Salary",
+            url: "",
+            icon: Calendar,
+            items: [
+                {
+                    title: "New",
+                    url: "/fee/salary/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "List",
+                    url: "/fee/salary",
+                    icon: List
+                },
+            ],
+        },
+    ],
     projects: [
         {
             name: "Design Engineering",
@@ -160,6 +200,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarContent>
                 <NavStudent items={data.student} />
                 <NavRoomHouse items={data.roomHouses} />
+                <NavFees items={data.fees} />
                 <NavUtils items={data.utils} />
             </SidebarContent>
             <SidebarRail />

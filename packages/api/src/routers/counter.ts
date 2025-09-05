@@ -79,6 +79,33 @@ export const counterRouter = createTRPCRouter({
                 return { success: false, message: "Internal Server Error" };
             }
         }),
+    getForAdmission: baseProcedure
+        .input(z.object({
+            className: z.string().nullish(),
+        }))
+        .query(async ({ input }) => {
+            const { className } = input;
+
+            if (!className) {
+                return { count: null }
+            }
+
+            const counterData = await prisma.counter.findUnique({
+                where: {
+                    name: className,
+                },
+            });
+
+            if (!counterData) {
+                return { count: null }
+            }
+
+            console.log(counterData)
+
+            return {
+                count: counterData.value
+            }
+        }),
     getOne: baseProcedure
         .input(z.string())
         .query(async ({ input }) => {

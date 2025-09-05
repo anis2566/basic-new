@@ -56,3 +56,18 @@ export const StudentSchema = z.object({
     salaryFee: requiredField
 })
 export type StudentSchemaType = z.infer<typeof StudentSchema>;
+
+
+export const AdmissionFeeSchema = z.object({
+    className: requiredField,
+    amount: requiredField
+})
+export type AdmissionFeeSchemaType = z.infer<typeof AdmissionFeeSchema>;
+
+
+export const SalaryFeeSchema = z.object({
+    className: requiredField,
+    amount: requiredField,
+    group: z.string().optional()
+})
+export type SalaryFeeSchemaType = z.infer<typeof SalaryFeeSchema>;
