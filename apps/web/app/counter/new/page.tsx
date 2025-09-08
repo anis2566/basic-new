@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { ContentLayout } from "@/modules/ui/layout/content-layout";
 import { CounterFormView } from "@/modules/counter/ui/views/counter-form-view";
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
 const NewHouse = () => {
     return (
         <ContentLayout>
-            <CounterFormView />
+            <Suspense fallback={<div>Loading...</div>}>
+                <CounterFormView />
+            </Suspense>
         </ContentLayout>
     )
 }

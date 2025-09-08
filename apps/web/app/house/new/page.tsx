@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { ContentLayout } from "@/modules/ui/layout/content-layout";
 import { HouseFormView } from "@/modules/house/ui/views/house-form-view";
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
 const NewHouse = () => {
     return (
         <ContentLayout>
-            <HouseFormView />
+            <Suspense fallback={<div>Loading...</div>}>
+                <HouseFormView />
+            </Suspense>
         </ContentLayout>
     )
 }

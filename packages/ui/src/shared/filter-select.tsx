@@ -3,7 +3,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { useIsMobile } from "../hooks/use-mobile";
 import { cn } from "../lib/utils";
 
-
 interface FilterSelectProps {
     value: string;
     onChange: (value: string) => void;
@@ -21,8 +20,8 @@ export const FilterSelect = ({ value, onChange, placeholder, options, showInMobi
 
     return (
         <Select
-            value={value}
-            onValueChange={value => onChange(value)}
+            value={value || ""}
+            onValueChange={onChange}
         >
             <SelectTrigger
                 className={cn(
@@ -34,9 +33,9 @@ export const FilterSelect = ({ value, onChange, placeholder, options, showInMobi
                 <SelectValue placeholder={placeholder} />
             </SelectTrigger>
             <SelectContent className="rounded-xs">
-                {options.map((v, i) => (
-                    <SelectItem value={v.value} key={i} className="rounded-xs capitalize">
-                        {v.label}
+                {options.map((option, i) => (
+                    <SelectItem value={option.value} key={i} className="rounded-xs capitalize">
+                        {option.label}
                     </SelectItem>
                 ))}
             </SelectContent>

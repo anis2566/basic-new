@@ -41,8 +41,8 @@ export const StudentSchema = z.object({
     shift: z.string().optional(),
     group: z.string().optional(),
     roll: requiredField,
-    fPhone: requiredField,
-    mPhone: requiredField,
+    fPhone: z.string().length(11, { message: "invalid phone number" }),
+    mPhone: z.string().length(11, { message: "invalid phone number" }),
     presentHouseNo: requiredField,
     presentMoholla: requiredField,
     presentPost: requiredField,
@@ -51,7 +51,7 @@ export const StudentSchema = z.object({
     permanentPost: requiredField,
     permanentThana: requiredField,
     permanentDistrict: requiredField,
-    studentId: z.string().optional(),
+    studentId: requiredField,
     admissionFee: requiredField,
     salaryFee: requiredField
 })

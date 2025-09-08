@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { ContentLayout } from "@/modules/ui/layout/content-layout";
 import { SalaryFeeFormView } from "@/modules/salary-fee/ui/views/salary-fee-form-view";
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
 const NewSalaryFee = () => {
     return (
         <ContentLayout>
-            <SalaryFeeFormView />
+            <Suspense fallback={<div>Loading...</div>}>
+                <SalaryFeeFormView />
+            </Suspense>
         </ContentLayout>
     )
 }

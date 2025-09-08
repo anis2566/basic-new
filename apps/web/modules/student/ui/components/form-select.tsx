@@ -37,8 +37,8 @@ export function FormSelect<T extends FieldValues>({
                             field.onChange(value);
                             trigger(name);
                         }}
-                        defaultValue={field.value}
                         disabled={disabled}
+                        defaultValue={field.value}
                     >
                         <FormControl>
                             <SelectTrigger className="w-full rounded-xs shadow-none dark:bg-background dark:hover:bg-background">

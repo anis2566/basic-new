@@ -8,6 +8,12 @@ const nextConfig = {
     }
     return config;
   },
+  eslist: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

@@ -100,10 +100,8 @@ export const counterRouter = createTRPCRouter({
                 return { count: null }
             }
 
-            console.log(counterData)
-
             return {
-                count: counterData.value
+                count: counterData.value + 1
             }
         }),
     getOne: baseProcedure

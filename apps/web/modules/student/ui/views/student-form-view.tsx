@@ -4,7 +4,11 @@ import { useEffect, useState, useMemo, useCallback } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { DollarSign, Edit, MapPin, PhoneCall, School, User } from "lucide-react";
+import { DollarSign, Edit, Loader2, MapPin, PhoneCall, School, User } from "lucide-react";
+import { useMutation, useQueries, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { useTRPC } from "@/trpc/client";
+import { useRouter } from "next/navigation";
 
 import { Card } from "@workspace/ui/components/card";
 import { Button } from "@workspace/ui/components/button";
@@ -14,14 +18,13 @@ import { cn } from "@workspace/ui/lib/utils";
 import { Separator } from "@workspace/ui/components/separator";
 import { Badge } from "@workspace/ui/components/badge";
 import { CLASSES, GENDER, GROUP, NATIONALITY, RELIGION, SHIFT } from "@workspace/utils/constant";
+import { Input } from "@workspace/ui/components/input";
 
 import { StepIndicator } from "../components/step-indicator";
 import { FormInput } from "../components/form-input";
 import { FormSelect } from "../components/form-select";
 import { FormCalendar } from "../components/form-calendar";
-import { useTRPC } from "@/trpc/client";
-import { useQueries } from "@tanstack/react-query";
-import { Input } from "@workspace/ui/components/input";
+import { useGetStudents } from "../../hooks/use-get-rooms";
 
 // Constants
 const STEPS = [
@@ -314,7 +317,7 @@ const EditableField = ({
     />
 );
 
-const FeeStep = ({ form, trigger, isPending, editStates, toggleEdit }: FeeStepProps) => (
+const FeeStep = ({ form, trigger, isPending, editStates, toggleEdit, isCreateing }: FeeStepProps) => (
     <div className="grid md:grid-cols-2 gap-6 items-start">
         <EditableField
             form={form}
@@ -322,7 +325,7 @@ const FeeStep = ({ form, trigger, isPending, editStates, toggleEdit }: FeeStepPr
             label="Admission Fee"
             isEditable={editStates.admissionFee}
             onToggleEdit={() => toggleEdit('admissionFee')}
-            isPending={isPending}
+            isPending={isPending || isCreateing}
             trigger={trigger}
         />
 
@@ -332,7 +335,7 @@ const FeeStep = ({ form, trigger, isPending, editStates, toggleEdit }: FeeStepPr
             label="Salary Fee"
             isEditable={editStates.salaryFee}
             onToggleEdit={() => toggleEdit('salaryFee')}
-            isPending={isPending}
+            isPending={isPending || isCreateing}
             trigger={trigger}
         />
 
@@ -342,7 +345,7 @@ const FeeStep = ({ form, trigger, isPending, editStates, toggleEdit }: FeeStepPr
             label="Student ID"
             isEditable={editStates.studentId}
             onToggleEdit={() => toggleEdit('studentId')}
-            isPending={isPending}
+            isPending={isPending || isCreateing}
             trigger={trigger}
         />
     </div>
@@ -371,10 +374,32 @@ interface FeeStepProps extends StepProps {
         studentId: boolean;
     };
     toggleEdit: (field: keyof FeeStepProps['editStates']) => void;
+    isCreateing: boolean;
 }
 
 export const StudentFormView = () => {
     const [currentStep, setCurrentStep] = useState<number>(1);
+
+    const trpc = useTRPC();
+    const queryClient = useQueryClient();
+    const router = useRouter();
+
+    const [filters] = useGetStudents();
+
+    const { mutate: createStudent, isPending } = useMutation(trpc.student.createOne.mutationOptions({
+        onError: (err) => {
+            toast.error(err.message);
+        },
+        onSuccess: async (data) => {
+            if (!data.success) {
+                toast.error(data.message);
+                return;
+            }
+            toast.success(data.message);
+            queryClient.invalidateQueries(trpc.student.getMany.queryOptions({ ...filters }))
+            router.push("/student")
+        },
+    }))
 
     const form = useForm<StudentSchemaType>({
         resolver: zodResolver(StudentSchema),
@@ -433,8 +458,7 @@ export const StudentFormView = () => {
     }, []);
 
     const onSubmit = useCallback((data: StudentSchemaType) => {
-        console.log("Form submitted:", data);
-        // Handle form submission
+        createStudent(data);
     }, []);
 
     // Render step content
@@ -451,7 +475,7 @@ export const StudentFormView = () => {
             case 4:
                 return <ContactStep {...stepProps} />;
             case 5:
-                return <FeeStep {...stepProps} editStates={editStates} toggleEdit={toggleEdit} />;
+                return <FeeStep {...stepProps} editStates={editStates} toggleEdit={toggleEdit} isCreateing={isPending} />;
             default:
                 return null;
         }
@@ -497,15 +521,18 @@ export const StudentFormView = () => {
                         <Button
                             variant="outline"
                             onClick={handlePrevious}
-                            disabled={currentStep === 1}
+                            disabled={currentStep === 1 || isPending}
                         >
                             Previous
                         </Button>
                         <Button
                             onClick={currentStep === STEPS.length ? handleSubmit(onSubmit) : handleNext}
                             type={currentStep === STEPS.length ? "submit" : "button"}
+                            disabled={isPending}
                         >
-                            {currentStep === STEPS.length ? "Submit" : "Next"}
+                            {currentStep === STEPS.length && !isPending ? "Submit" : "Next"}
+                            {isPending && "Submiting"}
+                            {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                         </Button>
                     </div>
                 </div>

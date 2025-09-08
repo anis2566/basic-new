@@ -1,3 +1,5 @@
+import { Suspense } from "react"
+
 import {
     SidebarInset,
     SidebarProvider,
@@ -11,11 +13,13 @@ interface Props {
 
 export const DashboardLayout = ({ children }: Props) => {
     return (
-        <SidebarProvider>
-            <AppSidebar />
-            <SidebarInset>
-                {children}
-            </SidebarInset>
-        </SidebarProvider>
+        <Suspense fallback={<div>Loading...</div>}>
+            <SidebarProvider>
+                <AppSidebar />
+                <SidebarInset>
+                    {children}
+                </SidebarInset>
+            </SidebarProvider>
+        </Suspense>
     )
 }

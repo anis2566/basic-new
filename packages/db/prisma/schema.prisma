@@ -102,7 +102,10 @@ model Student {
   leftReason          String?
 
   admissionFee        Int
-  salary              Int
+  salaryFee           Int
+
+  admissionPayments AdmissionPayment[]
+  salaryPayments    SalaryPayment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -123,6 +126,45 @@ model SalaryFee {
   className     String          
   group         String?
   amount        Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model AdmissionPayment {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  className     String
+  amount        Int
+  method        String
+  status        String
+  paymentStatus String          @default("Unpaid")
+  session       String
+  month         String
+  paidAt        DateTime?
+
+  studentId     String          @db.ObjectId
+  student       Student         @relation(fields: [studentId], references: [id], onDelete: NoAction)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SalaryPayment {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  transactionId String?
+  amount        Int
+  session       String
+  month         String
+  className     String
+  method        String?
+  status        String
+  paymentStatus String          @default("Unpaid")
+  note          String?
+  paidAt        DateTime?
+
+  studentId     String          @db.ObjectId
+  student       Student         @relation(fields: [studentId], references: [id], onDelete: NoAction)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

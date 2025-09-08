@@ -3,6 +3,7 @@ import { DeleteCounterModal } from "@/modules/counter/ui/modal/delete-counter-mo
 import { DeleteHouseModal } from "@/modules/house/ui/modal/delete-house-modal";
 import { DeleteRoomModal } from "@/modules/room/ui/modal/delete-room-modal";
 import { DeleteSalaryFeeModal } from "@/modules/salary-fee/ui/modal/delete-salary-fee-modal";
+import { DeleteStudentModal } from "@/modules/student/ui/modal/delete-student-modal";
 
 export const ModalProvider = () => {
     return (
@@ -12,6 +13,7 @@ export const ModalProvider = () => {
             <DeleteCounterModal />
             <DeleteAdmissionFeeModal />
             <DeleteSalaryFeeModal />
+            <DeleteStudentModal />
         </>
     )
 };

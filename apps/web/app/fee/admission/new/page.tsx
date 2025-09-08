@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { ContentLayout } from "@/modules/ui/layout/content-layout";
 import { AdmissionFeeFormView } from "@/modules/admission-fee/ui/views/admission-fee-form-view";
@@ -11,7 +12,9 @@ export const metadata: Metadata = {
 const NewAdmissionFee = () => {
     return (
         <ContentLayout>
-            <AdmissionFeeFormView />
+            <Suspense fallback={<div>Loading...</div>}>
+                <AdmissionFeeFormView />
+            </Suspense>
         </ContentLayout>
     )
 }

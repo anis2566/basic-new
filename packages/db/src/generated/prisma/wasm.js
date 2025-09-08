@@ -187,7 +187,7 @@ exports.Prisma.StudentScalarFieldEnum = {
   isPresent: 'isPresent',
   leftReason: 'leftReason',
   admissionFee: 'admissionFee',
-  salary: 'salary',
+  salaryFee: 'salaryFee',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -205,6 +205,38 @@ exports.Prisma.SalaryFeeScalarFieldEnum = {
   className: 'className',
   group: 'group',
   amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AdmissionPaymentScalarFieldEnum = {
+  id: 'id',
+  className: 'className',
+  amount: 'amount',
+  method: 'method',
+  status: 'status',
+  paymentStatus: 'paymentStatus',
+  session: 'session',
+  month: 'month',
+  paidAt: 'paidAt',
+  studentId: 'studentId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SalaryPaymentScalarFieldEnum = {
+  id: 'id',
+  transactionId: 'transactionId',
+  amount: 'amount',
+  session: 'session',
+  month: 'month',
+  className: 'className',
+  method: 'method',
+  status: 'status',
+  paymentStatus: 'paymentStatus',
+  note: 'note',
+  paidAt: 'paidAt',
+  studentId: 'studentId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -227,7 +259,9 @@ exports.Prisma.ModelName = {
   Counter: 'Counter',
   Student: 'Student',
   AdmissionFee: 'AdmissionFee',
-  SalaryFee: 'SalaryFee'
+  SalaryFee: 'SalaryFee',
+  AdmissionPayment: 'AdmissionPayment',
+  SalaryPayment: 'SalaryPayment'
 };
 
 /**

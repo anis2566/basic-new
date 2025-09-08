@@ -48,6 +48,16 @@ export type AdmissionFee = $Result.DefaultSelection<Prisma.$AdmissionFeePayload>
  * 
  */
 export type SalaryFee = $Result.DefaultSelection<Prisma.$SalaryFeePayload>
+/**
+ * Model AdmissionPayment
+ * 
+ */
+export type AdmissionPayment = $Result.DefaultSelection<Prisma.$AdmissionPaymentPayload>
+/**
+ * Model SalaryPayment
+ * 
+ */
+export type SalaryPayment = $Result.DefaultSelection<Prisma.$SalaryPaymentPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -203,6 +213,26 @@ export class PrismaClient<
     * ```
     */
   get salaryFee(): Prisma.SalaryFeeDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.admissionPayment`: Exposes CRUD operations for the **AdmissionPayment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AdmissionPayments
+    * const admissionPayments = await prisma.admissionPayment.findMany()
+    * ```
+    */
+  get admissionPayment(): Prisma.AdmissionPaymentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.salaryPayment`: Exposes CRUD operations for the **SalaryPayment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SalaryPayments
+    * const salaryPayments = await prisma.salaryPayment.findMany()
+    * ```
+    */
+  get salaryPayment(): Prisma.SalaryPaymentDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -649,7 +679,9 @@ export namespace Prisma {
     Counter: 'Counter',
     Student: 'Student',
     AdmissionFee: 'AdmissionFee',
-    SalaryFee: 'SalaryFee'
+    SalaryFee: 'SalaryFee',
+    AdmissionPayment: 'AdmissionPayment',
+    SalaryPayment: 'SalaryPayment'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -668,7 +700,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "house" | "room" | "counter" | "student" | "admissionFee" | "salaryFee"
+      modelProps: "user" | "house" | "room" | "counter" | "student" | "admissionFee" | "salaryFee" | "admissionPayment" | "salaryPayment"
       txIsolationLevel: never
     }
     model: {
@@ -1190,6 +1222,154 @@ export namespace Prisma {
           }
         }
       }
+      AdmissionPayment: {
+        payload: Prisma.$AdmissionPaymentPayload<ExtArgs>
+        fields: Prisma.AdmissionPaymentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AdmissionPaymentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AdmissionPaymentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload>
+          }
+          findFirst: {
+            args: Prisma.AdmissionPaymentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AdmissionPaymentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload>
+          }
+          findMany: {
+            args: Prisma.AdmissionPaymentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload>[]
+          }
+          create: {
+            args: Prisma.AdmissionPaymentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload>
+          }
+          createMany: {
+            args: Prisma.AdmissionPaymentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.AdmissionPaymentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload>
+          }
+          update: {
+            args: Prisma.AdmissionPaymentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload>
+          }
+          deleteMany: {
+            args: Prisma.AdmissionPaymentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AdmissionPaymentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.AdmissionPaymentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AdmissionPaymentPayload>
+          }
+          aggregate: {
+            args: Prisma.AdmissionPaymentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdmissionPayment>
+          }
+          groupBy: {
+            args: Prisma.AdmissionPaymentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdmissionPaymentGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.AdmissionPaymentFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.AdmissionPaymentAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.AdmissionPaymentCountArgs<ExtArgs>
+            result: $Utils.Optional<AdmissionPaymentCountAggregateOutputType> | number
+          }
+        }
+      }
+      SalaryPayment: {
+        payload: Prisma.$SalaryPaymentPayload<ExtArgs>
+        fields: Prisma.SalaryPaymentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SalaryPaymentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SalaryPaymentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload>
+          }
+          findFirst: {
+            args: Prisma.SalaryPaymentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SalaryPaymentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload>
+          }
+          findMany: {
+            args: Prisma.SalaryPaymentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload>[]
+          }
+          create: {
+            args: Prisma.SalaryPaymentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload>
+          }
+          createMany: {
+            args: Prisma.SalaryPaymentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.SalaryPaymentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload>
+          }
+          update: {
+            args: Prisma.SalaryPaymentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload>
+          }
+          deleteMany: {
+            args: Prisma.SalaryPaymentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SalaryPaymentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.SalaryPaymentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalaryPaymentPayload>
+          }
+          aggregate: {
+            args: Prisma.SalaryPaymentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSalaryPayment>
+          }
+          groupBy: {
+            args: Prisma.SalaryPaymentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SalaryPaymentGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.SalaryPaymentFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.SalaryPaymentAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.SalaryPaymentCountArgs<ExtArgs>
+            result: $Utils.Optional<SalaryPaymentCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1276,6 +1456,8 @@ export namespace Prisma {
     student?: StudentOmit
     admissionFee?: AdmissionFeeOmit
     salaryFee?: SalaryFeeOmit
+    admissionPayment?: AdmissionPaymentOmit
+    salaryPayment?: SalaryPaymentOmit
   }
 
   /* Types for Logging */
@@ -1379,6 +1561,46 @@ export namespace Prisma {
    */
   export type HouseCountOutputTypeCountRoomsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: RoomWhereInput
+  }
+
+
+  /**
+   * Count Type StudentCountOutputType
+   */
+
+  export type StudentCountOutputType = {
+    admissionPayments: number
+    salaryPayments: number
+  }
+
+  export type StudentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admissionPayments?: boolean | StudentCountOutputTypeCountAdmissionPaymentsArgs
+    salaryPayments?: boolean | StudentCountOutputTypeCountSalaryPaymentsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * StudentCountOutputType without action
+   */
+  export type StudentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StudentCountOutputType
+     */
+    select?: StudentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * StudentCountOutputType without action
+   */
+  export type StudentCountOutputTypeCountAdmissionPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdmissionPaymentWhereInput
+  }
+
+  /**
+   * StudentCountOutputType without action
+   */
+  export type StudentCountOutputTypeCountSalaryPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SalaryPaymentWhereInput
   }
 
 
@@ -5454,14 +5676,14 @@ export namespace Prisma {
     studentId: number | null
     roll: number | null
     admissionFee: number | null
-    salary: number | null
+    salaryFee: number | null
   }
 
   export type StudentSumAggregateOutputType = {
     studentId: number | null
     roll: number | null
     admissionFee: number | null
-    salary: number | null
+    salaryFee: number | null
   }
 
   export type StudentMinAggregateOutputType = {
@@ -5496,7 +5718,7 @@ export namespace Prisma {
     isPresent: boolean | null
     leftReason: string | null
     admissionFee: number | null
-    salary: number | null
+    salaryFee: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5533,7 +5755,7 @@ export namespace Prisma {
     isPresent: boolean | null
     leftReason: string | null
     admissionFee: number | null
-    salary: number | null
+    salaryFee: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5570,7 +5792,7 @@ export namespace Prisma {
     isPresent: number
     leftReason: number
     admissionFee: number
-    salary: number
+    salaryFee: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -5581,14 +5803,14 @@ export namespace Prisma {
     studentId?: true
     roll?: true
     admissionFee?: true
-    salary?: true
+    salaryFee?: true
   }
 
   export type StudentSumAggregateInputType = {
     studentId?: true
     roll?: true
     admissionFee?: true
-    salary?: true
+    salaryFee?: true
   }
 
   export type StudentMinAggregateInputType = {
@@ -5623,7 +5845,7 @@ export namespace Prisma {
     isPresent?: true
     leftReason?: true
     admissionFee?: true
-    salary?: true
+    salaryFee?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5660,7 +5882,7 @@ export namespace Prisma {
     isPresent?: true
     leftReason?: true
     admissionFee?: true
-    salary?: true
+    salaryFee?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5697,7 +5919,7 @@ export namespace Prisma {
     isPresent?: true
     leftReason?: true
     admissionFee?: true
-    salary?: true
+    salaryFee?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -5821,7 +6043,7 @@ export namespace Prisma {
     isPresent: boolean
     leftReason: string | null
     admissionFee: number
-    salary: number
+    salaryFee: number
     createdAt: Date
     updatedAt: Date
     _count: StudentCountAggregateOutputType | null
@@ -5877,9 +6099,12 @@ export namespace Prisma {
     isPresent?: boolean
     leftReason?: boolean
     admissionFee?: boolean
-    salary?: boolean
+    salaryFee?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    admissionPayments?: boolean | Student$admissionPaymentsArgs<ExtArgs>
+    salaryPayments?: boolean | Student$salaryPaymentsArgs<ExtArgs>
+    _count?: boolean | StudentCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["student"]>
 
 
@@ -5916,16 +6141,24 @@ export namespace Prisma {
     isPresent?: boolean
     leftReason?: boolean
     admissionFee?: boolean
-    salary?: boolean
+    salaryFee?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type StudentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "session" | "studentId" | "name" | "nameBangla" | "fName" | "mName" | "gender" | "dob" | "nationality" | "religion" | "imageUrl" | "school" | "className" | "section" | "shift" | "group" | "roll" | "fPhone" | "mPhone" | "presentHouseNo" | "presentMoholla" | "presentPost" | "presentThana" | "permanentVillage" | "permanentPost" | "permanentThana" | "permanentDistrict" | "isPresent" | "leftReason" | "admissionFee" | "salary" | "createdAt" | "updatedAt", ExtArgs["result"]["student"]>
+  export type StudentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "session" | "studentId" | "name" | "nameBangla" | "fName" | "mName" | "gender" | "dob" | "nationality" | "religion" | "imageUrl" | "school" | "className" | "section" | "shift" | "group" | "roll" | "fPhone" | "mPhone" | "presentHouseNo" | "presentMoholla" | "presentPost" | "presentThana" | "permanentVillage" | "permanentPost" | "permanentThana" | "permanentDistrict" | "isPresent" | "leftReason" | "admissionFee" | "salaryFee" | "createdAt" | "updatedAt", ExtArgs["result"]["student"]>
+  export type StudentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    admissionPayments?: boolean | Student$admissionPaymentsArgs<ExtArgs>
+    salaryPayments?: boolean | Student$salaryPaymentsArgs<ExtArgs>
+    _count?: boolean | StudentCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $StudentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Student"
-    objects: {}
+    objects: {
+      admissionPayments: Prisma.$AdmissionPaymentPayload<ExtArgs>[]
+      salaryPayments: Prisma.$SalaryPaymentPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       session: string
@@ -5958,7 +6191,7 @@ export namespace Prisma {
       isPresent: boolean
       leftReason: string | null
       admissionFee: number
-      salary: number
+      salaryFee: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["student"]>
@@ -6324,6 +6557,8 @@ export namespace Prisma {
    */
   export interface Prisma__StudentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    admissionPayments<T extends Student$admissionPaymentsArgs<ExtArgs> = {}>(args?: Subset<T, Student$admissionPaymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    salaryPayments<T extends Student$salaryPaymentsArgs<ExtArgs> = {}>(args?: Subset<T, Student$salaryPaymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6384,7 +6619,7 @@ export namespace Prisma {
     readonly isPresent: FieldRef<"Student", 'Boolean'>
     readonly leftReason: FieldRef<"Student", 'String'>
     readonly admissionFee: FieldRef<"Student", 'Int'>
-    readonly salary: FieldRef<"Student", 'Int'>
+    readonly salaryFee: FieldRef<"Student", 'Int'>
     readonly createdAt: FieldRef<"Student", 'DateTime'>
     readonly updatedAt: FieldRef<"Student", 'DateTime'>
   }
@@ -6404,6 +6639,10 @@ export namespace Prisma {
      */
     omit?: StudentOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
+    /**
      * Filter, which Student to fetch.
      */
     where: StudentWhereUniqueInput
@@ -6422,6 +6661,10 @@ export namespace Prisma {
      */
     omit?: StudentOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
+    /**
      * Filter, which Student to fetch.
      */
     where: StudentWhereUniqueInput
@@ -6439,6 +6682,10 @@ export namespace Prisma {
      * Omit specific fields from the Student
      */
     omit?: StudentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
     /**
      * Filter, which Student to fetch.
      */
@@ -6488,6 +6735,10 @@ export namespace Prisma {
      */
     omit?: StudentOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
+    /**
      * Filter, which Student to fetch.
      */
     where?: StudentWhereInput
@@ -6536,6 +6787,10 @@ export namespace Prisma {
      */
     omit?: StudentOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
+    /**
      * Filter, which Students to fetch.
      */
     where?: StudentWhereInput
@@ -6579,6 +6834,10 @@ export namespace Prisma {
      */
     omit?: StudentOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
+    /**
      * The data needed to create a Student.
      */
     data: XOR<StudentCreateInput, StudentUncheckedCreateInput>
@@ -6606,6 +6865,10 @@ export namespace Prisma {
      * Omit specific fields from the Student
      */
     omit?: StudentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
     /**
      * The data needed to update a Student.
      */
@@ -6647,6 +6910,10 @@ export namespace Prisma {
      */
     omit?: StudentOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
+    /**
      * The filter to search for the Student to update in case it exists.
      */
     where: StudentWhereUniqueInput
@@ -6672,6 +6939,10 @@ export namespace Prisma {
      * Omit specific fields from the Student
      */
     omit?: StudentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
     /**
      * Filter which Student to delete.
      */
@@ -6721,6 +6992,54 @@ export namespace Prisma {
   }
 
   /**
+   * Student.admissionPayments
+   */
+  export type Student$admissionPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    where?: AdmissionPaymentWhereInput
+    orderBy?: AdmissionPaymentOrderByWithRelationInput | AdmissionPaymentOrderByWithRelationInput[]
+    cursor?: AdmissionPaymentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AdmissionPaymentScalarFieldEnum | AdmissionPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * Student.salaryPayments
+   */
+  export type Student$salaryPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    where?: SalaryPaymentWhereInput
+    orderBy?: SalaryPaymentOrderByWithRelationInput | SalaryPaymentOrderByWithRelationInput[]
+    cursor?: SalaryPaymentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SalaryPaymentScalarFieldEnum | SalaryPaymentScalarFieldEnum[]
+  }
+
+  /**
    * Student without action
    */
   export type StudentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6732,6 +7051,10 @@ export namespace Prisma {
      * Omit specific fields from the Student
      */
     omit?: StudentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StudentInclude<ExtArgs> | null
   }
 
 
@@ -8679,6 +9002,2208 @@ export namespace Prisma {
 
 
   /**
+   * Model AdmissionPayment
+   */
+
+  export type AggregateAdmissionPayment = {
+    _count: AdmissionPaymentCountAggregateOutputType | null
+    _avg: AdmissionPaymentAvgAggregateOutputType | null
+    _sum: AdmissionPaymentSumAggregateOutputType | null
+    _min: AdmissionPaymentMinAggregateOutputType | null
+    _max: AdmissionPaymentMaxAggregateOutputType | null
+  }
+
+  export type AdmissionPaymentAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type AdmissionPaymentSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type AdmissionPaymentMinAggregateOutputType = {
+    id: string | null
+    className: string | null
+    amount: number | null
+    method: string | null
+    status: string | null
+    paymentStatus: string | null
+    session: string | null
+    month: string | null
+    paidAt: Date | null
+    studentId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdmissionPaymentMaxAggregateOutputType = {
+    id: string | null
+    className: string | null
+    amount: number | null
+    method: string | null
+    status: string | null
+    paymentStatus: string | null
+    session: string | null
+    month: string | null
+    paidAt: Date | null
+    studentId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdmissionPaymentCountAggregateOutputType = {
+    id: number
+    className: number
+    amount: number
+    method: number
+    status: number
+    paymentStatus: number
+    session: number
+    month: number
+    paidAt: number
+    studentId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AdmissionPaymentAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type AdmissionPaymentSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type AdmissionPaymentMinAggregateInputType = {
+    id?: true
+    className?: true
+    amount?: true
+    method?: true
+    status?: true
+    paymentStatus?: true
+    session?: true
+    month?: true
+    paidAt?: true
+    studentId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdmissionPaymentMaxAggregateInputType = {
+    id?: true
+    className?: true
+    amount?: true
+    method?: true
+    status?: true
+    paymentStatus?: true
+    session?: true
+    month?: true
+    paidAt?: true
+    studentId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdmissionPaymentCountAggregateInputType = {
+    id?: true
+    className?: true
+    amount?: true
+    method?: true
+    status?: true
+    paymentStatus?: true
+    session?: true
+    month?: true
+    paidAt?: true
+    studentId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AdmissionPaymentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdmissionPayment to aggregate.
+     */
+    where?: AdmissionPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionPayments to fetch.
+     */
+    orderBy?: AdmissionPaymentOrderByWithRelationInput | AdmissionPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AdmissionPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AdmissionPayments
+    **/
+    _count?: true | AdmissionPaymentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdmissionPaymentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdmissionPaymentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdmissionPaymentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdmissionPaymentMaxAggregateInputType
+  }
+
+  export type GetAdmissionPaymentAggregateType<T extends AdmissionPaymentAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdmissionPayment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdmissionPayment[P]>
+      : GetScalarType<T[P], AggregateAdmissionPayment[P]>
+  }
+
+
+
+
+  export type AdmissionPaymentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AdmissionPaymentWhereInput
+    orderBy?: AdmissionPaymentOrderByWithAggregationInput | AdmissionPaymentOrderByWithAggregationInput[]
+    by: AdmissionPaymentScalarFieldEnum[] | AdmissionPaymentScalarFieldEnum
+    having?: AdmissionPaymentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdmissionPaymentCountAggregateInputType | true
+    _avg?: AdmissionPaymentAvgAggregateInputType
+    _sum?: AdmissionPaymentSumAggregateInputType
+    _min?: AdmissionPaymentMinAggregateInputType
+    _max?: AdmissionPaymentMaxAggregateInputType
+  }
+
+  export type AdmissionPaymentGroupByOutputType = {
+    id: string
+    className: string
+    amount: number
+    method: string
+    status: string
+    paymentStatus: string
+    session: string
+    month: string
+    paidAt: Date | null
+    studentId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: AdmissionPaymentCountAggregateOutputType | null
+    _avg: AdmissionPaymentAvgAggregateOutputType | null
+    _sum: AdmissionPaymentSumAggregateOutputType | null
+    _min: AdmissionPaymentMinAggregateOutputType | null
+    _max: AdmissionPaymentMaxAggregateOutputType | null
+  }
+
+  type GetAdmissionPaymentGroupByPayload<T extends AdmissionPaymentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdmissionPaymentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdmissionPaymentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdmissionPaymentGroupByOutputType[P]>
+            : GetScalarType<T[P], AdmissionPaymentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AdmissionPaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    className?: boolean
+    amount?: boolean
+    method?: boolean
+    status?: boolean
+    paymentStatus?: boolean
+    session?: boolean
+    month?: boolean
+    paidAt?: boolean
+    studentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    student?: boolean | StudentDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["admissionPayment"]>
+
+
+
+  export type AdmissionPaymentSelectScalar = {
+    id?: boolean
+    className?: boolean
+    amount?: boolean
+    method?: boolean
+    status?: boolean
+    paymentStatus?: boolean
+    session?: boolean
+    month?: boolean
+    paidAt?: boolean
+    studentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AdmissionPaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "className" | "amount" | "method" | "status" | "paymentStatus" | "session" | "month" | "paidAt" | "studentId" | "createdAt" | "updatedAt", ExtArgs["result"]["admissionPayment"]>
+  export type AdmissionPaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    student?: boolean | StudentDefaultArgs<ExtArgs>
+  }
+
+  export type $AdmissionPaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AdmissionPayment"
+    objects: {
+      student: Prisma.$StudentPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      className: string
+      amount: number
+      method: string
+      status: string
+      paymentStatus: string
+      session: string
+      month: string
+      paidAt: Date | null
+      studentId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["admissionPayment"]>
+    composites: {}
+  }
+
+  type AdmissionPaymentGetPayload<S extends boolean | null | undefined | AdmissionPaymentDefaultArgs> = $Result.GetResult<Prisma.$AdmissionPaymentPayload, S>
+
+  type AdmissionPaymentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AdmissionPaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdmissionPaymentCountAggregateInputType | true
+    }
+
+  export interface AdmissionPaymentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AdmissionPayment'], meta: { name: 'AdmissionPayment' } }
+    /**
+     * Find zero or one AdmissionPayment that matches the filter.
+     * @param {AdmissionPaymentFindUniqueArgs} args - Arguments to find a AdmissionPayment
+     * @example
+     * // Get one AdmissionPayment
+     * const admissionPayment = await prisma.admissionPayment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AdmissionPaymentFindUniqueArgs>(args: SelectSubset<T, AdmissionPaymentFindUniqueArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AdmissionPayment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AdmissionPaymentFindUniqueOrThrowArgs} args - Arguments to find a AdmissionPayment
+     * @example
+     * // Get one AdmissionPayment
+     * const admissionPayment = await prisma.admissionPayment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AdmissionPaymentFindUniqueOrThrowArgs>(args: SelectSubset<T, AdmissionPaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdmissionPayment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionPaymentFindFirstArgs} args - Arguments to find a AdmissionPayment
+     * @example
+     * // Get one AdmissionPayment
+     * const admissionPayment = await prisma.admissionPayment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AdmissionPaymentFindFirstArgs>(args?: SelectSubset<T, AdmissionPaymentFindFirstArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AdmissionPayment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionPaymentFindFirstOrThrowArgs} args - Arguments to find a AdmissionPayment
+     * @example
+     * // Get one AdmissionPayment
+     * const admissionPayment = await prisma.admissionPayment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AdmissionPaymentFindFirstOrThrowArgs>(args?: SelectSubset<T, AdmissionPaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdmissionPayments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionPaymentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AdmissionPayments
+     * const admissionPayments = await prisma.admissionPayment.findMany()
+     * 
+     * // Get first 10 AdmissionPayments
+     * const admissionPayments = await prisma.admissionPayment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const admissionPaymentWithIdOnly = await prisma.admissionPayment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AdmissionPaymentFindManyArgs>(args?: SelectSubset<T, AdmissionPaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AdmissionPayment.
+     * @param {AdmissionPaymentCreateArgs} args - Arguments to create a AdmissionPayment.
+     * @example
+     * // Create one AdmissionPayment
+     * const AdmissionPayment = await prisma.admissionPayment.create({
+     *   data: {
+     *     // ... data to create a AdmissionPayment
+     *   }
+     * })
+     * 
+     */
+    create<T extends AdmissionPaymentCreateArgs>(args: SelectSubset<T, AdmissionPaymentCreateArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AdmissionPayments.
+     * @param {AdmissionPaymentCreateManyArgs} args - Arguments to create many AdmissionPayments.
+     * @example
+     * // Create many AdmissionPayments
+     * const admissionPayment = await prisma.admissionPayment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AdmissionPaymentCreateManyArgs>(args?: SelectSubset<T, AdmissionPaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a AdmissionPayment.
+     * @param {AdmissionPaymentDeleteArgs} args - Arguments to delete one AdmissionPayment.
+     * @example
+     * // Delete one AdmissionPayment
+     * const AdmissionPayment = await prisma.admissionPayment.delete({
+     *   where: {
+     *     // ... filter to delete one AdmissionPayment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AdmissionPaymentDeleteArgs>(args: SelectSubset<T, AdmissionPaymentDeleteArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AdmissionPayment.
+     * @param {AdmissionPaymentUpdateArgs} args - Arguments to update one AdmissionPayment.
+     * @example
+     * // Update one AdmissionPayment
+     * const admissionPayment = await prisma.admissionPayment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AdmissionPaymentUpdateArgs>(args: SelectSubset<T, AdmissionPaymentUpdateArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AdmissionPayments.
+     * @param {AdmissionPaymentDeleteManyArgs} args - Arguments to filter AdmissionPayments to delete.
+     * @example
+     * // Delete a few AdmissionPayments
+     * const { count } = await prisma.admissionPayment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AdmissionPaymentDeleteManyArgs>(args?: SelectSubset<T, AdmissionPaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AdmissionPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionPaymentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AdmissionPayments
+     * const admissionPayment = await prisma.admissionPayment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AdmissionPaymentUpdateManyArgs>(args: SelectSubset<T, AdmissionPaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one AdmissionPayment.
+     * @param {AdmissionPaymentUpsertArgs} args - Arguments to update or create a AdmissionPayment.
+     * @example
+     * // Update or create a AdmissionPayment
+     * const admissionPayment = await prisma.admissionPayment.upsert({
+     *   create: {
+     *     // ... data to create a AdmissionPayment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AdmissionPayment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AdmissionPaymentUpsertArgs>(args: SelectSubset<T, AdmissionPaymentUpsertArgs<ExtArgs>>): Prisma__AdmissionPaymentClient<$Result.GetResult<Prisma.$AdmissionPaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AdmissionPayments that matches the filter.
+     * @param {AdmissionPaymentFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const admissionPayment = await prisma.admissionPayment.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: AdmissionPaymentFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a AdmissionPayment.
+     * @param {AdmissionPaymentAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const admissionPayment = await prisma.admissionPayment.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: AdmissionPaymentAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of AdmissionPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionPaymentCountArgs} args - Arguments to filter AdmissionPayments to count.
+     * @example
+     * // Count the number of AdmissionPayments
+     * const count = await prisma.admissionPayment.count({
+     *   where: {
+     *     // ... the filter for the AdmissionPayments we want to count
+     *   }
+     * })
+    **/
+    count<T extends AdmissionPaymentCountArgs>(
+      args?: Subset<T, AdmissionPaymentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdmissionPaymentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AdmissionPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionPaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdmissionPaymentAggregateArgs>(args: Subset<T, AdmissionPaymentAggregateArgs>): Prisma.PrismaPromise<GetAdmissionPaymentAggregateType<T>>
+
+    /**
+     * Group by AdmissionPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdmissionPaymentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AdmissionPaymentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AdmissionPaymentGroupByArgs['orderBy'] }
+        : { orderBy?: AdmissionPaymentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AdmissionPaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdmissionPaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AdmissionPayment model
+   */
+  readonly fields: AdmissionPaymentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AdmissionPayment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AdmissionPaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    student<T extends StudentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StudentDefaultArgs<ExtArgs>>): Prisma__StudentClient<$Result.GetResult<Prisma.$StudentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AdmissionPayment model
+   */
+  interface AdmissionPaymentFieldRefs {
+    readonly id: FieldRef<"AdmissionPayment", 'String'>
+    readonly className: FieldRef<"AdmissionPayment", 'String'>
+    readonly amount: FieldRef<"AdmissionPayment", 'Int'>
+    readonly method: FieldRef<"AdmissionPayment", 'String'>
+    readonly status: FieldRef<"AdmissionPayment", 'String'>
+    readonly paymentStatus: FieldRef<"AdmissionPayment", 'String'>
+    readonly session: FieldRef<"AdmissionPayment", 'String'>
+    readonly month: FieldRef<"AdmissionPayment", 'String'>
+    readonly paidAt: FieldRef<"AdmissionPayment", 'DateTime'>
+    readonly studentId: FieldRef<"AdmissionPayment", 'String'>
+    readonly createdAt: FieldRef<"AdmissionPayment", 'DateTime'>
+    readonly updatedAt: FieldRef<"AdmissionPayment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AdmissionPayment findUnique
+   */
+  export type AdmissionPaymentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which AdmissionPayment to fetch.
+     */
+    where: AdmissionPaymentWhereUniqueInput
+  }
+
+  /**
+   * AdmissionPayment findUniqueOrThrow
+   */
+  export type AdmissionPaymentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which AdmissionPayment to fetch.
+     */
+    where: AdmissionPaymentWhereUniqueInput
+  }
+
+  /**
+   * AdmissionPayment findFirst
+   */
+  export type AdmissionPaymentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which AdmissionPayment to fetch.
+     */
+    where?: AdmissionPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionPayments to fetch.
+     */
+    orderBy?: AdmissionPaymentOrderByWithRelationInput | AdmissionPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdmissionPayments.
+     */
+    cursor?: AdmissionPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdmissionPayments.
+     */
+    distinct?: AdmissionPaymentScalarFieldEnum | AdmissionPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * AdmissionPayment findFirstOrThrow
+   */
+  export type AdmissionPaymentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which AdmissionPayment to fetch.
+     */
+    where?: AdmissionPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionPayments to fetch.
+     */
+    orderBy?: AdmissionPaymentOrderByWithRelationInput | AdmissionPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AdmissionPayments.
+     */
+    cursor?: AdmissionPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AdmissionPayments.
+     */
+    distinct?: AdmissionPaymentScalarFieldEnum | AdmissionPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * AdmissionPayment findMany
+   */
+  export type AdmissionPaymentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which AdmissionPayments to fetch.
+     */
+    where?: AdmissionPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AdmissionPayments to fetch.
+     */
+    orderBy?: AdmissionPaymentOrderByWithRelationInput | AdmissionPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AdmissionPayments.
+     */
+    cursor?: AdmissionPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AdmissionPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AdmissionPayments.
+     */
+    skip?: number
+    distinct?: AdmissionPaymentScalarFieldEnum | AdmissionPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * AdmissionPayment create
+   */
+  export type AdmissionPaymentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AdmissionPayment.
+     */
+    data: XOR<AdmissionPaymentCreateInput, AdmissionPaymentUncheckedCreateInput>
+  }
+
+  /**
+   * AdmissionPayment createMany
+   */
+  export type AdmissionPaymentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AdmissionPayments.
+     */
+    data: AdmissionPaymentCreateManyInput | AdmissionPaymentCreateManyInput[]
+  }
+
+  /**
+   * AdmissionPayment update
+   */
+  export type AdmissionPaymentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AdmissionPayment.
+     */
+    data: XOR<AdmissionPaymentUpdateInput, AdmissionPaymentUncheckedUpdateInput>
+    /**
+     * Choose, which AdmissionPayment to update.
+     */
+    where: AdmissionPaymentWhereUniqueInput
+  }
+
+  /**
+   * AdmissionPayment updateMany
+   */
+  export type AdmissionPaymentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AdmissionPayments.
+     */
+    data: XOR<AdmissionPaymentUpdateManyMutationInput, AdmissionPaymentUncheckedUpdateManyInput>
+    /**
+     * Filter which AdmissionPayments to update
+     */
+    where?: AdmissionPaymentWhereInput
+    /**
+     * Limit how many AdmissionPayments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdmissionPayment upsert
+   */
+  export type AdmissionPaymentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AdmissionPayment to update in case it exists.
+     */
+    where: AdmissionPaymentWhereUniqueInput
+    /**
+     * In case the AdmissionPayment found by the `where` argument doesn't exist, create a new AdmissionPayment with this data.
+     */
+    create: XOR<AdmissionPaymentCreateInput, AdmissionPaymentUncheckedCreateInput>
+    /**
+     * In case the AdmissionPayment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AdmissionPaymentUpdateInput, AdmissionPaymentUncheckedUpdateInput>
+  }
+
+  /**
+   * AdmissionPayment delete
+   */
+  export type AdmissionPaymentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+    /**
+     * Filter which AdmissionPayment to delete.
+     */
+    where: AdmissionPaymentWhereUniqueInput
+  }
+
+  /**
+   * AdmissionPayment deleteMany
+   */
+  export type AdmissionPaymentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AdmissionPayments to delete
+     */
+    where?: AdmissionPaymentWhereInput
+    /**
+     * Limit how many AdmissionPayments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AdmissionPayment findRaw
+   */
+  export type AdmissionPaymentFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * AdmissionPayment aggregateRaw
+   */
+  export type AdmissionPaymentAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * AdmissionPayment without action
+   */
+  export type AdmissionPaymentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AdmissionPayment
+     */
+    select?: AdmissionPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AdmissionPayment
+     */
+    omit?: AdmissionPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AdmissionPaymentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SalaryPayment
+   */
+
+  export type AggregateSalaryPayment = {
+    _count: SalaryPaymentCountAggregateOutputType | null
+    _avg: SalaryPaymentAvgAggregateOutputType | null
+    _sum: SalaryPaymentSumAggregateOutputType | null
+    _min: SalaryPaymentMinAggregateOutputType | null
+    _max: SalaryPaymentMaxAggregateOutputType | null
+  }
+
+  export type SalaryPaymentAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type SalaryPaymentSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type SalaryPaymentMinAggregateOutputType = {
+    id: string | null
+    transactionId: string | null
+    amount: number | null
+    session: string | null
+    month: string | null
+    className: string | null
+    method: string | null
+    status: string | null
+    paymentStatus: string | null
+    note: string | null
+    paidAt: Date | null
+    studentId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SalaryPaymentMaxAggregateOutputType = {
+    id: string | null
+    transactionId: string | null
+    amount: number | null
+    session: string | null
+    month: string | null
+    className: string | null
+    method: string | null
+    status: string | null
+    paymentStatus: string | null
+    note: string | null
+    paidAt: Date | null
+    studentId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SalaryPaymentCountAggregateOutputType = {
+    id: number
+    transactionId: number
+    amount: number
+    session: number
+    month: number
+    className: number
+    method: number
+    status: number
+    paymentStatus: number
+    note: number
+    paidAt: number
+    studentId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SalaryPaymentAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type SalaryPaymentSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type SalaryPaymentMinAggregateInputType = {
+    id?: true
+    transactionId?: true
+    amount?: true
+    session?: true
+    month?: true
+    className?: true
+    method?: true
+    status?: true
+    paymentStatus?: true
+    note?: true
+    paidAt?: true
+    studentId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SalaryPaymentMaxAggregateInputType = {
+    id?: true
+    transactionId?: true
+    amount?: true
+    session?: true
+    month?: true
+    className?: true
+    method?: true
+    status?: true
+    paymentStatus?: true
+    note?: true
+    paidAt?: true
+    studentId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SalaryPaymentCountAggregateInputType = {
+    id?: true
+    transactionId?: true
+    amount?: true
+    session?: true
+    month?: true
+    className?: true
+    method?: true
+    status?: true
+    paymentStatus?: true
+    note?: true
+    paidAt?: true
+    studentId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SalaryPaymentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SalaryPayment to aggregate.
+     */
+    where?: SalaryPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryPayments to fetch.
+     */
+    orderBy?: SalaryPaymentOrderByWithRelationInput | SalaryPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SalaryPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SalaryPayments
+    **/
+    _count?: true | SalaryPaymentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SalaryPaymentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SalaryPaymentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SalaryPaymentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SalaryPaymentMaxAggregateInputType
+  }
+
+  export type GetSalaryPaymentAggregateType<T extends SalaryPaymentAggregateArgs> = {
+        [P in keyof T & keyof AggregateSalaryPayment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSalaryPayment[P]>
+      : GetScalarType<T[P], AggregateSalaryPayment[P]>
+  }
+
+
+
+
+  export type SalaryPaymentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SalaryPaymentWhereInput
+    orderBy?: SalaryPaymentOrderByWithAggregationInput | SalaryPaymentOrderByWithAggregationInput[]
+    by: SalaryPaymentScalarFieldEnum[] | SalaryPaymentScalarFieldEnum
+    having?: SalaryPaymentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SalaryPaymentCountAggregateInputType | true
+    _avg?: SalaryPaymentAvgAggregateInputType
+    _sum?: SalaryPaymentSumAggregateInputType
+    _min?: SalaryPaymentMinAggregateInputType
+    _max?: SalaryPaymentMaxAggregateInputType
+  }
+
+  export type SalaryPaymentGroupByOutputType = {
+    id: string
+    transactionId: string | null
+    amount: number
+    session: string
+    month: string
+    className: string
+    method: string | null
+    status: string
+    paymentStatus: string
+    note: string | null
+    paidAt: Date | null
+    studentId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: SalaryPaymentCountAggregateOutputType | null
+    _avg: SalaryPaymentAvgAggregateOutputType | null
+    _sum: SalaryPaymentSumAggregateOutputType | null
+    _min: SalaryPaymentMinAggregateOutputType | null
+    _max: SalaryPaymentMaxAggregateOutputType | null
+  }
+
+  type GetSalaryPaymentGroupByPayload<T extends SalaryPaymentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SalaryPaymentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SalaryPaymentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SalaryPaymentGroupByOutputType[P]>
+            : GetScalarType<T[P], SalaryPaymentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SalaryPaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    transactionId?: boolean
+    amount?: boolean
+    session?: boolean
+    month?: boolean
+    className?: boolean
+    method?: boolean
+    status?: boolean
+    paymentStatus?: boolean
+    note?: boolean
+    paidAt?: boolean
+    studentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    student?: boolean | StudentDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["salaryPayment"]>
+
+
+
+  export type SalaryPaymentSelectScalar = {
+    id?: boolean
+    transactionId?: boolean
+    amount?: boolean
+    session?: boolean
+    month?: boolean
+    className?: boolean
+    method?: boolean
+    status?: boolean
+    paymentStatus?: boolean
+    note?: boolean
+    paidAt?: boolean
+    studentId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SalaryPaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "transactionId" | "amount" | "session" | "month" | "className" | "method" | "status" | "paymentStatus" | "note" | "paidAt" | "studentId" | "createdAt" | "updatedAt", ExtArgs["result"]["salaryPayment"]>
+  export type SalaryPaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    student?: boolean | StudentDefaultArgs<ExtArgs>
+  }
+
+  export type $SalaryPaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SalaryPayment"
+    objects: {
+      student: Prisma.$StudentPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      transactionId: string | null
+      amount: number
+      session: string
+      month: string
+      className: string
+      method: string | null
+      status: string
+      paymentStatus: string
+      note: string | null
+      paidAt: Date | null
+      studentId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["salaryPayment"]>
+    composites: {}
+  }
+
+  type SalaryPaymentGetPayload<S extends boolean | null | undefined | SalaryPaymentDefaultArgs> = $Result.GetResult<Prisma.$SalaryPaymentPayload, S>
+
+  type SalaryPaymentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SalaryPaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SalaryPaymentCountAggregateInputType | true
+    }
+
+  export interface SalaryPaymentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SalaryPayment'], meta: { name: 'SalaryPayment' } }
+    /**
+     * Find zero or one SalaryPayment that matches the filter.
+     * @param {SalaryPaymentFindUniqueArgs} args - Arguments to find a SalaryPayment
+     * @example
+     * // Get one SalaryPayment
+     * const salaryPayment = await prisma.salaryPayment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SalaryPaymentFindUniqueArgs>(args: SelectSubset<T, SalaryPaymentFindUniqueArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SalaryPayment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SalaryPaymentFindUniqueOrThrowArgs} args - Arguments to find a SalaryPayment
+     * @example
+     * // Get one SalaryPayment
+     * const salaryPayment = await prisma.salaryPayment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SalaryPaymentFindUniqueOrThrowArgs>(args: SelectSubset<T, SalaryPaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SalaryPayment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryPaymentFindFirstArgs} args - Arguments to find a SalaryPayment
+     * @example
+     * // Get one SalaryPayment
+     * const salaryPayment = await prisma.salaryPayment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SalaryPaymentFindFirstArgs>(args?: SelectSubset<T, SalaryPaymentFindFirstArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SalaryPayment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryPaymentFindFirstOrThrowArgs} args - Arguments to find a SalaryPayment
+     * @example
+     * // Get one SalaryPayment
+     * const salaryPayment = await prisma.salaryPayment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SalaryPaymentFindFirstOrThrowArgs>(args?: SelectSubset<T, SalaryPaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SalaryPayments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryPaymentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SalaryPayments
+     * const salaryPayments = await prisma.salaryPayment.findMany()
+     * 
+     * // Get first 10 SalaryPayments
+     * const salaryPayments = await prisma.salaryPayment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const salaryPaymentWithIdOnly = await prisma.salaryPayment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SalaryPaymentFindManyArgs>(args?: SelectSubset<T, SalaryPaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SalaryPayment.
+     * @param {SalaryPaymentCreateArgs} args - Arguments to create a SalaryPayment.
+     * @example
+     * // Create one SalaryPayment
+     * const SalaryPayment = await prisma.salaryPayment.create({
+     *   data: {
+     *     // ... data to create a SalaryPayment
+     *   }
+     * })
+     * 
+     */
+    create<T extends SalaryPaymentCreateArgs>(args: SelectSubset<T, SalaryPaymentCreateArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SalaryPayments.
+     * @param {SalaryPaymentCreateManyArgs} args - Arguments to create many SalaryPayments.
+     * @example
+     * // Create many SalaryPayments
+     * const salaryPayment = await prisma.salaryPayment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SalaryPaymentCreateManyArgs>(args?: SelectSubset<T, SalaryPaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a SalaryPayment.
+     * @param {SalaryPaymentDeleteArgs} args - Arguments to delete one SalaryPayment.
+     * @example
+     * // Delete one SalaryPayment
+     * const SalaryPayment = await prisma.salaryPayment.delete({
+     *   where: {
+     *     // ... filter to delete one SalaryPayment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SalaryPaymentDeleteArgs>(args: SelectSubset<T, SalaryPaymentDeleteArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SalaryPayment.
+     * @param {SalaryPaymentUpdateArgs} args - Arguments to update one SalaryPayment.
+     * @example
+     * // Update one SalaryPayment
+     * const salaryPayment = await prisma.salaryPayment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SalaryPaymentUpdateArgs>(args: SelectSubset<T, SalaryPaymentUpdateArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SalaryPayments.
+     * @param {SalaryPaymentDeleteManyArgs} args - Arguments to filter SalaryPayments to delete.
+     * @example
+     * // Delete a few SalaryPayments
+     * const { count } = await prisma.salaryPayment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SalaryPaymentDeleteManyArgs>(args?: SelectSubset<T, SalaryPaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SalaryPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryPaymentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SalaryPayments
+     * const salaryPayment = await prisma.salaryPayment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SalaryPaymentUpdateManyArgs>(args: SelectSubset<T, SalaryPaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one SalaryPayment.
+     * @param {SalaryPaymentUpsertArgs} args - Arguments to update or create a SalaryPayment.
+     * @example
+     * // Update or create a SalaryPayment
+     * const salaryPayment = await prisma.salaryPayment.upsert({
+     *   create: {
+     *     // ... data to create a SalaryPayment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SalaryPayment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SalaryPaymentUpsertArgs>(args: SelectSubset<T, SalaryPaymentUpsertArgs<ExtArgs>>): Prisma__SalaryPaymentClient<$Result.GetResult<Prisma.$SalaryPaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SalaryPayments that matches the filter.
+     * @param {SalaryPaymentFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const salaryPayment = await prisma.salaryPayment.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: SalaryPaymentFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a SalaryPayment.
+     * @param {SalaryPaymentAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const salaryPayment = await prisma.salaryPayment.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: SalaryPaymentAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of SalaryPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryPaymentCountArgs} args - Arguments to filter SalaryPayments to count.
+     * @example
+     * // Count the number of SalaryPayments
+     * const count = await prisma.salaryPayment.count({
+     *   where: {
+     *     // ... the filter for the SalaryPayments we want to count
+     *   }
+     * })
+    **/
+    count<T extends SalaryPaymentCountArgs>(
+      args?: Subset<T, SalaryPaymentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SalaryPaymentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SalaryPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryPaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SalaryPaymentAggregateArgs>(args: Subset<T, SalaryPaymentAggregateArgs>): Prisma.PrismaPromise<GetSalaryPaymentAggregateType<T>>
+
+    /**
+     * Group by SalaryPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalaryPaymentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SalaryPaymentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SalaryPaymentGroupByArgs['orderBy'] }
+        : { orderBy?: SalaryPaymentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SalaryPaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSalaryPaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SalaryPayment model
+   */
+  readonly fields: SalaryPaymentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SalaryPayment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SalaryPaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    student<T extends StudentDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StudentDefaultArgs<ExtArgs>>): Prisma__StudentClient<$Result.GetResult<Prisma.$StudentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SalaryPayment model
+   */
+  interface SalaryPaymentFieldRefs {
+    readonly id: FieldRef<"SalaryPayment", 'String'>
+    readonly transactionId: FieldRef<"SalaryPayment", 'String'>
+    readonly amount: FieldRef<"SalaryPayment", 'Int'>
+    readonly session: FieldRef<"SalaryPayment", 'String'>
+    readonly month: FieldRef<"SalaryPayment", 'String'>
+    readonly className: FieldRef<"SalaryPayment", 'String'>
+    readonly method: FieldRef<"SalaryPayment", 'String'>
+    readonly status: FieldRef<"SalaryPayment", 'String'>
+    readonly paymentStatus: FieldRef<"SalaryPayment", 'String'>
+    readonly note: FieldRef<"SalaryPayment", 'String'>
+    readonly paidAt: FieldRef<"SalaryPayment", 'DateTime'>
+    readonly studentId: FieldRef<"SalaryPayment", 'String'>
+    readonly createdAt: FieldRef<"SalaryPayment", 'DateTime'>
+    readonly updatedAt: FieldRef<"SalaryPayment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SalaryPayment findUnique
+   */
+  export type SalaryPaymentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which SalaryPayment to fetch.
+     */
+    where: SalaryPaymentWhereUniqueInput
+  }
+
+  /**
+   * SalaryPayment findUniqueOrThrow
+   */
+  export type SalaryPaymentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which SalaryPayment to fetch.
+     */
+    where: SalaryPaymentWhereUniqueInput
+  }
+
+  /**
+   * SalaryPayment findFirst
+   */
+  export type SalaryPaymentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which SalaryPayment to fetch.
+     */
+    where?: SalaryPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryPayments to fetch.
+     */
+    orderBy?: SalaryPaymentOrderByWithRelationInput | SalaryPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SalaryPayments.
+     */
+    cursor?: SalaryPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SalaryPayments.
+     */
+    distinct?: SalaryPaymentScalarFieldEnum | SalaryPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * SalaryPayment findFirstOrThrow
+   */
+  export type SalaryPaymentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which SalaryPayment to fetch.
+     */
+    where?: SalaryPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryPayments to fetch.
+     */
+    orderBy?: SalaryPaymentOrderByWithRelationInput | SalaryPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SalaryPayments.
+     */
+    cursor?: SalaryPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SalaryPayments.
+     */
+    distinct?: SalaryPaymentScalarFieldEnum | SalaryPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * SalaryPayment findMany
+   */
+  export type SalaryPaymentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which SalaryPayments to fetch.
+     */
+    where?: SalaryPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SalaryPayments to fetch.
+     */
+    orderBy?: SalaryPaymentOrderByWithRelationInput | SalaryPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SalaryPayments.
+     */
+    cursor?: SalaryPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SalaryPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SalaryPayments.
+     */
+    skip?: number
+    distinct?: SalaryPaymentScalarFieldEnum | SalaryPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * SalaryPayment create
+   */
+  export type SalaryPaymentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SalaryPayment.
+     */
+    data: XOR<SalaryPaymentCreateInput, SalaryPaymentUncheckedCreateInput>
+  }
+
+  /**
+   * SalaryPayment createMany
+   */
+  export type SalaryPaymentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SalaryPayments.
+     */
+    data: SalaryPaymentCreateManyInput | SalaryPaymentCreateManyInput[]
+  }
+
+  /**
+   * SalaryPayment update
+   */
+  export type SalaryPaymentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SalaryPayment.
+     */
+    data: XOR<SalaryPaymentUpdateInput, SalaryPaymentUncheckedUpdateInput>
+    /**
+     * Choose, which SalaryPayment to update.
+     */
+    where: SalaryPaymentWhereUniqueInput
+  }
+
+  /**
+   * SalaryPayment updateMany
+   */
+  export type SalaryPaymentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SalaryPayments.
+     */
+    data: XOR<SalaryPaymentUpdateManyMutationInput, SalaryPaymentUncheckedUpdateManyInput>
+    /**
+     * Filter which SalaryPayments to update
+     */
+    where?: SalaryPaymentWhereInput
+    /**
+     * Limit how many SalaryPayments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SalaryPayment upsert
+   */
+  export type SalaryPaymentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SalaryPayment to update in case it exists.
+     */
+    where: SalaryPaymentWhereUniqueInput
+    /**
+     * In case the SalaryPayment found by the `where` argument doesn't exist, create a new SalaryPayment with this data.
+     */
+    create: XOR<SalaryPaymentCreateInput, SalaryPaymentUncheckedCreateInput>
+    /**
+     * In case the SalaryPayment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SalaryPaymentUpdateInput, SalaryPaymentUncheckedUpdateInput>
+  }
+
+  /**
+   * SalaryPayment delete
+   */
+  export type SalaryPaymentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+    /**
+     * Filter which SalaryPayment to delete.
+     */
+    where: SalaryPaymentWhereUniqueInput
+  }
+
+  /**
+   * SalaryPayment deleteMany
+   */
+  export type SalaryPaymentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SalaryPayments to delete
+     */
+    where?: SalaryPaymentWhereInput
+    /**
+     * Limit how many SalaryPayments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SalaryPayment findRaw
+   */
+  export type SalaryPaymentFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * SalaryPayment aggregateRaw
+   */
+  export type SalaryPaymentAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * SalaryPayment without action
+   */
+  export type SalaryPaymentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalaryPayment
+     */
+    select?: SalaryPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalaryPayment
+     */
+    omit?: SalaryPaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalaryPaymentInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -8768,7 +11293,7 @@ export namespace Prisma {
     isPresent: 'isPresent',
     leftReason: 'leftReason',
     admissionFee: 'admissionFee',
-    salary: 'salary',
+    salaryFee: 'salaryFee',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -8797,6 +11322,44 @@ export namespace Prisma {
   };
 
   export type SalaryFeeScalarFieldEnum = (typeof SalaryFeeScalarFieldEnum)[keyof typeof SalaryFeeScalarFieldEnum]
+
+
+  export const AdmissionPaymentScalarFieldEnum: {
+    id: 'id',
+    className: 'className',
+    amount: 'amount',
+    method: 'method',
+    status: 'status',
+    paymentStatus: 'paymentStatus',
+    session: 'session',
+    month: 'month',
+    paidAt: 'paidAt',
+    studentId: 'studentId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AdmissionPaymentScalarFieldEnum = (typeof AdmissionPaymentScalarFieldEnum)[keyof typeof AdmissionPaymentScalarFieldEnum]
+
+
+  export const SalaryPaymentScalarFieldEnum: {
+    id: 'id',
+    transactionId: 'transactionId',
+    amount: 'amount',
+    session: 'session',
+    month: 'month',
+    className: 'className',
+    method: 'method',
+    status: 'status',
+    paymentStatus: 'paymentStatus',
+    note: 'note',
+    paidAt: 'paidAt',
+    studentId: 'studentId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SalaryPaymentScalarFieldEnum = (typeof SalaryPaymentScalarFieldEnum)[keyof typeof SalaryPaymentScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -9191,9 +11754,11 @@ export namespace Prisma {
     isPresent?: BoolFilter<"Student"> | boolean
     leftReason?: StringNullableFilter<"Student"> | string | null
     admissionFee?: IntFilter<"Student"> | number
-    salary?: IntFilter<"Student"> | number
+    salaryFee?: IntFilter<"Student"> | number
     createdAt?: DateTimeFilter<"Student"> | Date | string
     updatedAt?: DateTimeFilter<"Student"> | Date | string
+    admissionPayments?: AdmissionPaymentListRelationFilter
+    salaryPayments?: SalaryPaymentListRelationFilter
   }
 
   export type StudentOrderByWithRelationInput = {
@@ -9228,9 +11793,11 @@ export namespace Prisma {
     isPresent?: SortOrder
     leftReason?: SortOrder
     admissionFee?: SortOrder
-    salary?: SortOrder
+    salaryFee?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    admissionPayments?: AdmissionPaymentOrderByRelationAggregateInput
+    salaryPayments?: SalaryPaymentOrderByRelationAggregateInput
   }
 
   export type StudentWhereUniqueInput = Prisma.AtLeast<{
@@ -9268,9 +11835,11 @@ export namespace Prisma {
     isPresent?: BoolFilter<"Student"> | boolean
     leftReason?: StringNullableFilter<"Student"> | string | null
     admissionFee?: IntFilter<"Student"> | number
-    salary?: IntFilter<"Student"> | number
+    salaryFee?: IntFilter<"Student"> | number
     createdAt?: DateTimeFilter<"Student"> | Date | string
     updatedAt?: DateTimeFilter<"Student"> | Date | string
+    admissionPayments?: AdmissionPaymentListRelationFilter
+    salaryPayments?: SalaryPaymentListRelationFilter
   }, "id">
 
   export type StudentOrderByWithAggregationInput = {
@@ -9305,7 +11874,7 @@ export namespace Prisma {
     isPresent?: SortOrder
     leftReason?: SortOrder
     admissionFee?: SortOrder
-    salary?: SortOrder
+    salaryFee?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: StudentCountOrderByAggregateInput
@@ -9350,7 +11919,7 @@ export namespace Prisma {
     isPresent?: BoolWithAggregatesFilter<"Student"> | boolean
     leftReason?: StringNullableWithAggregatesFilter<"Student"> | string | null
     admissionFee?: IntWithAggregatesFilter<"Student"> | number
-    salary?: IntWithAggregatesFilter<"Student"> | number
+    salaryFee?: IntWithAggregatesFilter<"Student"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Student"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Student"> | Date | string
   }
@@ -9466,6 +12035,200 @@ export namespace Prisma {
     amount?: IntWithAggregatesFilter<"SalaryFee"> | number
     createdAt?: DateTimeWithAggregatesFilter<"SalaryFee"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"SalaryFee"> | Date | string
+  }
+
+  export type AdmissionPaymentWhereInput = {
+    AND?: AdmissionPaymentWhereInput | AdmissionPaymentWhereInput[]
+    OR?: AdmissionPaymentWhereInput[]
+    NOT?: AdmissionPaymentWhereInput | AdmissionPaymentWhereInput[]
+    id?: StringFilter<"AdmissionPayment"> | string
+    className?: StringFilter<"AdmissionPayment"> | string
+    amount?: IntFilter<"AdmissionPayment"> | number
+    method?: StringFilter<"AdmissionPayment"> | string
+    status?: StringFilter<"AdmissionPayment"> | string
+    paymentStatus?: StringFilter<"AdmissionPayment"> | string
+    session?: StringFilter<"AdmissionPayment"> | string
+    month?: StringFilter<"AdmissionPayment"> | string
+    paidAt?: DateTimeNullableFilter<"AdmissionPayment"> | Date | string | null
+    studentId?: StringFilter<"AdmissionPayment"> | string
+    createdAt?: DateTimeFilter<"AdmissionPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"AdmissionPayment"> | Date | string
+    student?: XOR<StudentScalarRelationFilter, StudentWhereInput>
+  }
+
+  export type AdmissionPaymentOrderByWithRelationInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    student?: StudentOrderByWithRelationInput
+  }
+
+  export type AdmissionPaymentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AdmissionPaymentWhereInput | AdmissionPaymentWhereInput[]
+    OR?: AdmissionPaymentWhereInput[]
+    NOT?: AdmissionPaymentWhereInput | AdmissionPaymentWhereInput[]
+    className?: StringFilter<"AdmissionPayment"> | string
+    amount?: IntFilter<"AdmissionPayment"> | number
+    method?: StringFilter<"AdmissionPayment"> | string
+    status?: StringFilter<"AdmissionPayment"> | string
+    paymentStatus?: StringFilter<"AdmissionPayment"> | string
+    session?: StringFilter<"AdmissionPayment"> | string
+    month?: StringFilter<"AdmissionPayment"> | string
+    paidAt?: DateTimeNullableFilter<"AdmissionPayment"> | Date | string | null
+    studentId?: StringFilter<"AdmissionPayment"> | string
+    createdAt?: DateTimeFilter<"AdmissionPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"AdmissionPayment"> | Date | string
+    student?: XOR<StudentScalarRelationFilter, StudentWhereInput>
+  }, "id">
+
+  export type AdmissionPaymentOrderByWithAggregationInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AdmissionPaymentCountOrderByAggregateInput
+    _avg?: AdmissionPaymentAvgOrderByAggregateInput
+    _max?: AdmissionPaymentMaxOrderByAggregateInput
+    _min?: AdmissionPaymentMinOrderByAggregateInput
+    _sum?: AdmissionPaymentSumOrderByAggregateInput
+  }
+
+  export type AdmissionPaymentScalarWhereWithAggregatesInput = {
+    AND?: AdmissionPaymentScalarWhereWithAggregatesInput | AdmissionPaymentScalarWhereWithAggregatesInput[]
+    OR?: AdmissionPaymentScalarWhereWithAggregatesInput[]
+    NOT?: AdmissionPaymentScalarWhereWithAggregatesInput | AdmissionPaymentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    className?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    amount?: IntWithAggregatesFilter<"AdmissionPayment"> | number
+    method?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    status?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    paymentStatus?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    session?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    month?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    paidAt?: DateTimeNullableWithAggregatesFilter<"AdmissionPayment"> | Date | string | null
+    studentId?: StringWithAggregatesFilter<"AdmissionPayment"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"AdmissionPayment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"AdmissionPayment"> | Date | string
+  }
+
+  export type SalaryPaymentWhereInput = {
+    AND?: SalaryPaymentWhereInput | SalaryPaymentWhereInput[]
+    OR?: SalaryPaymentWhereInput[]
+    NOT?: SalaryPaymentWhereInput | SalaryPaymentWhereInput[]
+    id?: StringFilter<"SalaryPayment"> | string
+    transactionId?: StringNullableFilter<"SalaryPayment"> | string | null
+    amount?: IntFilter<"SalaryPayment"> | number
+    session?: StringFilter<"SalaryPayment"> | string
+    month?: StringFilter<"SalaryPayment"> | string
+    className?: StringFilter<"SalaryPayment"> | string
+    method?: StringNullableFilter<"SalaryPayment"> | string | null
+    status?: StringFilter<"SalaryPayment"> | string
+    paymentStatus?: StringFilter<"SalaryPayment"> | string
+    note?: StringNullableFilter<"SalaryPayment"> | string | null
+    paidAt?: DateTimeNullableFilter<"SalaryPayment"> | Date | string | null
+    studentId?: StringFilter<"SalaryPayment"> | string
+    createdAt?: DateTimeFilter<"SalaryPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"SalaryPayment"> | Date | string
+    student?: XOR<StudentScalarRelationFilter, StudentWhereInput>
+  }
+
+  export type SalaryPaymentOrderByWithRelationInput = {
+    id?: SortOrder
+    transactionId?: SortOrder
+    amount?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    className?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    note?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    student?: StudentOrderByWithRelationInput
+  }
+
+  export type SalaryPaymentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SalaryPaymentWhereInput | SalaryPaymentWhereInput[]
+    OR?: SalaryPaymentWhereInput[]
+    NOT?: SalaryPaymentWhereInput | SalaryPaymentWhereInput[]
+    transactionId?: StringNullableFilter<"SalaryPayment"> | string | null
+    amount?: IntFilter<"SalaryPayment"> | number
+    session?: StringFilter<"SalaryPayment"> | string
+    month?: StringFilter<"SalaryPayment"> | string
+    className?: StringFilter<"SalaryPayment"> | string
+    method?: StringNullableFilter<"SalaryPayment"> | string | null
+    status?: StringFilter<"SalaryPayment"> | string
+    paymentStatus?: StringFilter<"SalaryPayment"> | string
+    note?: StringNullableFilter<"SalaryPayment"> | string | null
+    paidAt?: DateTimeNullableFilter<"SalaryPayment"> | Date | string | null
+    studentId?: StringFilter<"SalaryPayment"> | string
+    createdAt?: DateTimeFilter<"SalaryPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"SalaryPayment"> | Date | string
+    student?: XOR<StudentScalarRelationFilter, StudentWhereInput>
+  }, "id">
+
+  export type SalaryPaymentOrderByWithAggregationInput = {
+    id?: SortOrder
+    transactionId?: SortOrder
+    amount?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    className?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    note?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SalaryPaymentCountOrderByAggregateInput
+    _avg?: SalaryPaymentAvgOrderByAggregateInput
+    _max?: SalaryPaymentMaxOrderByAggregateInput
+    _min?: SalaryPaymentMinOrderByAggregateInput
+    _sum?: SalaryPaymentSumOrderByAggregateInput
+  }
+
+  export type SalaryPaymentScalarWhereWithAggregatesInput = {
+    AND?: SalaryPaymentScalarWhereWithAggregatesInput | SalaryPaymentScalarWhereWithAggregatesInput[]
+    OR?: SalaryPaymentScalarWhereWithAggregatesInput[]
+    NOT?: SalaryPaymentScalarWhereWithAggregatesInput | SalaryPaymentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SalaryPayment"> | string
+    transactionId?: StringNullableWithAggregatesFilter<"SalaryPayment"> | string | null
+    amount?: IntWithAggregatesFilter<"SalaryPayment"> | number
+    session?: StringWithAggregatesFilter<"SalaryPayment"> | string
+    month?: StringWithAggregatesFilter<"SalaryPayment"> | string
+    className?: StringWithAggregatesFilter<"SalaryPayment"> | string
+    method?: StringNullableWithAggregatesFilter<"SalaryPayment"> | string | null
+    status?: StringWithAggregatesFilter<"SalaryPayment"> | string
+    paymentStatus?: StringWithAggregatesFilter<"SalaryPayment"> | string
+    note?: StringNullableWithAggregatesFilter<"SalaryPayment"> | string | null
+    paidAt?: DateTimeNullableWithAggregatesFilter<"SalaryPayment"> | Date | string | null
+    studentId?: StringWithAggregatesFilter<"SalaryPayment"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"SalaryPayment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SalaryPayment"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -9781,9 +12544,11 @@ export namespace Prisma {
     isPresent?: boolean
     leftReason?: string | null
     admissionFee: number
-    salary: number
+    salaryFee: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    admissionPayments?: AdmissionPaymentCreateNestedManyWithoutStudentInput
+    salaryPayments?: SalaryPaymentCreateNestedManyWithoutStudentInput
   }
 
   export type StudentUncheckedCreateInput = {
@@ -9818,9 +12583,11 @@ export namespace Prisma {
     isPresent?: boolean
     leftReason?: string | null
     admissionFee: number
-    salary: number
+    salaryFee: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    admissionPayments?: AdmissionPaymentUncheckedCreateNestedManyWithoutStudentInput
+    salaryPayments?: SalaryPaymentUncheckedCreateNestedManyWithoutStudentInput
   }
 
   export type StudentUpdateInput = {
@@ -9854,9 +12621,11 @@ export namespace Prisma {
     isPresent?: BoolFieldUpdateOperationsInput | boolean
     leftReason?: NullableStringFieldUpdateOperationsInput | string | null
     admissionFee?: IntFieldUpdateOperationsInput | number
-    salary?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    admissionPayments?: AdmissionPaymentUpdateManyWithoutStudentNestedInput
+    salaryPayments?: SalaryPaymentUpdateManyWithoutStudentNestedInput
   }
 
   export type StudentUncheckedUpdateInput = {
@@ -9890,9 +12659,11 @@ export namespace Prisma {
     isPresent?: BoolFieldUpdateOperationsInput | boolean
     leftReason?: NullableStringFieldUpdateOperationsInput | string | null
     admissionFee?: IntFieldUpdateOperationsInput | number
-    salary?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    admissionPayments?: AdmissionPaymentUncheckedUpdateManyWithoutStudentNestedInput
+    salaryPayments?: SalaryPaymentUncheckedUpdateManyWithoutStudentNestedInput
   }
 
   export type StudentCreateManyInput = {
@@ -9927,7 +12698,7 @@ export namespace Prisma {
     isPresent?: boolean
     leftReason?: string | null
     admissionFee: number
-    salary: number
+    salaryFee: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9963,7 +12734,7 @@ export namespace Prisma {
     isPresent?: BoolFieldUpdateOperationsInput | boolean
     leftReason?: NullableStringFieldUpdateOperationsInput | string | null
     admissionFee?: IntFieldUpdateOperationsInput | number
-    salary?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9999,7 +12770,7 @@ export namespace Prisma {
     isPresent?: BoolFieldUpdateOperationsInput | boolean
     leftReason?: NullableStringFieldUpdateOperationsInput | string | null
     admissionFee?: IntFieldUpdateOperationsInput | number
-    salary?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10111,6 +12882,220 @@ export namespace Prisma {
     className?: StringFieldUpdateOperationsInput | string
     group?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionPaymentCreateInput = {
+    id?: string
+    className: string
+    amount: number
+    method: string
+    status: string
+    paymentStatus?: string
+    session: string
+    month: string
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    student: StudentCreateNestedOneWithoutAdmissionPaymentsInput
+  }
+
+  export type AdmissionPaymentUncheckedCreateInput = {
+    id?: string
+    className: string
+    amount: number
+    method: string
+    status: string
+    paymentStatus?: string
+    session: string
+    month: string
+    paidAt?: Date | string | null
+    studentId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionPaymentUpdateInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    student?: StudentUpdateOneRequiredWithoutAdmissionPaymentsNestedInput
+  }
+
+  export type AdmissionPaymentUncheckedUpdateInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    studentId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionPaymentCreateManyInput = {
+    id?: string
+    className: string
+    amount: number
+    method: string
+    status: string
+    paymentStatus?: string
+    session: string
+    month: string
+    paidAt?: Date | string | null
+    studentId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionPaymentUpdateManyMutationInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionPaymentUncheckedUpdateManyInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    studentId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryPaymentCreateInput = {
+    id?: string
+    transactionId?: string | null
+    amount: number
+    session: string
+    month: string
+    className: string
+    method?: string | null
+    status: string
+    paymentStatus?: string
+    note?: string | null
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    student: StudentCreateNestedOneWithoutSalaryPaymentsInput
+  }
+
+  export type SalaryPaymentUncheckedCreateInput = {
+    id?: string
+    transactionId?: string | null
+    amount: number
+    session: string
+    month: string
+    className: string
+    method?: string | null
+    status: string
+    paymentStatus?: string
+    note?: string | null
+    paidAt?: Date | string | null
+    studentId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryPaymentUpdateInput = {
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    student?: StudentUpdateOneRequiredWithoutSalaryPaymentsNestedInput
+  }
+
+  export type SalaryPaymentUncheckedUpdateInput = {
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    studentId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryPaymentCreateManyInput = {
+    id?: string
+    transactionId?: string | null
+    amount: number
+    session: string
+    month: string
+    className: string
+    method?: string | null
+    status: string
+    paymentStatus?: string
+    note?: string | null
+    paidAt?: Date | string | null
+    studentId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryPaymentUpdateManyMutationInput = {
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryPaymentUncheckedUpdateManyInput = {
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    studentId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -10417,6 +13402,26 @@ export namespace Prisma {
     value?: SortOrder
   }
 
+  export type AdmissionPaymentListRelationFilter = {
+    every?: AdmissionPaymentWhereInput
+    some?: AdmissionPaymentWhereInput
+    none?: AdmissionPaymentWhereInput
+  }
+
+  export type SalaryPaymentListRelationFilter = {
+    every?: SalaryPaymentWhereInput
+    some?: SalaryPaymentWhereInput
+    none?: SalaryPaymentWhereInput
+  }
+
+  export type AdmissionPaymentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SalaryPaymentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type StudentCountOrderByAggregateInput = {
     id?: SortOrder
     session?: SortOrder
@@ -10449,7 +13454,7 @@ export namespace Prisma {
     isPresent?: SortOrder
     leftReason?: SortOrder
     admissionFee?: SortOrder
-    salary?: SortOrder
+    salaryFee?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10458,7 +13463,7 @@ export namespace Prisma {
     studentId?: SortOrder
     roll?: SortOrder
     admissionFee?: SortOrder
-    salary?: SortOrder
+    salaryFee?: SortOrder
   }
 
   export type StudentMaxOrderByAggregateInput = {
@@ -10493,7 +13498,7 @@ export namespace Prisma {
     isPresent?: SortOrder
     leftReason?: SortOrder
     admissionFee?: SortOrder
-    salary?: SortOrder
+    salaryFee?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10530,7 +13535,7 @@ export namespace Prisma {
     isPresent?: SortOrder
     leftReason?: SortOrder
     admissionFee?: SortOrder
-    salary?: SortOrder
+    salaryFee?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -10539,7 +13544,7 @@ export namespace Prisma {
     studentId?: SortOrder
     roll?: SortOrder
     admissionFee?: SortOrder
-    salary?: SortOrder
+    salaryFee?: SortOrder
   }
 
   export type AdmissionFeeCountOrderByAggregateInput = {
@@ -10606,6 +13611,150 @@ export namespace Prisma {
   }
 
   export type SalaryFeeSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+    isSet?: boolean
+  }
+
+  export type StudentScalarRelationFilter = {
+    is?: StudentWhereInput
+    isNot?: StudentWhereInput
+  }
+
+  export type AdmissionPaymentCountOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdmissionPaymentAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type AdmissionPaymentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdmissionPaymentMinOrderByAggregateInput = {
+    id?: SortOrder
+    className?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AdmissionPaymentSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    isSet?: boolean
+  }
+
+  export type SalaryPaymentCountOrderByAggregateInput = {
+    id?: SortOrder
+    transactionId?: SortOrder
+    amount?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    className?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    note?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalaryPaymentAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type SalaryPaymentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    transactionId?: SortOrder
+    amount?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    className?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    note?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalaryPaymentMinOrderByAggregateInput = {
+    id?: SortOrder
+    transactionId?: SortOrder
+    amount?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    className?: SortOrder
+    method?: SortOrder
+    status?: SortOrder
+    paymentStatus?: SortOrder
+    note?: SortOrder
+    paidAt?: SortOrder
+    studentId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalaryPaymentSumOrderByAggregateInput = {
     amount?: SortOrder
   }
 
@@ -10706,6 +13855,123 @@ export namespace Prisma {
     upsert?: HouseUpsertWithoutRoomsInput
     connect?: HouseWhereUniqueInput
     update?: XOR<XOR<HouseUpdateToOneWithWhereWithoutRoomsInput, HouseUpdateWithoutRoomsInput>, HouseUncheckedUpdateWithoutRoomsInput>
+  }
+
+  export type AdmissionPaymentCreateNestedManyWithoutStudentInput = {
+    create?: XOR<AdmissionPaymentCreateWithoutStudentInput, AdmissionPaymentUncheckedCreateWithoutStudentInput> | AdmissionPaymentCreateWithoutStudentInput[] | AdmissionPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AdmissionPaymentCreateOrConnectWithoutStudentInput | AdmissionPaymentCreateOrConnectWithoutStudentInput[]
+    createMany?: AdmissionPaymentCreateManyStudentInputEnvelope
+    connect?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+  }
+
+  export type SalaryPaymentCreateNestedManyWithoutStudentInput = {
+    create?: XOR<SalaryPaymentCreateWithoutStudentInput, SalaryPaymentUncheckedCreateWithoutStudentInput> | SalaryPaymentCreateWithoutStudentInput[] | SalaryPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: SalaryPaymentCreateOrConnectWithoutStudentInput | SalaryPaymentCreateOrConnectWithoutStudentInput[]
+    createMany?: SalaryPaymentCreateManyStudentInputEnvelope
+    connect?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+  }
+
+  export type AdmissionPaymentUncheckedCreateNestedManyWithoutStudentInput = {
+    create?: XOR<AdmissionPaymentCreateWithoutStudentInput, AdmissionPaymentUncheckedCreateWithoutStudentInput> | AdmissionPaymentCreateWithoutStudentInput[] | AdmissionPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AdmissionPaymentCreateOrConnectWithoutStudentInput | AdmissionPaymentCreateOrConnectWithoutStudentInput[]
+    createMany?: AdmissionPaymentCreateManyStudentInputEnvelope
+    connect?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+  }
+
+  export type SalaryPaymentUncheckedCreateNestedManyWithoutStudentInput = {
+    create?: XOR<SalaryPaymentCreateWithoutStudentInput, SalaryPaymentUncheckedCreateWithoutStudentInput> | SalaryPaymentCreateWithoutStudentInput[] | SalaryPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: SalaryPaymentCreateOrConnectWithoutStudentInput | SalaryPaymentCreateOrConnectWithoutStudentInput[]
+    createMany?: SalaryPaymentCreateManyStudentInputEnvelope
+    connect?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+  }
+
+  export type AdmissionPaymentUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<AdmissionPaymentCreateWithoutStudentInput, AdmissionPaymentUncheckedCreateWithoutStudentInput> | AdmissionPaymentCreateWithoutStudentInput[] | AdmissionPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AdmissionPaymentCreateOrConnectWithoutStudentInput | AdmissionPaymentCreateOrConnectWithoutStudentInput[]
+    upsert?: AdmissionPaymentUpsertWithWhereUniqueWithoutStudentInput | AdmissionPaymentUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: AdmissionPaymentCreateManyStudentInputEnvelope
+    set?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    disconnect?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    delete?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    connect?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    update?: AdmissionPaymentUpdateWithWhereUniqueWithoutStudentInput | AdmissionPaymentUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: AdmissionPaymentUpdateManyWithWhereWithoutStudentInput | AdmissionPaymentUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: AdmissionPaymentScalarWhereInput | AdmissionPaymentScalarWhereInput[]
+  }
+
+  export type SalaryPaymentUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<SalaryPaymentCreateWithoutStudentInput, SalaryPaymentUncheckedCreateWithoutStudentInput> | SalaryPaymentCreateWithoutStudentInput[] | SalaryPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: SalaryPaymentCreateOrConnectWithoutStudentInput | SalaryPaymentCreateOrConnectWithoutStudentInput[]
+    upsert?: SalaryPaymentUpsertWithWhereUniqueWithoutStudentInput | SalaryPaymentUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: SalaryPaymentCreateManyStudentInputEnvelope
+    set?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    disconnect?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    delete?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    connect?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    update?: SalaryPaymentUpdateWithWhereUniqueWithoutStudentInput | SalaryPaymentUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: SalaryPaymentUpdateManyWithWhereWithoutStudentInput | SalaryPaymentUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: SalaryPaymentScalarWhereInput | SalaryPaymentScalarWhereInput[]
+  }
+
+  export type AdmissionPaymentUncheckedUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<AdmissionPaymentCreateWithoutStudentInput, AdmissionPaymentUncheckedCreateWithoutStudentInput> | AdmissionPaymentCreateWithoutStudentInput[] | AdmissionPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: AdmissionPaymentCreateOrConnectWithoutStudentInput | AdmissionPaymentCreateOrConnectWithoutStudentInput[]
+    upsert?: AdmissionPaymentUpsertWithWhereUniqueWithoutStudentInput | AdmissionPaymentUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: AdmissionPaymentCreateManyStudentInputEnvelope
+    set?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    disconnect?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    delete?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    connect?: AdmissionPaymentWhereUniqueInput | AdmissionPaymentWhereUniqueInput[]
+    update?: AdmissionPaymentUpdateWithWhereUniqueWithoutStudentInput | AdmissionPaymentUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: AdmissionPaymentUpdateManyWithWhereWithoutStudentInput | AdmissionPaymentUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: AdmissionPaymentScalarWhereInput | AdmissionPaymentScalarWhereInput[]
+  }
+
+  export type SalaryPaymentUncheckedUpdateManyWithoutStudentNestedInput = {
+    create?: XOR<SalaryPaymentCreateWithoutStudentInput, SalaryPaymentUncheckedCreateWithoutStudentInput> | SalaryPaymentCreateWithoutStudentInput[] | SalaryPaymentUncheckedCreateWithoutStudentInput[]
+    connectOrCreate?: SalaryPaymentCreateOrConnectWithoutStudentInput | SalaryPaymentCreateOrConnectWithoutStudentInput[]
+    upsert?: SalaryPaymentUpsertWithWhereUniqueWithoutStudentInput | SalaryPaymentUpsertWithWhereUniqueWithoutStudentInput[]
+    createMany?: SalaryPaymentCreateManyStudentInputEnvelope
+    set?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    disconnect?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    delete?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    connect?: SalaryPaymentWhereUniqueInput | SalaryPaymentWhereUniqueInput[]
+    update?: SalaryPaymentUpdateWithWhereUniqueWithoutStudentInput | SalaryPaymentUpdateWithWhereUniqueWithoutStudentInput[]
+    updateMany?: SalaryPaymentUpdateManyWithWhereWithoutStudentInput | SalaryPaymentUpdateManyWithWhereWithoutStudentInput[]
+    deleteMany?: SalaryPaymentScalarWhereInput | SalaryPaymentScalarWhereInput[]
+  }
+
+  export type StudentCreateNestedOneWithoutAdmissionPaymentsInput = {
+    create?: XOR<StudentCreateWithoutAdmissionPaymentsInput, StudentUncheckedCreateWithoutAdmissionPaymentsInput>
+    connectOrCreate?: StudentCreateOrConnectWithoutAdmissionPaymentsInput
+    connect?: StudentWhereUniqueInput
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+    unset?: boolean
+  }
+
+  export type StudentUpdateOneRequiredWithoutAdmissionPaymentsNestedInput = {
+    create?: XOR<StudentCreateWithoutAdmissionPaymentsInput, StudentUncheckedCreateWithoutAdmissionPaymentsInput>
+    connectOrCreate?: StudentCreateOrConnectWithoutAdmissionPaymentsInput
+    upsert?: StudentUpsertWithoutAdmissionPaymentsInput
+    connect?: StudentWhereUniqueInput
+    update?: XOR<XOR<StudentUpdateToOneWithWhereWithoutAdmissionPaymentsInput, StudentUpdateWithoutAdmissionPaymentsInput>, StudentUncheckedUpdateWithoutAdmissionPaymentsInput>
+  }
+
+  export type StudentCreateNestedOneWithoutSalaryPaymentsInput = {
+    create?: XOR<StudentCreateWithoutSalaryPaymentsInput, StudentUncheckedCreateWithoutSalaryPaymentsInput>
+    connectOrCreate?: StudentCreateOrConnectWithoutSalaryPaymentsInput
+    connect?: StudentWhereUniqueInput
+  }
+
+  export type StudentUpdateOneRequiredWithoutSalaryPaymentsNestedInput = {
+    create?: XOR<StudentCreateWithoutSalaryPaymentsInput, StudentUncheckedCreateWithoutSalaryPaymentsInput>
+    connectOrCreate?: StudentCreateOrConnectWithoutSalaryPaymentsInput
+    upsert?: StudentUpsertWithoutSalaryPaymentsInput
+    connect?: StudentWhereUniqueInput
+    update?: XOR<XOR<StudentUpdateToOneWithWhereWithoutSalaryPaymentsInput, StudentUpdateWithoutSalaryPaymentsInput>, StudentUncheckedUpdateWithoutSalaryPaymentsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -10860,6 +14126,33 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+    isSet?: boolean
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    isSet?: boolean
+  }
+
   export type RoomCreateWithoutHouseInput = {
     id?: string
     name: string
@@ -10965,6 +14258,486 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type AdmissionPaymentCreateWithoutStudentInput = {
+    id?: string
+    className: string
+    amount: number
+    method: string
+    status: string
+    paymentStatus?: string
+    session: string
+    month: string
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionPaymentUncheckedCreateWithoutStudentInput = {
+    id?: string
+    className: string
+    amount: number
+    method: string
+    status: string
+    paymentStatus?: string
+    session: string
+    month: string
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionPaymentCreateOrConnectWithoutStudentInput = {
+    where: AdmissionPaymentWhereUniqueInput
+    create: XOR<AdmissionPaymentCreateWithoutStudentInput, AdmissionPaymentUncheckedCreateWithoutStudentInput>
+  }
+
+  export type AdmissionPaymentCreateManyStudentInputEnvelope = {
+    data: AdmissionPaymentCreateManyStudentInput | AdmissionPaymentCreateManyStudentInput[]
+  }
+
+  export type SalaryPaymentCreateWithoutStudentInput = {
+    id?: string
+    transactionId?: string | null
+    amount: number
+    session: string
+    month: string
+    className: string
+    method?: string | null
+    status: string
+    paymentStatus?: string
+    note?: string | null
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryPaymentUncheckedCreateWithoutStudentInput = {
+    id?: string
+    transactionId?: string | null
+    amount: number
+    session: string
+    month: string
+    className: string
+    method?: string | null
+    status: string
+    paymentStatus?: string
+    note?: string | null
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryPaymentCreateOrConnectWithoutStudentInput = {
+    where: SalaryPaymentWhereUniqueInput
+    create: XOR<SalaryPaymentCreateWithoutStudentInput, SalaryPaymentUncheckedCreateWithoutStudentInput>
+  }
+
+  export type SalaryPaymentCreateManyStudentInputEnvelope = {
+    data: SalaryPaymentCreateManyStudentInput | SalaryPaymentCreateManyStudentInput[]
+  }
+
+  export type AdmissionPaymentUpsertWithWhereUniqueWithoutStudentInput = {
+    where: AdmissionPaymentWhereUniqueInput
+    update: XOR<AdmissionPaymentUpdateWithoutStudentInput, AdmissionPaymentUncheckedUpdateWithoutStudentInput>
+    create: XOR<AdmissionPaymentCreateWithoutStudentInput, AdmissionPaymentUncheckedCreateWithoutStudentInput>
+  }
+
+  export type AdmissionPaymentUpdateWithWhereUniqueWithoutStudentInput = {
+    where: AdmissionPaymentWhereUniqueInput
+    data: XOR<AdmissionPaymentUpdateWithoutStudentInput, AdmissionPaymentUncheckedUpdateWithoutStudentInput>
+  }
+
+  export type AdmissionPaymentUpdateManyWithWhereWithoutStudentInput = {
+    where: AdmissionPaymentScalarWhereInput
+    data: XOR<AdmissionPaymentUpdateManyMutationInput, AdmissionPaymentUncheckedUpdateManyWithoutStudentInput>
+  }
+
+  export type AdmissionPaymentScalarWhereInput = {
+    AND?: AdmissionPaymentScalarWhereInput | AdmissionPaymentScalarWhereInput[]
+    OR?: AdmissionPaymentScalarWhereInput[]
+    NOT?: AdmissionPaymentScalarWhereInput | AdmissionPaymentScalarWhereInput[]
+    id?: StringFilter<"AdmissionPayment"> | string
+    className?: StringFilter<"AdmissionPayment"> | string
+    amount?: IntFilter<"AdmissionPayment"> | number
+    method?: StringFilter<"AdmissionPayment"> | string
+    status?: StringFilter<"AdmissionPayment"> | string
+    paymentStatus?: StringFilter<"AdmissionPayment"> | string
+    session?: StringFilter<"AdmissionPayment"> | string
+    month?: StringFilter<"AdmissionPayment"> | string
+    paidAt?: DateTimeNullableFilter<"AdmissionPayment"> | Date | string | null
+    studentId?: StringFilter<"AdmissionPayment"> | string
+    createdAt?: DateTimeFilter<"AdmissionPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"AdmissionPayment"> | Date | string
+  }
+
+  export type SalaryPaymentUpsertWithWhereUniqueWithoutStudentInput = {
+    where: SalaryPaymentWhereUniqueInput
+    update: XOR<SalaryPaymentUpdateWithoutStudentInput, SalaryPaymentUncheckedUpdateWithoutStudentInput>
+    create: XOR<SalaryPaymentCreateWithoutStudentInput, SalaryPaymentUncheckedCreateWithoutStudentInput>
+  }
+
+  export type SalaryPaymentUpdateWithWhereUniqueWithoutStudentInput = {
+    where: SalaryPaymentWhereUniqueInput
+    data: XOR<SalaryPaymentUpdateWithoutStudentInput, SalaryPaymentUncheckedUpdateWithoutStudentInput>
+  }
+
+  export type SalaryPaymentUpdateManyWithWhereWithoutStudentInput = {
+    where: SalaryPaymentScalarWhereInput
+    data: XOR<SalaryPaymentUpdateManyMutationInput, SalaryPaymentUncheckedUpdateManyWithoutStudentInput>
+  }
+
+  export type SalaryPaymentScalarWhereInput = {
+    AND?: SalaryPaymentScalarWhereInput | SalaryPaymentScalarWhereInput[]
+    OR?: SalaryPaymentScalarWhereInput[]
+    NOT?: SalaryPaymentScalarWhereInput | SalaryPaymentScalarWhereInput[]
+    id?: StringFilter<"SalaryPayment"> | string
+    transactionId?: StringNullableFilter<"SalaryPayment"> | string | null
+    amount?: IntFilter<"SalaryPayment"> | number
+    session?: StringFilter<"SalaryPayment"> | string
+    month?: StringFilter<"SalaryPayment"> | string
+    className?: StringFilter<"SalaryPayment"> | string
+    method?: StringNullableFilter<"SalaryPayment"> | string | null
+    status?: StringFilter<"SalaryPayment"> | string
+    paymentStatus?: StringFilter<"SalaryPayment"> | string
+    note?: StringNullableFilter<"SalaryPayment"> | string | null
+    paidAt?: DateTimeNullableFilter<"SalaryPayment"> | Date | string | null
+    studentId?: StringFilter<"SalaryPayment"> | string
+    createdAt?: DateTimeFilter<"SalaryPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"SalaryPayment"> | Date | string
+  }
+
+  export type StudentCreateWithoutAdmissionPaymentsInput = {
+    id?: string
+    session: string
+    studentId: number
+    name: string
+    nameBangla: string
+    fName: string
+    mName: string
+    gender: string
+    dob: Date | string
+    nationality: string
+    religion: string
+    imageUrl?: string | null
+    school: string
+    className: string
+    section?: string | null
+    shift?: string | null
+    group?: string | null
+    roll: number
+    fPhone: string
+    mPhone: string
+    presentHouseNo: string
+    presentMoholla: string
+    presentPost: string
+    presentThana: string
+    permanentVillage: string
+    permanentPost: string
+    permanentThana: string
+    permanentDistrict: string
+    isPresent?: boolean
+    leftReason?: string | null
+    admissionFee: number
+    salaryFee: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    salaryPayments?: SalaryPaymentCreateNestedManyWithoutStudentInput
+  }
+
+  export type StudentUncheckedCreateWithoutAdmissionPaymentsInput = {
+    id?: string
+    session: string
+    studentId: number
+    name: string
+    nameBangla: string
+    fName: string
+    mName: string
+    gender: string
+    dob: Date | string
+    nationality: string
+    religion: string
+    imageUrl?: string | null
+    school: string
+    className: string
+    section?: string | null
+    shift?: string | null
+    group?: string | null
+    roll: number
+    fPhone: string
+    mPhone: string
+    presentHouseNo: string
+    presentMoholla: string
+    presentPost: string
+    presentThana: string
+    permanentVillage: string
+    permanentPost: string
+    permanentThana: string
+    permanentDistrict: string
+    isPresent?: boolean
+    leftReason?: string | null
+    admissionFee: number
+    salaryFee: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    salaryPayments?: SalaryPaymentUncheckedCreateNestedManyWithoutStudentInput
+  }
+
+  export type StudentCreateOrConnectWithoutAdmissionPaymentsInput = {
+    where: StudentWhereUniqueInput
+    create: XOR<StudentCreateWithoutAdmissionPaymentsInput, StudentUncheckedCreateWithoutAdmissionPaymentsInput>
+  }
+
+  export type StudentUpsertWithoutAdmissionPaymentsInput = {
+    update: XOR<StudentUpdateWithoutAdmissionPaymentsInput, StudentUncheckedUpdateWithoutAdmissionPaymentsInput>
+    create: XOR<StudentCreateWithoutAdmissionPaymentsInput, StudentUncheckedCreateWithoutAdmissionPaymentsInput>
+    where?: StudentWhereInput
+  }
+
+  export type StudentUpdateToOneWithWhereWithoutAdmissionPaymentsInput = {
+    where?: StudentWhereInput
+    data: XOR<StudentUpdateWithoutAdmissionPaymentsInput, StudentUncheckedUpdateWithoutAdmissionPaymentsInput>
+  }
+
+  export type StudentUpdateWithoutAdmissionPaymentsInput = {
+    session?: StringFieldUpdateOperationsInput | string
+    studentId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    nameBangla?: StringFieldUpdateOperationsInput | string
+    fName?: StringFieldUpdateOperationsInput | string
+    mName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    nationality?: StringFieldUpdateOperationsInput | string
+    religion?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    school?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    section?: NullableStringFieldUpdateOperationsInput | string | null
+    shift?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    roll?: IntFieldUpdateOperationsInput | number
+    fPhone?: StringFieldUpdateOperationsInput | string
+    mPhone?: StringFieldUpdateOperationsInput | string
+    presentHouseNo?: StringFieldUpdateOperationsInput | string
+    presentMoholla?: StringFieldUpdateOperationsInput | string
+    presentPost?: StringFieldUpdateOperationsInput | string
+    presentThana?: StringFieldUpdateOperationsInput | string
+    permanentVillage?: StringFieldUpdateOperationsInput | string
+    permanentPost?: StringFieldUpdateOperationsInput | string
+    permanentThana?: StringFieldUpdateOperationsInput | string
+    permanentDistrict?: StringFieldUpdateOperationsInput | string
+    isPresent?: BoolFieldUpdateOperationsInput | boolean
+    leftReason?: NullableStringFieldUpdateOperationsInput | string | null
+    admissionFee?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    salaryPayments?: SalaryPaymentUpdateManyWithoutStudentNestedInput
+  }
+
+  export type StudentUncheckedUpdateWithoutAdmissionPaymentsInput = {
+    session?: StringFieldUpdateOperationsInput | string
+    studentId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    nameBangla?: StringFieldUpdateOperationsInput | string
+    fName?: StringFieldUpdateOperationsInput | string
+    mName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    nationality?: StringFieldUpdateOperationsInput | string
+    religion?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    school?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    section?: NullableStringFieldUpdateOperationsInput | string | null
+    shift?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    roll?: IntFieldUpdateOperationsInput | number
+    fPhone?: StringFieldUpdateOperationsInput | string
+    mPhone?: StringFieldUpdateOperationsInput | string
+    presentHouseNo?: StringFieldUpdateOperationsInput | string
+    presentMoholla?: StringFieldUpdateOperationsInput | string
+    presentPost?: StringFieldUpdateOperationsInput | string
+    presentThana?: StringFieldUpdateOperationsInput | string
+    permanentVillage?: StringFieldUpdateOperationsInput | string
+    permanentPost?: StringFieldUpdateOperationsInput | string
+    permanentThana?: StringFieldUpdateOperationsInput | string
+    permanentDistrict?: StringFieldUpdateOperationsInput | string
+    isPresent?: BoolFieldUpdateOperationsInput | boolean
+    leftReason?: NullableStringFieldUpdateOperationsInput | string | null
+    admissionFee?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    salaryPayments?: SalaryPaymentUncheckedUpdateManyWithoutStudentNestedInput
+  }
+
+  export type StudentCreateWithoutSalaryPaymentsInput = {
+    id?: string
+    session: string
+    studentId: number
+    name: string
+    nameBangla: string
+    fName: string
+    mName: string
+    gender: string
+    dob: Date | string
+    nationality: string
+    religion: string
+    imageUrl?: string | null
+    school: string
+    className: string
+    section?: string | null
+    shift?: string | null
+    group?: string | null
+    roll: number
+    fPhone: string
+    mPhone: string
+    presentHouseNo: string
+    presentMoholla: string
+    presentPost: string
+    presentThana: string
+    permanentVillage: string
+    permanentPost: string
+    permanentThana: string
+    permanentDistrict: string
+    isPresent?: boolean
+    leftReason?: string | null
+    admissionFee: number
+    salaryFee: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    admissionPayments?: AdmissionPaymentCreateNestedManyWithoutStudentInput
+  }
+
+  export type StudentUncheckedCreateWithoutSalaryPaymentsInput = {
+    id?: string
+    session: string
+    studentId: number
+    name: string
+    nameBangla: string
+    fName: string
+    mName: string
+    gender: string
+    dob: Date | string
+    nationality: string
+    religion: string
+    imageUrl?: string | null
+    school: string
+    className: string
+    section?: string | null
+    shift?: string | null
+    group?: string | null
+    roll: number
+    fPhone: string
+    mPhone: string
+    presentHouseNo: string
+    presentMoholla: string
+    presentPost: string
+    presentThana: string
+    permanentVillage: string
+    permanentPost: string
+    permanentThana: string
+    permanentDistrict: string
+    isPresent?: boolean
+    leftReason?: string | null
+    admissionFee: number
+    salaryFee: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    admissionPayments?: AdmissionPaymentUncheckedCreateNestedManyWithoutStudentInput
+  }
+
+  export type StudentCreateOrConnectWithoutSalaryPaymentsInput = {
+    where: StudentWhereUniqueInput
+    create: XOR<StudentCreateWithoutSalaryPaymentsInput, StudentUncheckedCreateWithoutSalaryPaymentsInput>
+  }
+
+  export type StudentUpsertWithoutSalaryPaymentsInput = {
+    update: XOR<StudentUpdateWithoutSalaryPaymentsInput, StudentUncheckedUpdateWithoutSalaryPaymentsInput>
+    create: XOR<StudentCreateWithoutSalaryPaymentsInput, StudentUncheckedCreateWithoutSalaryPaymentsInput>
+    where?: StudentWhereInput
+  }
+
+  export type StudentUpdateToOneWithWhereWithoutSalaryPaymentsInput = {
+    where?: StudentWhereInput
+    data: XOR<StudentUpdateWithoutSalaryPaymentsInput, StudentUncheckedUpdateWithoutSalaryPaymentsInput>
+  }
+
+  export type StudentUpdateWithoutSalaryPaymentsInput = {
+    session?: StringFieldUpdateOperationsInput | string
+    studentId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    nameBangla?: StringFieldUpdateOperationsInput | string
+    fName?: StringFieldUpdateOperationsInput | string
+    mName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    nationality?: StringFieldUpdateOperationsInput | string
+    religion?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    school?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    section?: NullableStringFieldUpdateOperationsInput | string | null
+    shift?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    roll?: IntFieldUpdateOperationsInput | number
+    fPhone?: StringFieldUpdateOperationsInput | string
+    mPhone?: StringFieldUpdateOperationsInput | string
+    presentHouseNo?: StringFieldUpdateOperationsInput | string
+    presentMoholla?: StringFieldUpdateOperationsInput | string
+    presentPost?: StringFieldUpdateOperationsInput | string
+    presentThana?: StringFieldUpdateOperationsInput | string
+    permanentVillage?: StringFieldUpdateOperationsInput | string
+    permanentPost?: StringFieldUpdateOperationsInput | string
+    permanentThana?: StringFieldUpdateOperationsInput | string
+    permanentDistrict?: StringFieldUpdateOperationsInput | string
+    isPresent?: BoolFieldUpdateOperationsInput | boolean
+    leftReason?: NullableStringFieldUpdateOperationsInput | string | null
+    admissionFee?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    admissionPayments?: AdmissionPaymentUpdateManyWithoutStudentNestedInput
+  }
+
+  export type StudentUncheckedUpdateWithoutSalaryPaymentsInput = {
+    session?: StringFieldUpdateOperationsInput | string
+    studentId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    nameBangla?: StringFieldUpdateOperationsInput | string
+    fName?: StringFieldUpdateOperationsInput | string
+    mName?: StringFieldUpdateOperationsInput | string
+    gender?: StringFieldUpdateOperationsInput | string
+    dob?: DateTimeFieldUpdateOperationsInput | Date | string
+    nationality?: StringFieldUpdateOperationsInput | string
+    religion?: StringFieldUpdateOperationsInput | string
+    imageUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    school?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    section?: NullableStringFieldUpdateOperationsInput | string | null
+    shift?: NullableStringFieldUpdateOperationsInput | string | null
+    group?: NullableStringFieldUpdateOperationsInput | string | null
+    roll?: IntFieldUpdateOperationsInput | number
+    fPhone?: StringFieldUpdateOperationsInput | string
+    mPhone?: StringFieldUpdateOperationsInput | string
+    presentHouseNo?: StringFieldUpdateOperationsInput | string
+    presentMoholla?: StringFieldUpdateOperationsInput | string
+    presentPost?: StringFieldUpdateOperationsInput | string
+    presentThana?: StringFieldUpdateOperationsInput | string
+    permanentVillage?: StringFieldUpdateOperationsInput | string
+    permanentPost?: StringFieldUpdateOperationsInput | string
+    permanentThana?: StringFieldUpdateOperationsInput | string
+    permanentDistrict?: StringFieldUpdateOperationsInput | string
+    isPresent?: BoolFieldUpdateOperationsInput | boolean
+    leftReason?: NullableStringFieldUpdateOperationsInput | string | null
+    admissionFee?: IntFieldUpdateOperationsInput | number
+    salaryFee?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    admissionPayments?: AdmissionPaymentUncheckedUpdateManyWithoutStudentNestedInput
+  }
+
   export type RoomCreateManyHouseInput = {
     id?: string
     name: string
@@ -10998,6 +14771,120 @@ export namespace Prisma {
     capacity?: IntFieldUpdateOperationsInput | number
     availableTimes?: RoomUpdateavailableTimesInput | string[]
     bookTimes?: RoomUpdatebookTimesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionPaymentCreateManyStudentInput = {
+    id?: string
+    className: string
+    amount: number
+    method: string
+    status: string
+    paymentStatus?: string
+    session: string
+    month: string
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalaryPaymentCreateManyStudentInput = {
+    id?: string
+    transactionId?: string | null
+    amount: number
+    session: string
+    month: string
+    className: string
+    method?: string | null
+    status: string
+    paymentStatus?: string
+    note?: string | null
+    paidAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AdmissionPaymentUpdateWithoutStudentInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionPaymentUncheckedUpdateWithoutStudentInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AdmissionPaymentUncheckedUpdateManyWithoutStudentInput = {
+    className?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryPaymentUpdateWithoutStudentInput = {
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryPaymentUncheckedUpdateWithoutStudentInput = {
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalaryPaymentUncheckedUpdateManyWithoutStudentInput = {
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    amount?: IntFieldUpdateOperationsInput | number
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    className?: StringFieldUpdateOperationsInput | string
+    method?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    paidAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

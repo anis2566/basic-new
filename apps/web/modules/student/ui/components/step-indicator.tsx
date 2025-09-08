@@ -35,13 +35,13 @@ export function StepIndicator({ steps, currentStep }: StepIndicatorProps) {
                         {/* Step Circle */}
                         <div
                             className={cn(
-                                'w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out z-10 bg-sidebar dark:bg-sidebar border-2 border-muted dark:border-muted',
+                                'w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out z-10 bg-sidebar dark:bg-sidebar border-2 border-muted dark:border-muted',
                                 isActive && "bg-indigo-600 dark:bg-indigo-600 text-white border-indigo-600 dark:border-indigo-600 scale-110",
                                 isCompleted && "bg-green-600 dark:bg-green-600 text-white border-green-600 dark:border-green-600 border-green-600",
                                 !isActive && !isCompleted && "bg-gray-100 text-gray-400 border-gray-200"
                             )}
                         >
-                            <IconComponent size={20} />
+                            <IconComponent className="w-4 h-4" />
                         </div>
 
                         {/* Step Title */}

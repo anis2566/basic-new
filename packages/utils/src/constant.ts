@@ -179,3 +179,71 @@ export enum GROUP {
     Commerce = "Commerce",
     Arts = "Arts",
 }
+
+export const Sessions = [
+    {
+        label: "2024",
+        value: "2024",
+    },
+    {
+        label: "2025",
+        value: "2025",
+    },
+    {
+        label: "2026",
+        value: "2026",
+    },
+    {
+        label: "2027",
+        value: "2027",
+    }
+]
+
+export enum MONTH {
+    January = "January",
+    February = "February",
+    March = "March",
+    April = "April",
+    May = "May",
+    June = "June",
+    July = "July",
+    August = "August",
+    September = "September",
+    October = "October",
+    November = "November",
+    December = "December",
+}
+
+export const Months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
+
+export enum STATUS {
+    Iniatiated = "Initiated",
+    Active = "Active",
+    Inactive = "Inactive",
+    Completed = "Completed",
+}
+
+export enum PAYMENT_STATUS {
+    "N/A" = "N/A",
+    Paid = "Paid",
+    Unpaid = "Unpaid",
+}
+
+export enum PAYMENT_METHOD {
+    Cash = "Cash",
+    Bank = "Bank",
+    "Mobile Banking" = "Mobile Banking",
+}
