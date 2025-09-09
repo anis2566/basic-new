@@ -241,6 +241,29 @@ exports.Prisma.SalaryPaymentScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.OtherPaymentScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  amount: 'amount',
+  month: 'month',
+  session: 'session',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.HousePaymentScalarFieldEnum = {
+  id: 'id',
+  houseName: 'houseName',
+  session: 'session',
+  month: 'month',
+  amount: 'amount',
+  method: 'method',
+  paymentStatus: 'paymentStatus',
+  houseId: 'houseId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -261,7 +284,9 @@ exports.Prisma.ModelName = {
   AdmissionFee: 'AdmissionFee',
   SalaryFee: 'SalaryFee',
   AdmissionPayment: 'AdmissionPayment',
-  SalaryPayment: 'SalaryPayment'
+  SalaryPayment: 'SalaryPayment',
+  OtherPayment: 'OtherPayment',
+  HousePayment: 'HousePayment'
 };
 
 /**

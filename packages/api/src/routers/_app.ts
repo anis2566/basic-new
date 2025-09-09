@@ -8,6 +8,8 @@ import { salaryFeeRouter } from './salary-fee';
 import { studentRouter } from './student';
 import { admissionPaymentRouter } from './admission-payment';
 import { salaryPaymentRouter } from './salary-payment';
+import { otherPaymentRouter } from './other-payment';
+import { housePaymentRouter } from './house-payment';
 
 export const appRouter = createTRPCRouter({
     house: houseRouter,
@@ -17,7 +19,9 @@ export const appRouter = createTRPCRouter({
     salaryFee: salaryFeeRouter,
     student: studentRouter,
     admissionPayment: admissionPaymentRouter,
-    salaryPayment: salaryPaymentRouter
+    salaryPayment: salaryPaymentRouter,
+    otherPayment: otherPaymentRouter,
+    housePayment: housePaymentRouter
 });
 
 export type AppRouter = typeof appRouter;

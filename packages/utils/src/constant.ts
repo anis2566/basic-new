@@ -233,6 +233,7 @@ export enum STATUS {
     Iniatiated = "Initiated",
     Active = "Active",
     Inactive = "Inactive",
+    Absent = "Absent",
     Completed = "Completed",
 }
 

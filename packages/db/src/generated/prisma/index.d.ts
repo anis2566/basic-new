@@ -58,6 +58,16 @@ export type AdmissionPayment = $Result.DefaultSelection<Prisma.$AdmissionPayment
  * 
  */
 export type SalaryPayment = $Result.DefaultSelection<Prisma.$SalaryPaymentPayload>
+/**
+ * Model OtherPayment
+ * 
+ */
+export type OtherPayment = $Result.DefaultSelection<Prisma.$OtherPaymentPayload>
+/**
+ * Model HousePayment
+ * 
+ */
+export type HousePayment = $Result.DefaultSelection<Prisma.$HousePaymentPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -233,6 +243,26 @@ export class PrismaClient<
     * ```
     */
   get salaryPayment(): Prisma.SalaryPaymentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.otherPayment`: Exposes CRUD operations for the **OtherPayment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more OtherPayments
+    * const otherPayments = await prisma.otherPayment.findMany()
+    * ```
+    */
+  get otherPayment(): Prisma.OtherPaymentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.housePayment`: Exposes CRUD operations for the **HousePayment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more HousePayments
+    * const housePayments = await prisma.housePayment.findMany()
+    * ```
+    */
+  get housePayment(): Prisma.HousePaymentDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -681,7 +711,9 @@ export namespace Prisma {
     AdmissionFee: 'AdmissionFee',
     SalaryFee: 'SalaryFee',
     AdmissionPayment: 'AdmissionPayment',
-    SalaryPayment: 'SalaryPayment'
+    SalaryPayment: 'SalaryPayment',
+    OtherPayment: 'OtherPayment',
+    HousePayment: 'HousePayment'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -700,7 +732,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "house" | "room" | "counter" | "student" | "admissionFee" | "salaryFee" | "admissionPayment" | "salaryPayment"
+      modelProps: "user" | "house" | "room" | "counter" | "student" | "admissionFee" | "salaryFee" | "admissionPayment" | "salaryPayment" | "otherPayment" | "housePayment"
       txIsolationLevel: never
     }
     model: {
@@ -1370,6 +1402,154 @@ export namespace Prisma {
           }
         }
       }
+      OtherPayment: {
+        payload: Prisma.$OtherPaymentPayload<ExtArgs>
+        fields: Prisma.OtherPaymentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OtherPaymentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OtherPaymentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload>
+          }
+          findFirst: {
+            args: Prisma.OtherPaymentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OtherPaymentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload>
+          }
+          findMany: {
+            args: Prisma.OtherPaymentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload>[]
+          }
+          create: {
+            args: Prisma.OtherPaymentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload>
+          }
+          createMany: {
+            args: Prisma.OtherPaymentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.OtherPaymentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload>
+          }
+          update: {
+            args: Prisma.OtherPaymentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload>
+          }
+          deleteMany: {
+            args: Prisma.OtherPaymentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OtherPaymentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.OtherPaymentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OtherPaymentPayload>
+          }
+          aggregate: {
+            args: Prisma.OtherPaymentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOtherPayment>
+          }
+          groupBy: {
+            args: Prisma.OtherPaymentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OtherPaymentGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.OtherPaymentFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.OtherPaymentAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.OtherPaymentCountArgs<ExtArgs>
+            result: $Utils.Optional<OtherPaymentCountAggregateOutputType> | number
+          }
+        }
+      }
+      HousePayment: {
+        payload: Prisma.$HousePaymentPayload<ExtArgs>
+        fields: Prisma.HousePaymentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.HousePaymentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.HousePaymentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload>
+          }
+          findFirst: {
+            args: Prisma.HousePaymentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.HousePaymentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload>
+          }
+          findMany: {
+            args: Prisma.HousePaymentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload>[]
+          }
+          create: {
+            args: Prisma.HousePaymentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload>
+          }
+          createMany: {
+            args: Prisma.HousePaymentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.HousePaymentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload>
+          }
+          update: {
+            args: Prisma.HousePaymentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload>
+          }
+          deleteMany: {
+            args: Prisma.HousePaymentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.HousePaymentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.HousePaymentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$HousePaymentPayload>
+          }
+          aggregate: {
+            args: Prisma.HousePaymentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateHousePayment>
+          }
+          groupBy: {
+            args: Prisma.HousePaymentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<HousePaymentGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.HousePaymentFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.HousePaymentAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.HousePaymentCountArgs<ExtArgs>
+            result: $Utils.Optional<HousePaymentCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1458,6 +1638,8 @@ export namespace Prisma {
     salaryFee?: SalaryFeeOmit
     admissionPayment?: AdmissionPaymentOmit
     salaryPayment?: SalaryPaymentOmit
+    otherPayment?: OtherPaymentOmit
+    housePayment?: HousePaymentOmit
   }
 
   /* Types for Logging */
@@ -1539,10 +1721,12 @@ export namespace Prisma {
 
   export type HouseCountOutputType = {
     rooms: number
+    payments: number
   }
 
   export type HouseCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     rooms?: boolean | HouseCountOutputTypeCountRoomsArgs
+    payments?: boolean | HouseCountOutputTypeCountPaymentsArgs
   }
 
   // Custom InputTypes
@@ -1561,6 +1745,13 @@ export namespace Prisma {
    */
   export type HouseCountOutputTypeCountRoomsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: RoomWhereInput
+  }
+
+  /**
+   * HouseCountOutputType without action
+   */
+  export type HouseCountOutputTypeCountPaymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HousePaymentWhereInput
   }
 
 
@@ -2816,6 +3007,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     rooms?: boolean | House$roomsArgs<ExtArgs>
+    payments?: boolean | House$paymentsArgs<ExtArgs>
     _count?: boolean | HouseCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["house"]>
 
@@ -2832,6 +3024,7 @@ export namespace Prisma {
   export type HouseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "roomCount" | "createdAt" | "updatedAt", ExtArgs["result"]["house"]>
   export type HouseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     rooms?: boolean | House$roomsArgs<ExtArgs>
+    payments?: boolean | House$paymentsArgs<ExtArgs>
     _count?: boolean | HouseCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2839,6 +3032,7 @@ export namespace Prisma {
     name: "House"
     objects: {
       rooms: Prisma.$RoomPayload<ExtArgs>[]
+      payments: Prisma.$HousePaymentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3210,6 +3404,7 @@ export namespace Prisma {
   export interface Prisma__HouseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     rooms<T extends House$roomsArgs<ExtArgs> = {}>(args?: Subset<T, House$roomsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    payments<T extends House$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, House$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3635,6 +3830,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: RoomScalarFieldEnum | RoomScalarFieldEnum[]
+  }
+
+  /**
+   * House.payments
+   */
+  export type House$paymentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    where?: HousePaymentWhereInput
+    orderBy?: HousePaymentOrderByWithRelationInput | HousePaymentOrderByWithRelationInput[]
+    cursor?: HousePaymentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: HousePaymentScalarFieldEnum | HousePaymentScalarFieldEnum[]
   }
 
   /**
@@ -11204,6 +11423,2062 @@ export namespace Prisma {
 
 
   /**
+   * Model OtherPayment
+   */
+
+  export type AggregateOtherPayment = {
+    _count: OtherPaymentCountAggregateOutputType | null
+    _avg: OtherPaymentAvgAggregateOutputType | null
+    _sum: OtherPaymentSumAggregateOutputType | null
+    _min: OtherPaymentMinAggregateOutputType | null
+    _max: OtherPaymentMaxAggregateOutputType | null
+  }
+
+  export type OtherPaymentAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type OtherPaymentSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type OtherPaymentMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    amount: number | null
+    month: string | null
+    session: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OtherPaymentMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    amount: number | null
+    month: string | null
+    session: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OtherPaymentCountAggregateOutputType = {
+    id: number
+    name: number
+    amount: number
+    month: number
+    session: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type OtherPaymentAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type OtherPaymentSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type OtherPaymentMinAggregateInputType = {
+    id?: true
+    name?: true
+    amount?: true
+    month?: true
+    session?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OtherPaymentMaxAggregateInputType = {
+    id?: true
+    name?: true
+    amount?: true
+    month?: true
+    session?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OtherPaymentCountAggregateInputType = {
+    id?: true
+    name?: true
+    amount?: true
+    month?: true
+    session?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type OtherPaymentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OtherPayment to aggregate.
+     */
+    where?: OtherPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OtherPayments to fetch.
+     */
+    orderBy?: OtherPaymentOrderByWithRelationInput | OtherPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OtherPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OtherPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OtherPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned OtherPayments
+    **/
+    _count?: true | OtherPaymentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OtherPaymentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OtherPaymentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OtherPaymentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OtherPaymentMaxAggregateInputType
+  }
+
+  export type GetOtherPaymentAggregateType<T extends OtherPaymentAggregateArgs> = {
+        [P in keyof T & keyof AggregateOtherPayment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOtherPayment[P]>
+      : GetScalarType<T[P], AggregateOtherPayment[P]>
+  }
+
+
+
+
+  export type OtherPaymentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OtherPaymentWhereInput
+    orderBy?: OtherPaymentOrderByWithAggregationInput | OtherPaymentOrderByWithAggregationInput[]
+    by: OtherPaymentScalarFieldEnum[] | OtherPaymentScalarFieldEnum
+    having?: OtherPaymentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OtherPaymentCountAggregateInputType | true
+    _avg?: OtherPaymentAvgAggregateInputType
+    _sum?: OtherPaymentSumAggregateInputType
+    _min?: OtherPaymentMinAggregateInputType
+    _max?: OtherPaymentMaxAggregateInputType
+  }
+
+  export type OtherPaymentGroupByOutputType = {
+    id: string
+    name: string
+    amount: number
+    month: string
+    session: string
+    createdAt: Date
+    updatedAt: Date
+    _count: OtherPaymentCountAggregateOutputType | null
+    _avg: OtherPaymentAvgAggregateOutputType | null
+    _sum: OtherPaymentSumAggregateOutputType | null
+    _min: OtherPaymentMinAggregateOutputType | null
+    _max: OtherPaymentMaxAggregateOutputType | null
+  }
+
+  type GetOtherPaymentGroupByPayload<T extends OtherPaymentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OtherPaymentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OtherPaymentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OtherPaymentGroupByOutputType[P]>
+            : GetScalarType<T[P], OtherPaymentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OtherPaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    amount?: boolean
+    month?: boolean
+    session?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["otherPayment"]>
+
+
+
+  export type OtherPaymentSelectScalar = {
+    id?: boolean
+    name?: boolean
+    amount?: boolean
+    month?: boolean
+    session?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type OtherPaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "amount" | "month" | "session" | "createdAt" | "updatedAt", ExtArgs["result"]["otherPayment"]>
+
+  export type $OtherPaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "OtherPayment"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      amount: number
+      month: string
+      session: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["otherPayment"]>
+    composites: {}
+  }
+
+  type OtherPaymentGetPayload<S extends boolean | null | undefined | OtherPaymentDefaultArgs> = $Result.GetResult<Prisma.$OtherPaymentPayload, S>
+
+  type OtherPaymentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OtherPaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OtherPaymentCountAggregateInputType | true
+    }
+
+  export interface OtherPaymentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OtherPayment'], meta: { name: 'OtherPayment' } }
+    /**
+     * Find zero or one OtherPayment that matches the filter.
+     * @param {OtherPaymentFindUniqueArgs} args - Arguments to find a OtherPayment
+     * @example
+     * // Get one OtherPayment
+     * const otherPayment = await prisma.otherPayment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OtherPaymentFindUniqueArgs>(args: SelectSubset<T, OtherPaymentFindUniqueArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one OtherPayment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OtherPaymentFindUniqueOrThrowArgs} args - Arguments to find a OtherPayment
+     * @example
+     * // Get one OtherPayment
+     * const otherPayment = await prisma.otherPayment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OtherPaymentFindUniqueOrThrowArgs>(args: SelectSubset<T, OtherPaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OtherPayment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtherPaymentFindFirstArgs} args - Arguments to find a OtherPayment
+     * @example
+     * // Get one OtherPayment
+     * const otherPayment = await prisma.otherPayment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OtherPaymentFindFirstArgs>(args?: SelectSubset<T, OtherPaymentFindFirstArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first OtherPayment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtherPaymentFindFirstOrThrowArgs} args - Arguments to find a OtherPayment
+     * @example
+     * // Get one OtherPayment
+     * const otherPayment = await prisma.otherPayment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OtherPaymentFindFirstOrThrowArgs>(args?: SelectSubset<T, OtherPaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OtherPayments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtherPaymentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all OtherPayments
+     * const otherPayments = await prisma.otherPayment.findMany()
+     * 
+     * // Get first 10 OtherPayments
+     * const otherPayments = await prisma.otherPayment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const otherPaymentWithIdOnly = await prisma.otherPayment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OtherPaymentFindManyArgs>(args?: SelectSubset<T, OtherPaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a OtherPayment.
+     * @param {OtherPaymentCreateArgs} args - Arguments to create a OtherPayment.
+     * @example
+     * // Create one OtherPayment
+     * const OtherPayment = await prisma.otherPayment.create({
+     *   data: {
+     *     // ... data to create a OtherPayment
+     *   }
+     * })
+     * 
+     */
+    create<T extends OtherPaymentCreateArgs>(args: SelectSubset<T, OtherPaymentCreateArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many OtherPayments.
+     * @param {OtherPaymentCreateManyArgs} args - Arguments to create many OtherPayments.
+     * @example
+     * // Create many OtherPayments
+     * const otherPayment = await prisma.otherPayment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OtherPaymentCreateManyArgs>(args?: SelectSubset<T, OtherPaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a OtherPayment.
+     * @param {OtherPaymentDeleteArgs} args - Arguments to delete one OtherPayment.
+     * @example
+     * // Delete one OtherPayment
+     * const OtherPayment = await prisma.otherPayment.delete({
+     *   where: {
+     *     // ... filter to delete one OtherPayment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OtherPaymentDeleteArgs>(args: SelectSubset<T, OtherPaymentDeleteArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one OtherPayment.
+     * @param {OtherPaymentUpdateArgs} args - Arguments to update one OtherPayment.
+     * @example
+     * // Update one OtherPayment
+     * const otherPayment = await prisma.otherPayment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OtherPaymentUpdateArgs>(args: SelectSubset<T, OtherPaymentUpdateArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more OtherPayments.
+     * @param {OtherPaymentDeleteManyArgs} args - Arguments to filter OtherPayments to delete.
+     * @example
+     * // Delete a few OtherPayments
+     * const { count } = await prisma.otherPayment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OtherPaymentDeleteManyArgs>(args?: SelectSubset<T, OtherPaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more OtherPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtherPaymentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many OtherPayments
+     * const otherPayment = await prisma.otherPayment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OtherPaymentUpdateManyArgs>(args: SelectSubset<T, OtherPaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one OtherPayment.
+     * @param {OtherPaymentUpsertArgs} args - Arguments to update or create a OtherPayment.
+     * @example
+     * // Update or create a OtherPayment
+     * const otherPayment = await prisma.otherPayment.upsert({
+     *   create: {
+     *     // ... data to create a OtherPayment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the OtherPayment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OtherPaymentUpsertArgs>(args: SelectSubset<T, OtherPaymentUpsertArgs<ExtArgs>>): Prisma__OtherPaymentClient<$Result.GetResult<Prisma.$OtherPaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more OtherPayments that matches the filter.
+     * @param {OtherPaymentFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const otherPayment = await prisma.otherPayment.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: OtherPaymentFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a OtherPayment.
+     * @param {OtherPaymentAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const otherPayment = await prisma.otherPayment.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: OtherPaymentAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of OtherPayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtherPaymentCountArgs} args - Arguments to filter OtherPayments to count.
+     * @example
+     * // Count the number of OtherPayments
+     * const count = await prisma.otherPayment.count({
+     *   where: {
+     *     // ... the filter for the OtherPayments we want to count
+     *   }
+     * })
+    **/
+    count<T extends OtherPaymentCountArgs>(
+      args?: Subset<T, OtherPaymentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OtherPaymentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a OtherPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtherPaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OtherPaymentAggregateArgs>(args: Subset<T, OtherPaymentAggregateArgs>): Prisma.PrismaPromise<GetOtherPaymentAggregateType<T>>
+
+    /**
+     * Group by OtherPayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OtherPaymentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OtherPaymentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OtherPaymentGroupByArgs['orderBy'] }
+        : { orderBy?: OtherPaymentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OtherPaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOtherPaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the OtherPayment model
+   */
+  readonly fields: OtherPaymentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for OtherPayment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OtherPaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the OtherPayment model
+   */
+  interface OtherPaymentFieldRefs {
+    readonly id: FieldRef<"OtherPayment", 'String'>
+    readonly name: FieldRef<"OtherPayment", 'String'>
+    readonly amount: FieldRef<"OtherPayment", 'Int'>
+    readonly month: FieldRef<"OtherPayment", 'String'>
+    readonly session: FieldRef<"OtherPayment", 'String'>
+    readonly createdAt: FieldRef<"OtherPayment", 'DateTime'>
+    readonly updatedAt: FieldRef<"OtherPayment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * OtherPayment findUnique
+   */
+  export type OtherPaymentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * Filter, which OtherPayment to fetch.
+     */
+    where: OtherPaymentWhereUniqueInput
+  }
+
+  /**
+   * OtherPayment findUniqueOrThrow
+   */
+  export type OtherPaymentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * Filter, which OtherPayment to fetch.
+     */
+    where: OtherPaymentWhereUniqueInput
+  }
+
+  /**
+   * OtherPayment findFirst
+   */
+  export type OtherPaymentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * Filter, which OtherPayment to fetch.
+     */
+    where?: OtherPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OtherPayments to fetch.
+     */
+    orderBy?: OtherPaymentOrderByWithRelationInput | OtherPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OtherPayments.
+     */
+    cursor?: OtherPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OtherPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OtherPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OtherPayments.
+     */
+    distinct?: OtherPaymentScalarFieldEnum | OtherPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * OtherPayment findFirstOrThrow
+   */
+  export type OtherPaymentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * Filter, which OtherPayment to fetch.
+     */
+    where?: OtherPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OtherPayments to fetch.
+     */
+    orderBy?: OtherPaymentOrderByWithRelationInput | OtherPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for OtherPayments.
+     */
+    cursor?: OtherPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OtherPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OtherPayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of OtherPayments.
+     */
+    distinct?: OtherPaymentScalarFieldEnum | OtherPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * OtherPayment findMany
+   */
+  export type OtherPaymentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * Filter, which OtherPayments to fetch.
+     */
+    where?: OtherPaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of OtherPayments to fetch.
+     */
+    orderBy?: OtherPaymentOrderByWithRelationInput | OtherPaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing OtherPayments.
+     */
+    cursor?: OtherPaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` OtherPayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` OtherPayments.
+     */
+    skip?: number
+    distinct?: OtherPaymentScalarFieldEnum | OtherPaymentScalarFieldEnum[]
+  }
+
+  /**
+   * OtherPayment create
+   */
+  export type OtherPaymentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * The data needed to create a OtherPayment.
+     */
+    data: XOR<OtherPaymentCreateInput, OtherPaymentUncheckedCreateInput>
+  }
+
+  /**
+   * OtherPayment createMany
+   */
+  export type OtherPaymentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many OtherPayments.
+     */
+    data: OtherPaymentCreateManyInput | OtherPaymentCreateManyInput[]
+  }
+
+  /**
+   * OtherPayment update
+   */
+  export type OtherPaymentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * The data needed to update a OtherPayment.
+     */
+    data: XOR<OtherPaymentUpdateInput, OtherPaymentUncheckedUpdateInput>
+    /**
+     * Choose, which OtherPayment to update.
+     */
+    where: OtherPaymentWhereUniqueInput
+  }
+
+  /**
+   * OtherPayment updateMany
+   */
+  export type OtherPaymentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update OtherPayments.
+     */
+    data: XOR<OtherPaymentUpdateManyMutationInput, OtherPaymentUncheckedUpdateManyInput>
+    /**
+     * Filter which OtherPayments to update
+     */
+    where?: OtherPaymentWhereInput
+    /**
+     * Limit how many OtherPayments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * OtherPayment upsert
+   */
+  export type OtherPaymentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * The filter to search for the OtherPayment to update in case it exists.
+     */
+    where: OtherPaymentWhereUniqueInput
+    /**
+     * In case the OtherPayment found by the `where` argument doesn't exist, create a new OtherPayment with this data.
+     */
+    create: XOR<OtherPaymentCreateInput, OtherPaymentUncheckedCreateInput>
+    /**
+     * In case the OtherPayment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OtherPaymentUpdateInput, OtherPaymentUncheckedUpdateInput>
+  }
+
+  /**
+   * OtherPayment delete
+   */
+  export type OtherPaymentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+    /**
+     * Filter which OtherPayment to delete.
+     */
+    where: OtherPaymentWhereUniqueInput
+  }
+
+  /**
+   * OtherPayment deleteMany
+   */
+  export type OtherPaymentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which OtherPayments to delete
+     */
+    where?: OtherPaymentWhereInput
+    /**
+     * Limit how many OtherPayments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * OtherPayment findRaw
+   */
+  export type OtherPaymentFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * OtherPayment aggregateRaw
+   */
+  export type OtherPaymentAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * OtherPayment without action
+   */
+  export type OtherPaymentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OtherPayment
+     */
+    select?: OtherPaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the OtherPayment
+     */
+    omit?: OtherPaymentOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model HousePayment
+   */
+
+  export type AggregateHousePayment = {
+    _count: HousePaymentCountAggregateOutputType | null
+    _avg: HousePaymentAvgAggregateOutputType | null
+    _sum: HousePaymentSumAggregateOutputType | null
+    _min: HousePaymentMinAggregateOutputType | null
+    _max: HousePaymentMaxAggregateOutputType | null
+  }
+
+  export type HousePaymentAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type HousePaymentSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type HousePaymentMinAggregateOutputType = {
+    id: string | null
+    houseName: string | null
+    session: string | null
+    month: string | null
+    amount: number | null
+    method: string | null
+    paymentStatus: string | null
+    houseId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HousePaymentMaxAggregateOutputType = {
+    id: string | null
+    houseName: string | null
+    session: string | null
+    month: string | null
+    amount: number | null
+    method: string | null
+    paymentStatus: string | null
+    houseId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type HousePaymentCountAggregateOutputType = {
+    id: number
+    houseName: number
+    session: number
+    month: number
+    amount: number
+    method: number
+    paymentStatus: number
+    houseId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type HousePaymentAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type HousePaymentSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type HousePaymentMinAggregateInputType = {
+    id?: true
+    houseName?: true
+    session?: true
+    month?: true
+    amount?: true
+    method?: true
+    paymentStatus?: true
+    houseId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HousePaymentMaxAggregateInputType = {
+    id?: true
+    houseName?: true
+    session?: true
+    month?: true
+    amount?: true
+    method?: true
+    paymentStatus?: true
+    houseId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type HousePaymentCountAggregateInputType = {
+    id?: true
+    houseName?: true
+    session?: true
+    month?: true
+    amount?: true
+    method?: true
+    paymentStatus?: true
+    houseId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type HousePaymentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HousePayment to aggregate.
+     */
+    where?: HousePaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HousePayments to fetch.
+     */
+    orderBy?: HousePaymentOrderByWithRelationInput | HousePaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: HousePaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HousePayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HousePayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned HousePayments
+    **/
+    _count?: true | HousePaymentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: HousePaymentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: HousePaymentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: HousePaymentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: HousePaymentMaxAggregateInputType
+  }
+
+  export type GetHousePaymentAggregateType<T extends HousePaymentAggregateArgs> = {
+        [P in keyof T & keyof AggregateHousePayment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateHousePayment[P]>
+      : GetScalarType<T[P], AggregateHousePayment[P]>
+  }
+
+
+
+
+  export type HousePaymentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: HousePaymentWhereInput
+    orderBy?: HousePaymentOrderByWithAggregationInput | HousePaymentOrderByWithAggregationInput[]
+    by: HousePaymentScalarFieldEnum[] | HousePaymentScalarFieldEnum
+    having?: HousePaymentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: HousePaymentCountAggregateInputType | true
+    _avg?: HousePaymentAvgAggregateInputType
+    _sum?: HousePaymentSumAggregateInputType
+    _min?: HousePaymentMinAggregateInputType
+    _max?: HousePaymentMaxAggregateInputType
+  }
+
+  export type HousePaymentGroupByOutputType = {
+    id: string
+    houseName: string
+    session: string
+    month: string
+    amount: number
+    method: string
+    paymentStatus: string
+    houseId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: HousePaymentCountAggregateOutputType | null
+    _avg: HousePaymentAvgAggregateOutputType | null
+    _sum: HousePaymentSumAggregateOutputType | null
+    _min: HousePaymentMinAggregateOutputType | null
+    _max: HousePaymentMaxAggregateOutputType | null
+  }
+
+  type GetHousePaymentGroupByPayload<T extends HousePaymentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<HousePaymentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof HousePaymentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], HousePaymentGroupByOutputType[P]>
+            : GetScalarType<T[P], HousePaymentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type HousePaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    houseName?: boolean
+    session?: boolean
+    month?: boolean
+    amount?: boolean
+    method?: boolean
+    paymentStatus?: boolean
+    houseId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    house?: boolean | HouseDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["housePayment"]>
+
+
+
+  export type HousePaymentSelectScalar = {
+    id?: boolean
+    houseName?: boolean
+    session?: boolean
+    month?: boolean
+    amount?: boolean
+    method?: boolean
+    paymentStatus?: boolean
+    houseId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type HousePaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "houseName" | "session" | "month" | "amount" | "method" | "paymentStatus" | "houseId" | "createdAt" | "updatedAt", ExtArgs["result"]["housePayment"]>
+  export type HousePaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    house?: boolean | HouseDefaultArgs<ExtArgs>
+  }
+
+  export type $HousePaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "HousePayment"
+    objects: {
+      house: Prisma.$HousePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      houseName: string
+      session: string
+      month: string
+      amount: number
+      method: string
+      paymentStatus: string
+      houseId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["housePayment"]>
+    composites: {}
+  }
+
+  type HousePaymentGetPayload<S extends boolean | null | undefined | HousePaymentDefaultArgs> = $Result.GetResult<Prisma.$HousePaymentPayload, S>
+
+  type HousePaymentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<HousePaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: HousePaymentCountAggregateInputType | true
+    }
+
+  export interface HousePaymentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['HousePayment'], meta: { name: 'HousePayment' } }
+    /**
+     * Find zero or one HousePayment that matches the filter.
+     * @param {HousePaymentFindUniqueArgs} args - Arguments to find a HousePayment
+     * @example
+     * // Get one HousePayment
+     * const housePayment = await prisma.housePayment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends HousePaymentFindUniqueArgs>(args: SelectSubset<T, HousePaymentFindUniqueArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one HousePayment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {HousePaymentFindUniqueOrThrowArgs} args - Arguments to find a HousePayment
+     * @example
+     * // Get one HousePayment
+     * const housePayment = await prisma.housePayment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends HousePaymentFindUniqueOrThrowArgs>(args: SelectSubset<T, HousePaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HousePayment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HousePaymentFindFirstArgs} args - Arguments to find a HousePayment
+     * @example
+     * // Get one HousePayment
+     * const housePayment = await prisma.housePayment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends HousePaymentFindFirstArgs>(args?: SelectSubset<T, HousePaymentFindFirstArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first HousePayment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HousePaymentFindFirstOrThrowArgs} args - Arguments to find a HousePayment
+     * @example
+     * // Get one HousePayment
+     * const housePayment = await prisma.housePayment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends HousePaymentFindFirstOrThrowArgs>(args?: SelectSubset<T, HousePaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HousePayments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HousePaymentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all HousePayments
+     * const housePayments = await prisma.housePayment.findMany()
+     * 
+     * // Get first 10 HousePayments
+     * const housePayments = await prisma.housePayment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const housePaymentWithIdOnly = await prisma.housePayment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends HousePaymentFindManyArgs>(args?: SelectSubset<T, HousePaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a HousePayment.
+     * @param {HousePaymentCreateArgs} args - Arguments to create a HousePayment.
+     * @example
+     * // Create one HousePayment
+     * const HousePayment = await prisma.housePayment.create({
+     *   data: {
+     *     // ... data to create a HousePayment
+     *   }
+     * })
+     * 
+     */
+    create<T extends HousePaymentCreateArgs>(args: SelectSubset<T, HousePaymentCreateArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many HousePayments.
+     * @param {HousePaymentCreateManyArgs} args - Arguments to create many HousePayments.
+     * @example
+     * // Create many HousePayments
+     * const housePayment = await prisma.housePayment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends HousePaymentCreateManyArgs>(args?: SelectSubset<T, HousePaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a HousePayment.
+     * @param {HousePaymentDeleteArgs} args - Arguments to delete one HousePayment.
+     * @example
+     * // Delete one HousePayment
+     * const HousePayment = await prisma.housePayment.delete({
+     *   where: {
+     *     // ... filter to delete one HousePayment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends HousePaymentDeleteArgs>(args: SelectSubset<T, HousePaymentDeleteArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one HousePayment.
+     * @param {HousePaymentUpdateArgs} args - Arguments to update one HousePayment.
+     * @example
+     * // Update one HousePayment
+     * const housePayment = await prisma.housePayment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends HousePaymentUpdateArgs>(args: SelectSubset<T, HousePaymentUpdateArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more HousePayments.
+     * @param {HousePaymentDeleteManyArgs} args - Arguments to filter HousePayments to delete.
+     * @example
+     * // Delete a few HousePayments
+     * const { count } = await prisma.housePayment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends HousePaymentDeleteManyArgs>(args?: SelectSubset<T, HousePaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more HousePayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HousePaymentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many HousePayments
+     * const housePayment = await prisma.housePayment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends HousePaymentUpdateManyArgs>(args: SelectSubset<T, HousePaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one HousePayment.
+     * @param {HousePaymentUpsertArgs} args - Arguments to update or create a HousePayment.
+     * @example
+     * // Update or create a HousePayment
+     * const housePayment = await prisma.housePayment.upsert({
+     *   create: {
+     *     // ... data to create a HousePayment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the HousePayment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends HousePaymentUpsertArgs>(args: SelectSubset<T, HousePaymentUpsertArgs<ExtArgs>>): Prisma__HousePaymentClient<$Result.GetResult<Prisma.$HousePaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more HousePayments that matches the filter.
+     * @param {HousePaymentFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const housePayment = await prisma.housePayment.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: HousePaymentFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a HousePayment.
+     * @param {HousePaymentAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const housePayment = await prisma.housePayment.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: HousePaymentAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of HousePayments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HousePaymentCountArgs} args - Arguments to filter HousePayments to count.
+     * @example
+     * // Count the number of HousePayments
+     * const count = await prisma.housePayment.count({
+     *   where: {
+     *     // ... the filter for the HousePayments we want to count
+     *   }
+     * })
+    **/
+    count<T extends HousePaymentCountArgs>(
+      args?: Subset<T, HousePaymentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], HousePaymentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a HousePayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HousePaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends HousePaymentAggregateArgs>(args: Subset<T, HousePaymentAggregateArgs>): Prisma.PrismaPromise<GetHousePaymentAggregateType<T>>
+
+    /**
+     * Group by HousePayment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {HousePaymentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends HousePaymentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: HousePaymentGroupByArgs['orderBy'] }
+        : { orderBy?: HousePaymentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, HousePaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetHousePaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the HousePayment model
+   */
+  readonly fields: HousePaymentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for HousePayment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__HousePaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    house<T extends HouseDefaultArgs<ExtArgs> = {}>(args?: Subset<T, HouseDefaultArgs<ExtArgs>>): Prisma__HouseClient<$Result.GetResult<Prisma.$HousePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the HousePayment model
+   */
+  interface HousePaymentFieldRefs {
+    readonly id: FieldRef<"HousePayment", 'String'>
+    readonly houseName: FieldRef<"HousePayment", 'String'>
+    readonly session: FieldRef<"HousePayment", 'String'>
+    readonly month: FieldRef<"HousePayment", 'String'>
+    readonly amount: FieldRef<"HousePayment", 'Int'>
+    readonly method: FieldRef<"HousePayment", 'String'>
+    readonly paymentStatus: FieldRef<"HousePayment", 'String'>
+    readonly houseId: FieldRef<"HousePayment", 'String'>
+    readonly createdAt: FieldRef<"HousePayment", 'DateTime'>
+    readonly updatedAt: FieldRef<"HousePayment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * HousePayment findUnique
+   */
+  export type HousePaymentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which HousePayment to fetch.
+     */
+    where: HousePaymentWhereUniqueInput
+  }
+
+  /**
+   * HousePayment findUniqueOrThrow
+   */
+  export type HousePaymentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which HousePayment to fetch.
+     */
+    where: HousePaymentWhereUniqueInput
+  }
+
+  /**
+   * HousePayment findFirst
+   */
+  export type HousePaymentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which HousePayment to fetch.
+     */
+    where?: HousePaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HousePayments to fetch.
+     */
+    orderBy?: HousePaymentOrderByWithRelationInput | HousePaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HousePayments.
+     */
+    cursor?: HousePaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HousePayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HousePayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HousePayments.
+     */
+    distinct?: HousePaymentScalarFieldEnum | HousePaymentScalarFieldEnum[]
+  }
+
+  /**
+   * HousePayment findFirstOrThrow
+   */
+  export type HousePaymentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which HousePayment to fetch.
+     */
+    where?: HousePaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HousePayments to fetch.
+     */
+    orderBy?: HousePaymentOrderByWithRelationInput | HousePaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for HousePayments.
+     */
+    cursor?: HousePaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HousePayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HousePayments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of HousePayments.
+     */
+    distinct?: HousePaymentScalarFieldEnum | HousePaymentScalarFieldEnum[]
+  }
+
+  /**
+   * HousePayment findMany
+   */
+  export type HousePaymentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which HousePayments to fetch.
+     */
+    where?: HousePaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of HousePayments to fetch.
+     */
+    orderBy?: HousePaymentOrderByWithRelationInput | HousePaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing HousePayments.
+     */
+    cursor?: HousePaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` HousePayments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` HousePayments.
+     */
+    skip?: number
+    distinct?: HousePaymentScalarFieldEnum | HousePaymentScalarFieldEnum[]
+  }
+
+  /**
+   * HousePayment create
+   */
+  export type HousePaymentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a HousePayment.
+     */
+    data: XOR<HousePaymentCreateInput, HousePaymentUncheckedCreateInput>
+  }
+
+  /**
+   * HousePayment createMany
+   */
+  export type HousePaymentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many HousePayments.
+     */
+    data: HousePaymentCreateManyInput | HousePaymentCreateManyInput[]
+  }
+
+  /**
+   * HousePayment update
+   */
+  export type HousePaymentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a HousePayment.
+     */
+    data: XOR<HousePaymentUpdateInput, HousePaymentUncheckedUpdateInput>
+    /**
+     * Choose, which HousePayment to update.
+     */
+    where: HousePaymentWhereUniqueInput
+  }
+
+  /**
+   * HousePayment updateMany
+   */
+  export type HousePaymentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update HousePayments.
+     */
+    data: XOR<HousePaymentUpdateManyMutationInput, HousePaymentUncheckedUpdateManyInput>
+    /**
+     * Filter which HousePayments to update
+     */
+    where?: HousePaymentWhereInput
+    /**
+     * Limit how many HousePayments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * HousePayment upsert
+   */
+  export type HousePaymentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the HousePayment to update in case it exists.
+     */
+    where: HousePaymentWhereUniqueInput
+    /**
+     * In case the HousePayment found by the `where` argument doesn't exist, create a new HousePayment with this data.
+     */
+    create: XOR<HousePaymentCreateInput, HousePaymentUncheckedCreateInput>
+    /**
+     * In case the HousePayment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<HousePaymentUpdateInput, HousePaymentUncheckedUpdateInput>
+  }
+
+  /**
+   * HousePayment delete
+   */
+  export type HousePaymentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+    /**
+     * Filter which HousePayment to delete.
+     */
+    where: HousePaymentWhereUniqueInput
+  }
+
+  /**
+   * HousePayment deleteMany
+   */
+  export type HousePaymentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which HousePayments to delete
+     */
+    where?: HousePaymentWhereInput
+    /**
+     * Limit how many HousePayments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * HousePayment findRaw
+   */
+  export type HousePaymentFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * HousePayment aggregateRaw
+   */
+  export type HousePaymentAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * HousePayment without action
+   */
+  export type HousePaymentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the HousePayment
+     */
+    select?: HousePaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the HousePayment
+     */
+    omit?: HousePaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: HousePaymentInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -11360,6 +13635,35 @@ export namespace Prisma {
   };
 
   export type SalaryPaymentScalarFieldEnum = (typeof SalaryPaymentScalarFieldEnum)[keyof typeof SalaryPaymentScalarFieldEnum]
+
+
+  export const OtherPaymentScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    amount: 'amount',
+    month: 'month',
+    session: 'session',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type OtherPaymentScalarFieldEnum = (typeof OtherPaymentScalarFieldEnum)[keyof typeof OtherPaymentScalarFieldEnum]
+
+
+  export const HousePaymentScalarFieldEnum: {
+    id: 'id',
+    houseName: 'houseName',
+    session: 'session',
+    month: 'month',
+    amount: 'amount',
+    method: 'method',
+    paymentStatus: 'paymentStatus',
+    houseId: 'houseId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type HousePaymentScalarFieldEnum = (typeof HousePaymentScalarFieldEnum)[keyof typeof HousePaymentScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11546,6 +13850,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"House"> | Date | string
     updatedAt?: DateTimeFilter<"House"> | Date | string
     rooms?: RoomListRelationFilter
+    payments?: HousePaymentListRelationFilter
   }
 
   export type HouseOrderByWithRelationInput = {
@@ -11555,6 +13860,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     rooms?: RoomOrderByRelationAggregateInput
+    payments?: HousePaymentOrderByRelationAggregateInput
   }
 
   export type HouseWhereUniqueInput = Prisma.AtLeast<{
@@ -11567,6 +13873,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"House"> | Date | string
     updatedAt?: DateTimeFilter<"House"> | Date | string
     rooms?: RoomListRelationFilter
+    payments?: HousePaymentListRelationFilter
   }, "id">
 
   export type HouseOrderByWithAggregationInput = {
@@ -12231,6 +14538,152 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"SalaryPayment"> | Date | string
   }
 
+  export type OtherPaymentWhereInput = {
+    AND?: OtherPaymentWhereInput | OtherPaymentWhereInput[]
+    OR?: OtherPaymentWhereInput[]
+    NOT?: OtherPaymentWhereInput | OtherPaymentWhereInput[]
+    id?: StringFilter<"OtherPayment"> | string
+    name?: StringFilter<"OtherPayment"> | string
+    amount?: IntFilter<"OtherPayment"> | number
+    month?: StringFilter<"OtherPayment"> | string
+    session?: StringFilter<"OtherPayment"> | string
+    createdAt?: DateTimeFilter<"OtherPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"OtherPayment"> | Date | string
+  }
+
+  export type OtherPaymentOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    month?: SortOrder
+    session?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OtherPaymentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OtherPaymentWhereInput | OtherPaymentWhereInput[]
+    OR?: OtherPaymentWhereInput[]
+    NOT?: OtherPaymentWhereInput | OtherPaymentWhereInput[]
+    name?: StringFilter<"OtherPayment"> | string
+    amount?: IntFilter<"OtherPayment"> | number
+    month?: StringFilter<"OtherPayment"> | string
+    session?: StringFilter<"OtherPayment"> | string
+    createdAt?: DateTimeFilter<"OtherPayment"> | Date | string
+    updatedAt?: DateTimeFilter<"OtherPayment"> | Date | string
+  }, "id">
+
+  export type OtherPaymentOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    month?: SortOrder
+    session?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: OtherPaymentCountOrderByAggregateInput
+    _avg?: OtherPaymentAvgOrderByAggregateInput
+    _max?: OtherPaymentMaxOrderByAggregateInput
+    _min?: OtherPaymentMinOrderByAggregateInput
+    _sum?: OtherPaymentSumOrderByAggregateInput
+  }
+
+  export type OtherPaymentScalarWhereWithAggregatesInput = {
+    AND?: OtherPaymentScalarWhereWithAggregatesInput | OtherPaymentScalarWhereWithAggregatesInput[]
+    OR?: OtherPaymentScalarWhereWithAggregatesInput[]
+    NOT?: OtherPaymentScalarWhereWithAggregatesInput | OtherPaymentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"OtherPayment"> | string
+    name?: StringWithAggregatesFilter<"OtherPayment"> | string
+    amount?: IntWithAggregatesFilter<"OtherPayment"> | number
+    month?: StringWithAggregatesFilter<"OtherPayment"> | string
+    session?: StringWithAggregatesFilter<"OtherPayment"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"OtherPayment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"OtherPayment"> | Date | string
+  }
+
+  export type HousePaymentWhereInput = {
+    AND?: HousePaymentWhereInput | HousePaymentWhereInput[]
+    OR?: HousePaymentWhereInput[]
+    NOT?: HousePaymentWhereInput | HousePaymentWhereInput[]
+    id?: StringFilter<"HousePayment"> | string
+    houseName?: StringFilter<"HousePayment"> | string
+    session?: StringFilter<"HousePayment"> | string
+    month?: StringFilter<"HousePayment"> | string
+    amount?: IntFilter<"HousePayment"> | number
+    method?: StringFilter<"HousePayment"> | string
+    paymentStatus?: StringFilter<"HousePayment"> | string
+    houseId?: StringFilter<"HousePayment"> | string
+    createdAt?: DateTimeFilter<"HousePayment"> | Date | string
+    updatedAt?: DateTimeFilter<"HousePayment"> | Date | string
+    house?: XOR<HouseScalarRelationFilter, HouseWhereInput>
+  }
+
+  export type HousePaymentOrderByWithRelationInput = {
+    id?: SortOrder
+    houseName?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    paymentStatus?: SortOrder
+    houseId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    house?: HouseOrderByWithRelationInput
+  }
+
+  export type HousePaymentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: HousePaymentWhereInput | HousePaymentWhereInput[]
+    OR?: HousePaymentWhereInput[]
+    NOT?: HousePaymentWhereInput | HousePaymentWhereInput[]
+    houseName?: StringFilter<"HousePayment"> | string
+    session?: StringFilter<"HousePayment"> | string
+    month?: StringFilter<"HousePayment"> | string
+    amount?: IntFilter<"HousePayment"> | number
+    method?: StringFilter<"HousePayment"> | string
+    paymentStatus?: StringFilter<"HousePayment"> | string
+    houseId?: StringFilter<"HousePayment"> | string
+    createdAt?: DateTimeFilter<"HousePayment"> | Date | string
+    updatedAt?: DateTimeFilter<"HousePayment"> | Date | string
+    house?: XOR<HouseScalarRelationFilter, HouseWhereInput>
+  }, "id">
+
+  export type HousePaymentOrderByWithAggregationInput = {
+    id?: SortOrder
+    houseName?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    paymentStatus?: SortOrder
+    houseId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: HousePaymentCountOrderByAggregateInput
+    _avg?: HousePaymentAvgOrderByAggregateInput
+    _max?: HousePaymentMaxOrderByAggregateInput
+    _min?: HousePaymentMinOrderByAggregateInput
+    _sum?: HousePaymentSumOrderByAggregateInput
+  }
+
+  export type HousePaymentScalarWhereWithAggregatesInput = {
+    AND?: HousePaymentScalarWhereWithAggregatesInput | HousePaymentScalarWhereWithAggregatesInput[]
+    OR?: HousePaymentScalarWhereWithAggregatesInput[]
+    NOT?: HousePaymentScalarWhereWithAggregatesInput | HousePaymentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"HousePayment"> | string
+    houseName?: StringWithAggregatesFilter<"HousePayment"> | string
+    session?: StringWithAggregatesFilter<"HousePayment"> | string
+    month?: StringWithAggregatesFilter<"HousePayment"> | string
+    amount?: IntWithAggregatesFilter<"HousePayment"> | number
+    method?: StringWithAggregatesFilter<"HousePayment"> | string
+    paymentStatus?: StringWithAggregatesFilter<"HousePayment"> | string
+    houseId?: StringWithAggregatesFilter<"HousePayment"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"HousePayment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"HousePayment"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     clerkId: string
@@ -12339,6 +14792,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     rooms?: RoomCreateNestedManyWithoutHouseInput
+    payments?: HousePaymentCreateNestedManyWithoutHouseInput
   }
 
   export type HouseUncheckedCreateInput = {
@@ -12348,6 +14802,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     rooms?: RoomUncheckedCreateNestedManyWithoutHouseInput
+    payments?: HousePaymentUncheckedCreateNestedManyWithoutHouseInput
   }
 
   export type HouseUpdateInput = {
@@ -12356,6 +14811,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     rooms?: RoomUpdateManyWithoutHouseNestedInput
+    payments?: HousePaymentUpdateManyWithoutHouseNestedInput
   }
 
   export type HouseUncheckedUpdateInput = {
@@ -12364,6 +14820,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     rooms?: RoomUncheckedUpdateManyWithoutHouseNestedInput
+    payments?: HousePaymentUncheckedUpdateManyWithoutHouseNestedInput
   }
 
   export type HouseCreateManyInput = {
@@ -13100,6 +15557,158 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type OtherPaymentCreateInput = {
+    id?: string
+    name: string
+    amount: number
+    month: string
+    session: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OtherPaymentUncheckedCreateInput = {
+    id?: string
+    name: string
+    amount: number
+    month: string
+    session: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OtherPaymentUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OtherPaymentUncheckedUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OtherPaymentCreateManyInput = {
+    id?: string
+    name: string
+    amount: number
+    month: string
+    session: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OtherPaymentUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OtherPaymentUncheckedUpdateManyInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    month?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HousePaymentCreateInput = {
+    id?: string
+    houseName: string
+    session: string
+    month: string
+    amount: number
+    method: string
+    paymentStatus: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    house: HouseCreateNestedOneWithoutPaymentsInput
+  }
+
+  export type HousePaymentUncheckedCreateInput = {
+    id?: string
+    houseName: string
+    session: string
+    month: string
+    amount: number
+    method: string
+    paymentStatus: string
+    houseId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HousePaymentUpdateInput = {
+    houseName?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    house?: HouseUpdateOneRequiredWithoutPaymentsNestedInput
+  }
+
+  export type HousePaymentUncheckedUpdateInput = {
+    houseName?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    houseId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HousePaymentCreateManyInput = {
+    id?: string
+    houseName: string
+    session: string
+    month: string
+    amount: number
+    method: string
+    paymentStatus: string
+    houseId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HousePaymentUpdateManyMutationInput = {
+    houseName?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HousePaymentUncheckedUpdateManyInput = {
+    houseName?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    houseId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -13268,7 +15877,17 @@ export namespace Prisma {
     none?: RoomWhereInput
   }
 
+  export type HousePaymentListRelationFilter = {
+    every?: HousePaymentWhereInput
+    some?: HousePaymentWhereInput
+    none?: HousePaymentWhereInput
+  }
+
   export type RoomOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type HousePaymentOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -13758,6 +16377,91 @@ export namespace Prisma {
     amount?: SortOrder
   }
 
+  export type OtherPaymentCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    month?: SortOrder
+    session?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OtherPaymentAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type OtherPaymentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    month?: SortOrder
+    session?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OtherPaymentMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    amount?: SortOrder
+    month?: SortOrder
+    session?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OtherPaymentSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type HousePaymentCountOrderByAggregateInput = {
+    id?: SortOrder
+    houseName?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    paymentStatus?: SortOrder
+    houseId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HousePaymentAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type HousePaymentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    houseName?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    paymentStatus?: SortOrder
+    houseId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HousePaymentMinOrderByAggregateInput = {
+    id?: SortOrder
+    houseName?: SortOrder
+    session?: SortOrder
+    month?: SortOrder
+    amount?: SortOrder
+    method?: SortOrder
+    paymentStatus?: SortOrder
+    houseId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type HousePaymentSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -13782,11 +16486,25 @@ export namespace Prisma {
     connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
   }
 
+  export type HousePaymentCreateNestedManyWithoutHouseInput = {
+    create?: XOR<HousePaymentCreateWithoutHouseInput, HousePaymentUncheckedCreateWithoutHouseInput> | HousePaymentCreateWithoutHouseInput[] | HousePaymentUncheckedCreateWithoutHouseInput[]
+    connectOrCreate?: HousePaymentCreateOrConnectWithoutHouseInput | HousePaymentCreateOrConnectWithoutHouseInput[]
+    createMany?: HousePaymentCreateManyHouseInputEnvelope
+    connect?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+  }
+
   export type RoomUncheckedCreateNestedManyWithoutHouseInput = {
     create?: XOR<RoomCreateWithoutHouseInput, RoomUncheckedCreateWithoutHouseInput> | RoomCreateWithoutHouseInput[] | RoomUncheckedCreateWithoutHouseInput[]
     connectOrCreate?: RoomCreateOrConnectWithoutHouseInput | RoomCreateOrConnectWithoutHouseInput[]
     createMany?: RoomCreateManyHouseInputEnvelope
     connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+  }
+
+  export type HousePaymentUncheckedCreateNestedManyWithoutHouseInput = {
+    create?: XOR<HousePaymentCreateWithoutHouseInput, HousePaymentUncheckedCreateWithoutHouseInput> | HousePaymentCreateWithoutHouseInput[] | HousePaymentUncheckedCreateWithoutHouseInput[]
+    connectOrCreate?: HousePaymentCreateOrConnectWithoutHouseInput | HousePaymentCreateOrConnectWithoutHouseInput[]
+    createMany?: HousePaymentCreateManyHouseInputEnvelope
+    connect?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -13811,6 +16529,20 @@ export namespace Prisma {
     deleteMany?: RoomScalarWhereInput | RoomScalarWhereInput[]
   }
 
+  export type HousePaymentUpdateManyWithoutHouseNestedInput = {
+    create?: XOR<HousePaymentCreateWithoutHouseInput, HousePaymentUncheckedCreateWithoutHouseInput> | HousePaymentCreateWithoutHouseInput[] | HousePaymentUncheckedCreateWithoutHouseInput[]
+    connectOrCreate?: HousePaymentCreateOrConnectWithoutHouseInput | HousePaymentCreateOrConnectWithoutHouseInput[]
+    upsert?: HousePaymentUpsertWithWhereUniqueWithoutHouseInput | HousePaymentUpsertWithWhereUniqueWithoutHouseInput[]
+    createMany?: HousePaymentCreateManyHouseInputEnvelope
+    set?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    disconnect?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    delete?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    connect?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    update?: HousePaymentUpdateWithWhereUniqueWithoutHouseInput | HousePaymentUpdateWithWhereUniqueWithoutHouseInput[]
+    updateMany?: HousePaymentUpdateManyWithWhereWithoutHouseInput | HousePaymentUpdateManyWithWhereWithoutHouseInput[]
+    deleteMany?: HousePaymentScalarWhereInput | HousePaymentScalarWhereInput[]
+  }
+
   export type RoomUncheckedUpdateManyWithoutHouseNestedInput = {
     create?: XOR<RoomCreateWithoutHouseInput, RoomUncheckedCreateWithoutHouseInput> | RoomCreateWithoutHouseInput[] | RoomUncheckedCreateWithoutHouseInput[]
     connectOrCreate?: RoomCreateOrConnectWithoutHouseInput | RoomCreateOrConnectWithoutHouseInput[]
@@ -13823,6 +16555,20 @@ export namespace Prisma {
     update?: RoomUpdateWithWhereUniqueWithoutHouseInput | RoomUpdateWithWhereUniqueWithoutHouseInput[]
     updateMany?: RoomUpdateManyWithWhereWithoutHouseInput | RoomUpdateManyWithWhereWithoutHouseInput[]
     deleteMany?: RoomScalarWhereInput | RoomScalarWhereInput[]
+  }
+
+  export type HousePaymentUncheckedUpdateManyWithoutHouseNestedInput = {
+    create?: XOR<HousePaymentCreateWithoutHouseInput, HousePaymentUncheckedCreateWithoutHouseInput> | HousePaymentCreateWithoutHouseInput[] | HousePaymentUncheckedCreateWithoutHouseInput[]
+    connectOrCreate?: HousePaymentCreateOrConnectWithoutHouseInput | HousePaymentCreateOrConnectWithoutHouseInput[]
+    upsert?: HousePaymentUpsertWithWhereUniqueWithoutHouseInput | HousePaymentUpsertWithWhereUniqueWithoutHouseInput[]
+    createMany?: HousePaymentCreateManyHouseInputEnvelope
+    set?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    disconnect?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    delete?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    connect?: HousePaymentWhereUniqueInput | HousePaymentWhereUniqueInput[]
+    update?: HousePaymentUpdateWithWhereUniqueWithoutHouseInput | HousePaymentUpdateWithWhereUniqueWithoutHouseInput[]
+    updateMany?: HousePaymentUpdateManyWithWhereWithoutHouseInput | HousePaymentUpdateManyWithWhereWithoutHouseInput[]
+    deleteMany?: HousePaymentScalarWhereInput | HousePaymentScalarWhereInput[]
   }
 
   export type RoomCreateavailableTimesInput = {
@@ -13972,6 +16718,20 @@ export namespace Prisma {
     upsert?: StudentUpsertWithoutSalaryPaymentsInput
     connect?: StudentWhereUniqueInput
     update?: XOR<XOR<StudentUpdateToOneWithWhereWithoutSalaryPaymentsInput, StudentUpdateWithoutSalaryPaymentsInput>, StudentUncheckedUpdateWithoutSalaryPaymentsInput>
+  }
+
+  export type HouseCreateNestedOneWithoutPaymentsInput = {
+    create?: XOR<HouseCreateWithoutPaymentsInput, HouseUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: HouseCreateOrConnectWithoutPaymentsInput
+    connect?: HouseWhereUniqueInput
+  }
+
+  export type HouseUpdateOneRequiredWithoutPaymentsNestedInput = {
+    create?: XOR<HouseCreateWithoutPaymentsInput, HouseUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: HouseCreateOrConnectWithoutPaymentsInput
+    upsert?: HouseUpsertWithoutPaymentsInput
+    connect?: HouseWhereUniqueInput
+    update?: XOR<XOR<HouseUpdateToOneWithWhereWithoutPaymentsInput, HouseUpdateWithoutPaymentsInput>, HouseUncheckedUpdateWithoutPaymentsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -14182,6 +16942,39 @@ export namespace Prisma {
     data: RoomCreateManyHouseInput | RoomCreateManyHouseInput[]
   }
 
+  export type HousePaymentCreateWithoutHouseInput = {
+    id?: string
+    houseName: string
+    session: string
+    month: string
+    amount: number
+    method: string
+    paymentStatus: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HousePaymentUncheckedCreateWithoutHouseInput = {
+    id?: string
+    houseName: string
+    session: string
+    month: string
+    amount: number
+    method: string
+    paymentStatus: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HousePaymentCreateOrConnectWithoutHouseInput = {
+    where: HousePaymentWhereUniqueInput
+    create: XOR<HousePaymentCreateWithoutHouseInput, HousePaymentUncheckedCreateWithoutHouseInput>
+  }
+
+  export type HousePaymentCreateManyHouseInputEnvelope = {
+    data: HousePaymentCreateManyHouseInput | HousePaymentCreateManyHouseInput[]
+  }
+
   export type RoomUpsertWithWhereUniqueWithoutHouseInput = {
     where: RoomWhereUniqueInput
     update: XOR<RoomUpdateWithoutHouseInput, RoomUncheckedUpdateWithoutHouseInput>
@@ -14212,12 +17005,45 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Room"> | Date | string
   }
 
+  export type HousePaymentUpsertWithWhereUniqueWithoutHouseInput = {
+    where: HousePaymentWhereUniqueInput
+    update: XOR<HousePaymentUpdateWithoutHouseInput, HousePaymentUncheckedUpdateWithoutHouseInput>
+    create: XOR<HousePaymentCreateWithoutHouseInput, HousePaymentUncheckedCreateWithoutHouseInput>
+  }
+
+  export type HousePaymentUpdateWithWhereUniqueWithoutHouseInput = {
+    where: HousePaymentWhereUniqueInput
+    data: XOR<HousePaymentUpdateWithoutHouseInput, HousePaymentUncheckedUpdateWithoutHouseInput>
+  }
+
+  export type HousePaymentUpdateManyWithWhereWithoutHouseInput = {
+    where: HousePaymentScalarWhereInput
+    data: XOR<HousePaymentUpdateManyMutationInput, HousePaymentUncheckedUpdateManyWithoutHouseInput>
+  }
+
+  export type HousePaymentScalarWhereInput = {
+    AND?: HousePaymentScalarWhereInput | HousePaymentScalarWhereInput[]
+    OR?: HousePaymentScalarWhereInput[]
+    NOT?: HousePaymentScalarWhereInput | HousePaymentScalarWhereInput[]
+    id?: StringFilter<"HousePayment"> | string
+    houseName?: StringFilter<"HousePayment"> | string
+    session?: StringFilter<"HousePayment"> | string
+    month?: StringFilter<"HousePayment"> | string
+    amount?: IntFilter<"HousePayment"> | number
+    method?: StringFilter<"HousePayment"> | string
+    paymentStatus?: StringFilter<"HousePayment"> | string
+    houseId?: StringFilter<"HousePayment"> | string
+    createdAt?: DateTimeFilter<"HousePayment"> | Date | string
+    updatedAt?: DateTimeFilter<"HousePayment"> | Date | string
+  }
+
   export type HouseCreateWithoutRoomsInput = {
     id?: string
     name: string
     roomCount: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    payments?: HousePaymentCreateNestedManyWithoutHouseInput
   }
 
   export type HouseUncheckedCreateWithoutRoomsInput = {
@@ -14226,6 +17052,7 @@ export namespace Prisma {
     roomCount: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    payments?: HousePaymentUncheckedCreateNestedManyWithoutHouseInput
   }
 
   export type HouseCreateOrConnectWithoutRoomsInput = {
@@ -14249,6 +17076,7 @@ export namespace Prisma {
     roomCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    payments?: HousePaymentUpdateManyWithoutHouseNestedInput
   }
 
   export type HouseUncheckedUpdateWithoutRoomsInput = {
@@ -14256,6 +17084,7 @@ export namespace Prisma {
     roomCount?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    payments?: HousePaymentUncheckedUpdateManyWithoutHouseNestedInput
   }
 
   export type AdmissionPaymentCreateWithoutStudentInput = {
@@ -14738,12 +17567,74 @@ export namespace Prisma {
     admissionPayments?: AdmissionPaymentUncheckedUpdateManyWithoutStudentNestedInput
   }
 
+  export type HouseCreateWithoutPaymentsInput = {
+    id?: string
+    name: string
+    roomCount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    rooms?: RoomCreateNestedManyWithoutHouseInput
+  }
+
+  export type HouseUncheckedCreateWithoutPaymentsInput = {
+    id?: string
+    name: string
+    roomCount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    rooms?: RoomUncheckedCreateNestedManyWithoutHouseInput
+  }
+
+  export type HouseCreateOrConnectWithoutPaymentsInput = {
+    where: HouseWhereUniqueInput
+    create: XOR<HouseCreateWithoutPaymentsInput, HouseUncheckedCreateWithoutPaymentsInput>
+  }
+
+  export type HouseUpsertWithoutPaymentsInput = {
+    update: XOR<HouseUpdateWithoutPaymentsInput, HouseUncheckedUpdateWithoutPaymentsInput>
+    create: XOR<HouseCreateWithoutPaymentsInput, HouseUncheckedCreateWithoutPaymentsInput>
+    where?: HouseWhereInput
+  }
+
+  export type HouseUpdateToOneWithWhereWithoutPaymentsInput = {
+    where?: HouseWhereInput
+    data: XOR<HouseUpdateWithoutPaymentsInput, HouseUncheckedUpdateWithoutPaymentsInput>
+  }
+
+  export type HouseUpdateWithoutPaymentsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    roomCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    rooms?: RoomUpdateManyWithoutHouseNestedInput
+  }
+
+  export type HouseUncheckedUpdateWithoutPaymentsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    roomCount?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    rooms?: RoomUncheckedUpdateManyWithoutHouseNestedInput
+  }
+
   export type RoomCreateManyHouseInput = {
     id?: string
     name: string
     capacity: number
     availableTimes?: RoomCreateavailableTimesInput | string[]
     bookTimes?: RoomCreatebookTimesInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type HousePaymentCreateManyHouseInput = {
+    id?: string
+    houseName: string
+    session: string
+    month: string
+    amount: number
+    method: string
+    paymentStatus: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -14771,6 +17662,39 @@ export namespace Prisma {
     capacity?: IntFieldUpdateOperationsInput | number
     availableTimes?: RoomUpdateavailableTimesInput | string[]
     bookTimes?: RoomUpdatebookTimesInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HousePaymentUpdateWithoutHouseInput = {
+    houseName?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HousePaymentUncheckedUpdateWithoutHouseInput = {
+    houseName?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type HousePaymentUncheckedUpdateManyWithoutHouseInput = {
+    houseName?: StringFieldUpdateOperationsInput | string
+    session?: StringFieldUpdateOperationsInput | string
+    month?: StringFieldUpdateOperationsInput | string
+    amount?: IntFieldUpdateOperationsInput | number
+    method?: StringFieldUpdateOperationsInput | string
+    paymentStatus?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

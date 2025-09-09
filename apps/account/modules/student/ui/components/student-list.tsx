@@ -9,7 +9,7 @@ import { Table, TableHeader, TableHead, TableBody, TableCell, TableRow } from "@
 import { ListActionButton } from "@/components/list-action-button"
 import { ListActionLink } from "@/components/list-action-link";
 
-import { useDeleteStudent } from "@/hooks/use-student";
+import { useDeleteStudent } from "@/hooks/use-payment";
 
 interface HouseStudentListProps {
     students: Student[]

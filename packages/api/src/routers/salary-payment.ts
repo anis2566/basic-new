@@ -6,6 +6,75 @@ import { Months, PAYMENT_STATUS, STATUS } from "@workspace/utils/constant";
 import { baseProcedure, createTRPCRouter } from "../init";
 
 export const salaryPaymentRouter = createTRPCRouter({
+    updateOne: baseProcedure
+        .input(
+            z.object({
+                id: z.string(),
+                method: z.string(),
+                amount: z.string(),
+                note: z.string().nullish()
+            })
+        )
+        .mutation(async ({ input }) => {
+            const { id, method, amount, note } = input;
+
+            try {
+                const existingPayment = await prisma.salaryPayment.findUnique({
+                    where: { id },
+                })
+
+                if (!existingPayment) {
+                    return { success: false, message: "Payment not found" }
+                }
+
+                await prisma.salaryPayment.update({
+                    where: { id },
+                    data: {
+                        method,
+                        amount: parseInt(amount),
+                        note,
+                        status: STATUS.Completed,
+                        paymentStatus: PAYMENT_STATUS.Paid
+                    }
+                })
+
+                return { success: true, message: "Payment received" }
+            } catch (error) {
+                console.error("Error updating student", error);
+                return { success: false, message: "Internal Server Error" }
+            }
+        }),
+    getOne: baseProcedure
+        .input(
+            z.object({
+                id: z.string(),
+            })
+        )
+        .query(async ({ input }) => {
+            const { id } = input;
+
+            const salaryPaymentData = await prisma.salaryPayment.findUnique({
+                where: { id },
+                select: {
+                    method: true,
+                    amount: true,
+                    status: true,
+                    student: {
+                        select: {
+                            studentId: true,
+                            name: true,
+                            className: true
+                        }
+                    }
+                }
+            });
+
+            if (!salaryPaymentData) {
+                throw new Error("Salary Payment not found");
+            }
+
+            return salaryPaymentData;
+        }),
     getOverview: baseProcedure
         .input(
             z.object({

@@ -61,10 +61,10 @@ export const StudentList = ({ students }: AdmissionPaymentListProps) => {
                                         <Badge
                                             variant={
                                                 payment?.status === PAYMENT_STATUS["N/A"]
-                                                    ? "outline"
-                                                    : payment?.status === PAYMENT_STATUS.Paid
+                                                    ? "secondary"
+                                                    : payment?.paymentStatus === PAYMENT_STATUS.Paid
                                                         ? "default"
-                                                        : payment?.status === PAYMENT_STATUS.Unpaid
+                                                        : payment?.paymentStatus === PAYMENT_STATUS.Unpaid
                                                             ? "destructive"
                                                             : "outline"
                                             }

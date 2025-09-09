@@ -38,6 +38,7 @@ model House {
   roomCount     Int
 
   rooms        Room[]
+  payments     HousePayment[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -165,6 +166,35 @@ model SalaryPayment {
 
   studentId     String          @db.ObjectId
   student       Student         @relation(fields: [studentId], references: [id], onDelete: NoAction)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model OtherPayment {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  amount        Int
+  month         String
+  session       String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model HousePayment {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  houseName     String
+  session       String
+  month         String
+  amount        Int
+  method        String
+  paymentStatus String
+
+  houseId     String          @db.ObjectId
+  house       House           @relation(fields: [houseId], references: [id], onDelete: NoAction)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

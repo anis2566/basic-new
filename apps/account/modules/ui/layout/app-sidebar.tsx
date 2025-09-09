@@ -15,7 +15,9 @@ import {
     House,
     List,
     LogIn,
+    LogOut,
     Map,
+    Package,
     PieChart,
     PlusCircle,
     School,
@@ -39,6 +41,7 @@ import { Header } from "./header"
 import { NavIncome } from "./nav-income"
 import { NavStudent } from "./nav-student"
 import { NavFees } from "./nav-fees"
+import { NavExpense } from "./nav-expense"
 
 // This is sample data.
 const data = {
@@ -84,6 +87,48 @@ const data = {
             icon: LogIn,
             items: [],
         },
+        {
+            title: "Others",
+            url: "",
+            icon: Package,
+            items: [
+                {
+                    title: "New",
+                    url: "/income/other/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "History",
+                    url: "/income/other",
+                    icon: History
+                }
+            ],
+        },
+    ],
+    expense: [
+        {
+            title: "House Rent",
+            url: "",
+            icon: Warehouse,
+            items: [
+                {
+                    title: "New",
+                    url: "/expense/house/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "History",
+                    url: "/expense/house",
+                    icon: History
+                }
+            ],
+        },
+        {
+            title: "Utility",
+            url: "/expense/utility",
+            icon: Package,
+            items: [],
+        }
     ],
     fees: [
         {
@@ -110,6 +155,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarContent>
                 <NavStudent items={data.student} />
                 <NavIncome items={data.income} />
+                <NavExpense items={data.expense} />
                 <NavFees items={data.fees} />
             </SidebarContent>
             <SidebarRail />

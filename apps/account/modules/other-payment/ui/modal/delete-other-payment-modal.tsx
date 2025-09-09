@@ -17,21 +17,21 @@ import {
 } from "@workspace/ui/components/alert-dialog"
 import { ButtonState, LoadingButton } from "@workspace/ui/shared/loading-button";
 
-import { useDeleteStudent } from "@/hooks/use-payment";
-import { useGetStudents } from "../../hooks/use-get-rooms";
+import { useDeleteOtherPayment } from "@/hooks/use-payment";
+import { useGetPayments } from "../../hooks/use-get-payments";
 
-export const DeleteStudentModal = () => {
+export const DeleteOtherPaymentModal = () => {
     const [buttonState, setButtonState] = useState<ButtonState>('idle');
     const [errorText, setErrorText] = useState<string>('');
 
-    const { isOpen, studentId, onClose } = useDeleteStudent();
+    const { isOpen, paymentId, onClose } = useDeleteOtherPayment();
     const trpc = useTRPC()
     const queryClient = useQueryClient()
 
-    const [filters] = useGetStudents()
+    const [filters] = useGetPayments()
 
-    const { mutate: deleteStudent } = useMutation(
-        trpc.student.deleteOne.mutationOptions({
+    const { mutate: deletePayment } = useMutation(
+        trpc.otherPayment.deleteOne.mutationOptions({
             onError: (err) => {
                 setErrorText(err.message);
                 setButtonState('error');
@@ -46,23 +46,23 @@ export const DeleteStudentModal = () => {
                 }
                 setButtonState('success');
                 toast.success(data.message);
-                queryClient.invalidateQueries(trpc.student.getMany.queryOptions({ ...filters }))
+                queryClient.invalidateQueries(trpc.otherPayment.getMany.queryOptions({ ...filters }))
                 onClose();
             },
         })
     );
 
     const handleDelete = () => {
-        deleteStudent(studentId);
+        deletePayment(paymentId);
     }
 
     return (
-        <AlertDialog open={isOpen && !!studentId} onOpenChange={onClose}>
+        <AlertDialog open={isOpen && !!paymentId} onOpenChange={onClose}>
             <AlertDialogContent className="rounded-xs">
                 <AlertDialogHeader>
                     <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                     <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete your student
+                        This action cannot be undone. This will permanently delete your payment
                         and remove your data from servers.
                     </AlertDialogDescription>
                 </AlertDialogHeader>

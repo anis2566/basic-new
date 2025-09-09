@@ -71,3 +71,20 @@ export const SalaryFeeSchema = z.object({
     group: z.string().optional()
 })
 export type SalaryFeeSchemaType = z.infer<typeof SalaryFeeSchema>;
+
+
+export const OtherPayment = z.object({
+    name: requiredField,
+    amount: requiredField,
+})
+export type OtherPaymentType = z.infer<typeof OtherPayment>;
+
+
+export const HousePaymentSchema = z.object({
+    month: requiredField,
+    amount: requiredField,
+    method: requiredField,
+    paymentStatus: requiredField,
+    houseId: requiredField
+})
+export type HousePaymentSchemaType = z.infer<typeof HousePaymentSchema>;
