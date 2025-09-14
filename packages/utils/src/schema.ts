@@ -88,3 +88,54 @@ export const HousePaymentSchema = z.object({
     houseId: requiredField
 })
 export type HousePaymentSchemaType = z.infer<typeof HousePaymentSchema>;
+
+
+export const UtilityPaymentSchema = z.object({
+    name: requiredField,
+    amount: requiredField,
+})
+export type UtilityPaymentSchemaType = z.infer<typeof UtilityPaymentSchema>;
+
+
+export const TeacherSchema = z.object({
+    name: requiredField,
+    fName: requiredField,
+    mName: requiredField,
+    gender: requiredField,
+    dob: requiredField,
+    nationality: requiredField,
+    religion: requiredField,
+    imageUrl: z.string().optional(),
+    presentHouseNo: requiredField,
+    presentMoholla: requiredField,
+    presentPost: requiredField,
+    presentThana: requiredField,
+    permanentVillage: requiredField,
+    permanentPost: requiredField,
+    permanentThana: requiredField,
+    permanentDistrict: requiredField,
+    phone: z.string().length(11, { message: "invalid phone number" }),
+    altPhone: z.string().optional(),
+    currentInstitution: requiredField,
+    currentSubject: requiredField,
+    level: z.array(z.string()).min(1, { message: "required" }),
+    availableTimes: z.array(z.string()).min(1, { message: "required" }),
+    availableDays: z.array(z.string()).min(1, { message: "required" }),
+    classRate: requiredField,
+    status: requiredField,
+    teacherId: requiredField
+})
+export type TeacherSchemaType = z.infer<typeof TeacherSchema>;
+
+
+export const TeacherAdvanceSchema = z.object({
+    teacherId: requiredField,
+    amount: requiredField
+})
+export type TeacherAdvanceSchemaType = z.infer<typeof TeacherAdvanceSchema>;
+
+
+export const TodoSchema = z.object({
+    text: requiredField
+})
+export type TodoSchemaType = z.infer<typeof TodoSchema>;

@@ -195,3 +195,82 @@ model HousePayment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model UtilityPayment {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  amount  Int
+  month   String
+  session String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Teacher {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  session     String
+  teacherId   Int
+  name        String
+  fName       String
+  mName       String
+  dob         DateTime
+  gender      String
+  nationality String
+  religion    String
+  imageUrl    String?
+
+  presentHouseNo    String
+  presentMoholla    String
+  presentPost       String
+  presentThana      String
+  permanentVillage  String
+  permanentPost     String
+  permanentThana    String
+  permanentDistrict String
+
+  phone    String
+  altPhone String?
+
+  currentInstitution String
+  currentSubject     String
+
+  level          String[]
+  availableTimes String[] @default([])
+  availableDays  String[] @default([])
+  availableSlots String[] @default([])
+  bookedSlots    String[] @default([])
+  classRate      Int
+
+  status String @default("Active")
+
+  advances TeacherAdvance[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TeacherAdvance {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  teacherName  String
+  teacherIndex Int
+  session      String
+  month        String
+  amount       Int
+  status       String @default("Pending")
+
+  teacherId String  @db.ObjectId
+  teacher   Teacher @relation(fields: [teacherId], references: [id], onDelete: NoAction)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Todo {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  text   String
+  status String @default("Pending")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

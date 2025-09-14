@@ -264,6 +264,72 @@ exports.Prisma.HousePaymentScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.UtilityPaymentScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  amount: 'amount',
+  month: 'month',
+  session: 'session',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TeacherScalarFieldEnum = {
+  id: 'id',
+  session: 'session',
+  teacherId: 'teacherId',
+  name: 'name',
+  fName: 'fName',
+  mName: 'mName',
+  dob: 'dob',
+  gender: 'gender',
+  nationality: 'nationality',
+  religion: 'religion',
+  imageUrl: 'imageUrl',
+  presentHouseNo: 'presentHouseNo',
+  presentMoholla: 'presentMoholla',
+  presentPost: 'presentPost',
+  presentThana: 'presentThana',
+  permanentVillage: 'permanentVillage',
+  permanentPost: 'permanentPost',
+  permanentThana: 'permanentThana',
+  permanentDistrict: 'permanentDistrict',
+  phone: 'phone',
+  altPhone: 'altPhone',
+  currentInstitution: 'currentInstitution',
+  currentSubject: 'currentSubject',
+  level: 'level',
+  availableTimes: 'availableTimes',
+  availableDays: 'availableDays',
+  availableSlots: 'availableSlots',
+  bookedSlots: 'bookedSlots',
+  classRate: 'classRate',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TeacherAdvanceScalarFieldEnum = {
+  id: 'id',
+  teacherName: 'teacherName',
+  teacherIndex: 'teacherIndex',
+  session: 'session',
+  month: 'month',
+  amount: 'amount',
+  status: 'status',
+  teacherId: 'teacherId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TodoScalarFieldEnum = {
+  id: 'id',
+  text: 'text',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -286,7 +352,11 @@ exports.Prisma.ModelName = {
   AdmissionPayment: 'AdmissionPayment',
   SalaryPayment: 'SalaryPayment',
   OtherPayment: 'OtherPayment',
-  HousePayment: 'HousePayment'
+  HousePayment: 'HousePayment',
+  UtilityPayment: 'UtilityPayment',
+  Teacher: 'Teacher',
+  TeacherAdvance: 'TeacherAdvance',
+  Todo: 'Todo'
 };
 
 /**

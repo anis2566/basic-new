@@ -104,6 +104,22 @@ export const counterRouter = createTRPCRouter({
                 count: counterData.value + 1
             }
         }),
+    getForTeacher: baseProcedure
+        .query(async () => {
+            const counterData = await prisma.counter.findUnique({
+                where: {
+                    name: "Teacher",
+                },
+            });
+
+            if (!counterData) {
+                return { count: null }
+            }
+
+            return {
+                count: counterData.value + 1
+            }
+        }),
     getOne: baseProcedure
         .input(z.string())
         .query(async ({ input }) => {

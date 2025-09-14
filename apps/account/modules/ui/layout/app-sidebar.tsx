@@ -2,29 +2,15 @@
 
 import * as React from "react"
 import {
-    AudioWaveform,
-    BookOpen,
-    Bot,
     Calendar,
-    Command,
-    DollarSign,
-    Frame,
-    GalleryVerticalEnd,
+    CalendarDays,
     HandCoins,
     History,
-    House,
-    List,
     LogIn,
-    LogOut,
-    Map,
     Package,
-    PieChart,
     PlusCircle,
-    School,
-    Settings2,
-    ShieldEllipsis,
     SquareChartGantt,
-    SquareTerminal,
+    UserPen,
     Users,
     Warehouse,
 } from "lucide-react"
@@ -32,7 +18,6 @@ import {
 import {
     Sidebar,
     SidebarContent,
-    SidebarFooter,
     SidebarHeader,
     SidebarRail,
 } from "@workspace/ui/components/sidebar"
@@ -42,14 +27,32 @@ import { NavIncome } from "./nav-income"
 import { NavStudent } from "./nav-student"
 import { NavFees } from "./nav-fees"
 import { NavExpense } from "./nav-expense"
+import { NavDashboard } from "./nav-dashboard"
+import { NavTeacher } from "./nav-teacher"
+import { NavReport } from "./nav-report"
 
-// This is sample data.
 const data = {
     student: [
         {
             title: "Student",
             url: "/student",
             icon: Users,
+            items: [],
+        }
+    ],
+    teacher: [
+        {
+            title: "Teacher",
+            url: "/teacher",
+            icon: UserPen,
+            items: [],
+        }
+    ],
+    report: [
+        {
+            title: "Report",
+            url: "/report",
+            icon: CalendarDays,
             items: [],
         }
     ],
@@ -107,6 +110,23 @@ const data = {
     ],
     expense: [
         {
+            title: "Advance",
+            url: "",
+            icon: HandCoins,
+            items: [
+                {
+                    title: "New",
+                    url: "/expense/advance/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "History",
+                    url: "/expense/advance",
+                    icon: History
+                }
+            ],
+        },
+        {
             title: "House Rent",
             url: "",
             icon: Warehouse,
@@ -125,10 +145,21 @@ const data = {
         },
         {
             title: "Utility",
-            url: "/expense/utility",
+            url: "",
             icon: Package,
-            items: [],
-        }
+            items: [
+                {
+                    title: "New",
+                    url: "/expense/utility/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "History",
+                    url: "/expense/utility",
+                    icon: History
+                }
+            ],
+        },
     ],
     fees: [
         {
@@ -153,7 +184,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <Header />
             </SidebarHeader>
             <SidebarContent>
+                <NavDashboard />
                 <NavStudent items={data.student} />
+                <NavTeacher items={data.teacher} />
+                <NavReport items={data.report} />
                 <NavIncome items={data.income} />
                 <NavExpense items={data.expense} />
                 <NavFees items={data.fees} />

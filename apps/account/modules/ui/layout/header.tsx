@@ -6,10 +6,10 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@workspace/ui/c
 export const Header = () => {
     return (
         <SidebarMenu>
-            <SidebarMenuItem>
+            <SidebarMenuItem className="border-b border-sidebar-border">
                 <SidebarMenuButton
                     size="lg"
-                    className="bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                    className="data-[state=open]:text-sidebar-accent-foreground hover:bg-backgound py-0 h-11"
                     asChild
                 >
                     <Link href="/" prefetch>

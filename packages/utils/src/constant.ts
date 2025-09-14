@@ -231,8 +231,7 @@ export const Months = [
 
 export enum STATUS {
     Iniatiated = "Initiated",
-    Active = "Active",
-    Inactive = "Inactive",
+    Present = "Present",
     Absent = "Absent",
     Completed = "Completed",
 }
@@ -247,4 +246,34 @@ export enum PAYMENT_METHOD {
     Cash = "Cash",
     Bank = "Bank",
     "Mobile Banking" = "Mobile Banking",
+}
+
+export enum LEVEL {
+    Primary = "Primary",
+    Secondary = "Secondary",
+    HigherSecondary = "Higher Secondary",
+}
+
+export enum DAYS {
+    Saturday = "Saturday",
+    Sunday = "Sunday",
+    Monday = "Monday",
+    Tuesday = "Tuesday",
+    Wednesday = "Wednesday",
+    Thursday = "Thursday",
+    Friday = "Friday"
+}
+
+export enum TEACHER_STATUS {
+    Present = "Present",
+    Absent = "Absent",
+    Suspended = "Suspended"
+}
+
+
+export enum TEACHER_ADVANCE_STATUS {
+    Pending = "Pending",
+    Approved = "Approved",
+    Paid = "Paid",
+    Rejected = "Rejected"
 }

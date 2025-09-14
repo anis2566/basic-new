@@ -34,7 +34,8 @@ export const salaryPaymentRouter = createTRPCRouter({
                         amount: parseInt(amount),
                         note,
                         status: STATUS.Completed,
-                        paymentStatus: PAYMENT_STATUS.Paid
+                        paymentStatus: PAYMENT_STATUS.Paid,
+                        paidAt: new Date()
                     }
                 })
 

@@ -4,7 +4,7 @@ import { Separator } from "../components/separator"
 interface ListCardWrapperProps {
     children: React.ReactNode
     title: string
-    value: number;
+    value?: number;
 }
 
 export const ListCardWrapper = ({ children, title, value }: ListCardWrapperProps) => {
@@ -13,7 +13,11 @@ export const ListCardWrapper = ({ children, title, value }: ListCardWrapperProps
             <Card className="rounded-xs p-3 gap-y-3 w-full overflow-hidden">
                 <CardHeader className="px-0">
                     <CardTitle>{title}</CardTitle>
-                    <CardDescription>{value} items found</CardDescription>
+                    {
+                        value && (
+                            <CardDescription>{value} items found</CardDescription>
+                        )
+                    }
                     <Separator />
                 </CardHeader>
                 <CardContent className="p-0 flex flex-col gap-y-3 w-full overflow-x-auto">

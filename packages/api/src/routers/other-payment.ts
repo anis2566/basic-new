@@ -2,9 +2,9 @@ import z from "zod";
 
 import { prisma } from "@workspace/db";
 import { OtherPayment } from "@workspace/utils/schema";
+import { Months } from "@workspace/utils/constant";
 
 import { baseProcedure, createTRPCRouter } from "../init";
-import { Months } from "@workspace/utils/constant";
 
 export const otherPaymentRouter = createTRPCRouter({
     createOne: baseProcedure

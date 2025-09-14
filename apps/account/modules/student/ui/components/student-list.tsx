@@ -9,15 +9,11 @@ import { Table, TableHeader, TableHead, TableBody, TableCell, TableRow } from "@
 import { ListActionButton } from "@/components/list-action-button"
 import { ListActionLink } from "@/components/list-action-link";
 
-import { useDeleteStudent } from "@/hooks/use-payment";
-
 interface HouseStudentListProps {
     students: Student[]
 }
 
 export const StudentList = ({ students }: HouseStudentListProps) => {
-    const { onOpen } = useDeleteStudent();
-
     return (
         <Table>
             <TableHeader>
@@ -30,7 +26,6 @@ export const StudentList = ({ students }: HouseStudentListProps) => {
                     <TableHead>F. Phone</TableHead>
                     <TableHead>M. Phone</TableHead>
                     <TableHead>Due</TableHead>
-                    <TableHead>Actions</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -45,25 +40,6 @@ export const StudentList = ({ students }: HouseStudentListProps) => {
                             <TableCell>{student.fPhone}</TableCell>
                             <TableCell>{student.mPhone}</TableCell>
                             <TableCell>3 Months</TableCell>
-                            <TableCell>
-                                <ListActions>
-                                    <ListActionLink
-                                        title="View"
-                                        href={`/student/${student.id}`}
-                                        icon={Eye}
-                                    />
-                                    <ListActionLink
-                                        title="Edit"
-                                        href={`/student/edit/${student.id}`}
-                                        icon={Edit}
-                                    />
-                                    <ListActionButton
-                                        title="Delete"
-                                        icon={Trash2}
-                                        onClick={() => onOpen(student.id)}
-                                    />
-                                </ListActions>
-                            </TableCell>
                         </TableRow>
                     ))
                 }

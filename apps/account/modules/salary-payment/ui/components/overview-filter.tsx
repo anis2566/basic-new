@@ -6,8 +6,8 @@ import { FilterInput } from "@workspace/ui/shared/filter-input"
 import { FilterSelect } from "@workspace/ui/shared/filter-select";
 import { ResetFilter } from "@workspace/ui/shared/reset-filter";
 
-import { MobileFilter } from "./mobile-filter";
 import { useGetOverview } from "../../hooks/use-get-overview";
+import { OverviewMobileFilter } from "./overview-mobile-filter";
 
 export const OverviewFilter = () => {
     const [filter, setFilter] = useGetOverview()
@@ -111,7 +111,7 @@ export const OverviewFilter = () => {
                     hasModified={hasAnyModified}
                     handleReset={handleClear}
                 />
-                <MobileFilter />
+                <OverviewMobileFilter />
             </div>
         </div>
     )

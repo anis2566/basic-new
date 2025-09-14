@@ -13,7 +13,7 @@ import {
     DrawerTrigger,
 } from "@workspace/ui/components/drawer"
 import { FilterSelect } from "@workspace/ui/shared/filter-select";
-import { CLASSES, DEFAULT_PAGE, DEFAULT_PAGE_SIZE, DEFAULT_PAGE_SIZE_OPTIONS, DEFAULT_SORT_OPTIONS, PAYMENT_STATUS, Sessions, STATUS } from "@workspace/utils/constant";
+import { CLASSES, DEFAULT_PAGE, DEFAULT_PAGE_SIZE, DEFAULT_PAGE_SIZE_OPTIONS, DEFAULT_SORT_OPTIONS, Sessions } from "@workspace/utils/constant";
 import { ResetFilter } from "@workspace/ui/shared/reset-filter";
 import { Separator } from "@workspace/ui/components/separator";
 import { FilterInput } from "@workspace/ui/shared/filter-input";
@@ -66,26 +66,6 @@ export const MobileFilter = () => {
         }
     };
 
-    const handleStatusChange = (value: string) => {
-        try {
-            setFilter({ status: value })
-        } catch (error) {
-            console.error(error)
-        } finally {
-            setOpen(false)
-        }
-    };
-
-    const handlePaymentStatusChange = (value: string) => {
-        try {
-            setFilter({ paymentStatus: value })
-        } catch (error) {
-            console.error(error)
-        } finally {
-            setOpen(false)
-        }
-    };
-
     const hasAnyModified =
         !!filter.search ||
         filter.limit !== 5 ||
@@ -94,8 +74,6 @@ export const MobileFilter = () => {
         filter.session !== "" ||
         filter.className !== "" ||
         filter.id !== "" ||
-        filter.status !== "" ||
-        filter.paymentStatus !== "" ||
         filter.transactionId !== ""
 
     const handleClear = () => {
@@ -107,8 +85,6 @@ export const MobileFilter = () => {
             session: "",
             className: "",
             id: "",
-            status: "",
-            paymentStatus: "",
             transactionId: ""
         });
     };
@@ -174,22 +150,6 @@ export const MobileFilter = () => {
                         onChange={handleClassChange}
                         placeholder="Class"
                         options={Object.values(CLASSES).map(v => ({ label: v, value: v }))}
-                        className="max-w-full"
-                        showInMobile
-                    />
-                    <FilterSelect
-                        value={filter.status}
-                        onChange={handleStatusChange}
-                        placeholder="Status"
-                        options={Object.values(STATUS).map(v => ({ label: v, value: v }))}
-                        className="max-w-full"
-                        showInMobile
-                    />
-                    <FilterSelect
-                        value={filter.paymentStatus}
-                        onChange={handlePaymentStatusChange}
-                        placeholder="P. Status"
-                        options={Object.values(PAYMENT_STATUS).map(v => ({ label: v, value: v }))}
                         className="max-w-full"
                         showInMobile
                     />
