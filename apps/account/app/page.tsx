@@ -1,18 +1,17 @@
-import { getQueryClient, HydrateClient, trpc } from "@/trpc/server"
+import { Metadata } from "next"
 
 import { ContentLayout } from "@/modules/ui/layout/content-layout"
 import { DashboardView } from "@/modules/ui/views/dashboard-view"
 
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Account dashboard",
+}
+
 const Dashboard = async () => {
-  const queryClient = getQueryClient()
-
-  void queryClient.prefetchQuery(trpc.report.accoundDashboard.queryOptions())
-
   return (
     <ContentLayout>
-      <HydrateClient queryClient={queryClient}>
-        <DashboardView />
-      </HydrateClient>
+      <DashboardView />
     </ContentLayout>
   )
 }

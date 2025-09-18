@@ -133,7 +133,7 @@ export const reportRouter = createTRPCRouter({
             const startDate = startOfDay(new Date());
             const endDate = endOfDay(new Date());
 
-            const [thisMonthSalaryCount, thisMonthPaidSalaryCount, lastMonthSalaryCount, lastMonthPaidSalaryCount, totalSalaryCount, totalPaidSalaryCount, thisMonthSalaries, thisMonthPaidSalaries, lastMonthSalaries, lastMonthPaidSalaries, overallSalaries, overallPaidSalaries, todaySalaries] = await Promise.all([
+            const [thisMonthSalaryCount, thisMonthPaidSalaryCount, lastMonthSalaryCount, lastMonthPaidSalaryCount, totalSalaryCount, totalPaidSalaryCount, thisMonthSalaries, thisMonthPaidSalaries, lastMonthSalaries, lastMonthPaidSalaries, overallSalaries, overallPaidSalaries, todaySalaries, thisMonthUnpaidSalaries, recentSalaries] = await Promise.all([
                 prisma.salaryPayment.count({
                     where: {
                         month: currentMonth,
@@ -246,6 +246,40 @@ export const reportRouter = createTRPCRouter({
                         _all: true
                     }
                 }),
+                prisma.salaryPayment.groupBy({
+                    by: ["className"],
+                    where: {
+                        month: currentMonth,
+                        status: STATUS.Present,
+                        paymentStatus: PAYMENT_STATUS.Unpaid,
+                    },
+                    _count: {
+                        _all: true
+                    }
+                }),
+                prisma.salaryPayment.findMany({
+                    where: {
+                        createdAt: {
+                            gte: startDate,
+                            lte: endDate,
+                        },
+                        status: STATUS.Present,
+                        paymentStatus: PAYMENT_STATUS.Paid,
+                    },
+                    include: {
+                        student: {
+                            select: {
+                                studentId: true,
+                                name: true,
+                                className: true
+                            }
+                        }
+                    },
+                    orderBy: {
+                        createdAt: "desc"
+                    },
+                    take: 5
+                })
             ])
 
             const classes = Object.values(CLASSES)
@@ -266,6 +300,13 @@ export const reportRouter = createTRPCRouter({
                 total: todaySalaries.find(salary =>
                     salary.className === className
                 )?._count._all || 50,
+            }))
+
+            const thisMonthFormattedUnpaidSalaries = classes.map(className => ({
+                className,
+                total: thisMonthUnpaidSalaries.find(salary =>
+                    salary.className === className
+                )?._count._all || 0,
             }))
 
             const lastMonthFormattedSalaries = classes.map(className => ({
@@ -298,7 +339,9 @@ export const reportRouter = createTRPCRouter({
                 thisMonthSalaries: thisMonthFormattedSalaries,
                 lastMonthSalaries: lastMonthFormattedSalaries,
                 overallSalaries: overallFormattedSalaries,
-                todaySalaries: todayFormattedSalaries
+                todaySalaries: todayFormattedSalaries,
+                thisMonthUnpaidSalaries: thisMonthFormattedUnpaidSalaries,
+                recentSalaries
             }
         })
 })

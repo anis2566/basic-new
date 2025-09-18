@@ -2,7 +2,7 @@
 
 import { useTRPC } from "@/trpc/client";
 import { DollarSign } from "lucide-react";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 
 import { StatCard } from "@workspace/ui/shared/state-card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@workspace/ui/components/tabs"
@@ -15,12 +15,14 @@ import { ThisMonthSalaryChart } from "../components/this-month-salary-chart";
 import { LastMonthSalaryChart } from "../components/last-month-salary-chart";
 import { OverallSalaryChart } from "../components/overall-salary-chart";
 import { TodoContainer } from "../components/todo-container";
-import { TodayIncomeExpenseChart } from "../components/today-income-expense-chart";
+import { TodaySalariesChart } from "../components/today-salaries-chart";
+import { RecentSalaries } from "../components/recent-salaries";
+import { ThisMonthUnpaidSalariesChart } from "../components/this-month-unpaid-salaries-chart";
 
 export const DashboardView = () => {
     const trpc = useTRPC()
 
-    const { data } = useSuspenseQuery(trpc.report.accoundDashboard.queryOptions())
+    const { data } = useQuery(trpc.report.accoundDashboard.queryOptions())
 
     return (
         <div className="flex-1">
@@ -29,7 +31,7 @@ export const DashboardView = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <StatCard
                             title="This Month"
-                            primaryValue={data?.thisMonthPaidSalaryCount}
+                            primaryValue={data?.thisMonthPaidSalaryCount || 0}
                             secondaryValue={data?.thisMonthSalaryCount}
                             icon={DollarSign}
                             percent={
@@ -42,7 +44,7 @@ export const DashboardView = () => {
                         />
                         <StatCard
                             title="Last Month"
-                            primaryValue={data?.lastMonthPaidSalaryCount}
+                            primaryValue={data?.lastMonthPaidSalaryCount || 0}
                             secondaryValue={data?.lastMonthSalaryCount}
                             icon={DollarSign}
                             percent={
@@ -55,7 +57,7 @@ export const DashboardView = () => {
                         />
                         <StatCard
                             title="Overall"
-                            primaryValue={data?.totalPaidSalaryCount}
+                            primaryValue={data?.totalPaidSalaryCount || 0}
                             secondaryValue={data?.totalSalaryCount}
                             icon={DollarSign}
                             percent={
@@ -89,10 +91,12 @@ export const DashboardView = () => {
                             </CardContent>
                         </Card>
                     </div>
+                    <RecentSalaries payments={data?.recentSalaries || []} />
                 </div>
                 <div className="md:col-span-2 w-full flex flex-col gap-6">
-                    <TodayIncomeExpenseChart data={data?.todaySalaries} />
                     <TodoContainer />
+                    <TodaySalariesChart data={data?.todaySalaries || []} />
+                    <ThisMonthUnpaidSalariesChart data={data?.thisMonthUnpaidSalaries || []} />
                 </div>
             </div>
         </div>

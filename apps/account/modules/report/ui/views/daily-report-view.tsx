@@ -1,7 +1,7 @@
 "use client";
 
 import { useTRPC } from "@/trpc/client";
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
 
 import { ListCardWrapper } from "@workspace/ui/shared/list-card-wrapper";
 import { Table, TableHeader, TableHead, TableBody, TableCell, TableRow } from "@workspace/ui/components/table"
@@ -9,7 +9,7 @@ import { Table, TableHeader, TableHead, TableBody, TableCell, TableRow } from "@
 
 export const DailyReportView = () => {
     const trpc = useTRPC()
-    const { data, isLoading } = useSuspenseQuery(trpc.report.daily.queryOptions())
+    const { data, isLoading } = useQuery(trpc.report.daily.queryOptions())
 
     const totalIncome = (data?.dailySalary._sum.amount ?? 0) + (data?.dailyAdmission._sum.amount ?? 0) + (data?.dailyOthers._sum.amount ?? 0);
     const totalExpense = (data?.dailyHouseRent._sum.amount ?? 0) + (data?.dailyUtility._sum.amount ?? 0) + (data?.dailyTeacherAdvance._sum.amount ?? 0);

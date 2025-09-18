@@ -11,6 +11,7 @@ import {
     Frame,
     GalleryVerticalEnd,
     House,
+    Layers3,
     List,
     LogIn,
     Map,
@@ -39,6 +40,7 @@ import { NavRoomHouse } from "./nav-room-house"
 import { NavStudent } from "./nav-student"
 import { NavFees } from "./nav-fees"
 import { NavTeacher } from "./nav-teacher"
+import { NavBatch } from "./nav-batch"
 
 // This is sample data.
 const data = {
@@ -101,6 +103,25 @@ const data = {
                 },
             ],
         }
+    ],
+    batch: [
+        {
+            title: "Batch",
+            url: "",
+            icon: Layers3,
+            items: [
+                {
+                    title: "New",
+                    url: "/batch/new",
+                    icon: PlusCircle
+                },
+                {
+                    title: "List",
+                    url: "/batch",
+                    icon: List
+                },
+            ],
+        },
     ],
     roomHouses: [
         {
@@ -221,6 +242,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarContent>
                 <NavStudent items={data.student} />
                 <NavTeacher items={data.teacher} />
+                <NavBatch items={data.batch} />
                 <NavRoomHouse items={data.roomHouses} />
                 <NavFees items={data.fees} />
                 <NavUtils items={data.utils} />

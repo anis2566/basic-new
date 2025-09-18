@@ -120,6 +120,31 @@ export const roomRouter = createTRPCRouter({
                 return { success: false, message: "Internal Server Error" };
             }
         }),
+    forSelect: baseProcedure
+        .input(z.object({
+            query: z.string().nullish()
+        }))
+        .query(async ({ input }) => {
+            const { query } = input;
+
+            const rooms = await prisma.room.findMany({
+                where: {
+                    ...(query && {
+                        name: {
+                            contains: query,
+                            mode: "insensitive",
+                        },
+                    })
+                },
+                select: {
+                    id: true,
+                    name: true,
+                    availableTimes: true
+                }
+            })
+
+            return rooms
+        }),
     getOne: baseProcedure
         .input(z.string())
         .query(async ({ input }) => {
@@ -188,4 +213,4 @@ export const roomRouter = createTRPCRouter({
                 totalCount
             }
         })
-})
+}) 

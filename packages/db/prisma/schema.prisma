@@ -54,6 +54,8 @@ model Room {
   houseId       String          @db.ObjectId
   house         House           @relation(fields: [houseId], references: [id], onDelete: Cascade)
 
+  batches       Batch[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -281,4 +283,22 @@ model Todo {
 
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
+}
+
+
+model Batch {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  className     String
+  roomName      String
+  capacity      Int
+  time          String[]
+  classTime     String[]
+  level         String
+
+  roomId        String         @db.ObjectId
+  room          Room           @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

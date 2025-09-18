@@ -330,6 +330,20 @@ exports.Prisma.TodoScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.BatchScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  className: 'className',
+  roomName: 'roomName',
+  capacity: 'capacity',
+  time: 'time',
+  classTime: 'classTime',
+  level: 'level',
+  roomId: 'roomId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -356,7 +370,8 @@ exports.Prisma.ModelName = {
   UtilityPayment: 'UtilityPayment',
   Teacher: 'Teacher',
   TeacherAdvance: 'TeacherAdvance',
-  Todo: 'Todo'
+  Todo: 'Todo',
+  Batch: 'Batch'
 };
 
 /**

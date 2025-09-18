@@ -139,3 +139,15 @@ export const TodoSchema = z.object({
     text: requiredField
 })
 export type TodoSchemaType = z.infer<typeof TodoSchema>;
+
+
+export const BatchSchema = z.object({
+    name: requiredField,
+    className: requiredField,
+    capacity: requiredField,
+    time: z.array(z.string()).min(1, { message: "required" }),
+    classTime: z.array(z.string()).min(1, { message: "required" }),
+    level: requiredField,
+    roomId: requiredField
+})
+export type BatchSchemaType = z.infer<typeof BatchSchema>;

@@ -33,7 +33,6 @@ export const salaryPaymentRouter = createTRPCRouter({
                         method,
                         amount: parseInt(amount),
                         note,
-                        status: STATUS.Completed,
                         paymentStatus: PAYMENT_STATUS.Paid,
                         paidAt: new Date()
                     }
@@ -224,8 +223,8 @@ export const salaryPaymentRouter = createTRPCRouter({
             const [payments, totalCount] = await Promise.all([
                 prisma.salaryPayment.findMany({
                     where: {
-                        status: "Active",
-                        paymentStatus: "Unpaid",
+                        status: STATUS.Present,
+                        paymentStatus: PAYMENT_STATUS.Unpaid,
                         month: {
                             equals: month ? month : Months[currentMothIndex]
                         },
@@ -269,8 +268,8 @@ export const salaryPaymentRouter = createTRPCRouter({
                 }),
                 prisma.salaryPayment.count({
                     where: {
-                        status: "Active",
-                        paymentStatus: "Unpaid",
+                        status: STATUS.Present,
+                        paymentStatus: PAYMENT_STATUS.Unpaid,
                         month: {
                             equals: month ? month : Months[currentMothIndex]
                         },
@@ -322,7 +321,6 @@ export const salaryPaymentRouter = createTRPCRouter({
             const [payments, totalCount] = await Promise.all([
                 prisma.salaryPayment.findMany({
                     where: {
-                        status: STATUS.Completed,
                         paymentStatus: PAYMENT_STATUS.Paid,
                         ...(search && {
                             student: {
@@ -370,7 +368,6 @@ export const salaryPaymentRouter = createTRPCRouter({
                 }),
                 prisma.salaryPayment.count({
                     where: {
-                        status: STATUS.Completed,
                         paymentStatus: PAYMENT_STATUS.Paid,
                         ...(search && {
                             student: {

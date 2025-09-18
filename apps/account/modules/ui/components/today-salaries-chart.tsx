@@ -26,14 +26,14 @@ const createChartConfig = (data: { className: string; total: number }[]): ChartC
     return config;
 };
 
-interface TodayIncomeExpenseChartProps {
+interface TodaySalariesChartProps {
     data: {
         className: string;
         total: number;
     }[]
 }
 
-export const TodayIncomeExpenseChart = ({ data }: TodayIncomeExpenseChartProps) => {
+export const TodaySalariesChart = ({ data }: TodaySalariesChartProps) => {
     // Transform data for the chart and add fill colors
     const chartData = data.map((item, index) => ({
         ...item,

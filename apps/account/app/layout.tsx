@@ -1,13 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google"
 import { Metadata } from "next"
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-
-import { Providers } from "@/components/providers"
-import { ModalProvider } from "@/components/modal-provider";
+import { TRPCReactProvider } from "@/trpc/client"
 
 import { Toaster } from "@workspace/ui/components/sonner"
 
-import { TRPCReactProvider } from "@/trpc/client"
+import { Providers } from "@/components/providers"
+import { ModalProvider } from "@/components/modal-provider";
 import { DashboardLayout } from "@/modules/ui/layout"
 
 import "@workspace/ui/globals.css"
@@ -24,10 +23,10 @@ const fontMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Shikhonary",
-    default: "Shikhonary | Empowering Learning in Bangladesh"
+    template: "%s | BEC",
+    default: "Basic Education Care | BEC"
   },
-  description: "Shikhonary is a modern online learning platform built for Bangladeshi students, offering interactive courses, live classes, and academic resources in Bangla and English."
+  description: "Basic education care is a top rated coaching center in Puran Dhaka",
 };
 
 export default function RootLayout({
